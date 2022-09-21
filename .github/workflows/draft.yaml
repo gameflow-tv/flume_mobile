@@ -1,0 +1,31 @@
+name: Draft GitHub Release
+on:
+  # Enable manual run
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Tag to create (e.g. v2.10.0). Must include 'v' and must match pubspec"
+        required: true
+        default: "v0.0.0"
+        type: string
+
+# Declare default permissions as read only.
+permissions: read-all
+
+jobs:
+  draft_release:
+    name: Draft GitHub release
+    runs-on: ubuntu-latest
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+    steps:
+      - name: Draft release with release notes
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          draft: true
+          prerelease: false
+          generate_release_notes: true
