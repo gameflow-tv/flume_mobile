@@ -1,6 +1,5 @@
 import 'package:flutter/painting.dart';
 
-/// {@category Foundation}
 /// Baseline typography data.
 class TypographyData {
   const TypographyData({
@@ -12,6 +11,7 @@ class TypographyData {
 }
 
 /// {@category Foundation}
+/// {@subCategory Typography}
 /// Typography defined by Flume.
 class Typography {
   const Typography({
@@ -31,6 +31,7 @@ class Typography {
   });
 
   /// {@category Foundation}
+  /// {@subCategory Typography}
   /// Default typography defined by Flume.
   factory Typography.fallback() => const Typography(
         header1: TypographyData(

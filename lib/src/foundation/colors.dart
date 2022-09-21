@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
 
 /// {@category Foundation}
+/// {@subCategory Colors}
 /// Color scheme defined by Flume.
 class Colors {
   const Colors({
@@ -89,6 +90,7 @@ class Colors {
   });
 
   /// {@category Foundation}
+  /// {@subCategory Colors}
   /// Default color scheme.
   factory Colors.fallback() => const Colors(
         brightness: Brightness.dark,

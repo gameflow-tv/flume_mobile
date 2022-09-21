@@ -1,6 +1,7 @@
 import 'package:flutter/painting.dart';
 
 /// {@category Foundation}
+/// {@subCategory Colors}
 /// All colors defined by Flume.
 class FlumePalette {
   // Theme

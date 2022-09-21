@@ -1,7 +1,8 @@
 /// {@category Foundation}
-/// Border radii defined by Flume.
-class BorderRadius {
-  const BorderRadius({
+/// {@subCategory Shapes}
+/// Shapes and borders defined by Flume.
+class Shapes {
+  const Shapes({
     required double xs,
     required double sm,
     required double md,
@@ -9,8 +10,9 @@ class BorderRadius {
   });
 
   /// {@category Foundation}
-  /// Default border radii defined by Flume.
-  factory BorderRadius.fallback() => const BorderRadius(
+  /// {@subCategory Shapes}
+  /// Default shapes defined by Flume.
+  factory Shapes.fallback() => const Shapes(
         xs: 2,
         sm: 4,
         md: 6,
