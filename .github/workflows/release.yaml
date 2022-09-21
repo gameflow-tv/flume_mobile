@@ -1,0 +1,39 @@
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - run: flutter pub get
+
+      - name: Set release version
+        run: echo "RELEASE_VERSION=$(echo ${{ env.GITHUB_REF_SLUG }}|cut -c2-) >> $GITHUB_ENV
+
+      - name: Set foobar to cool
+        uses: mikefarah/yq@master
+        with:
+          cmd: yq eval -i ".version = \"${{ env.RELEASE_VERSION }}\"" pubspec.yaml
+
+      - name: Setup credentials
+        run: |
+          mkdir -p ~/.pub-cache 
+          cat <<EOF > ~/.pub-cache/credentials.json
+          {
+            "accessToken":"${{ secrets.PUB_OAUTH_ACCESS_TOKEN }}",
+            "refreshToken":"${{ secrets.PUB_OAUTH_REFRESH_TOKEN }}",
+            "tokenEndpoint":"https://accounts.google.com/o/oauth2/token",
+            "scopes": [ "openid", "https://www.googleapis.com/auth/userinfo.email" ],
+            "expiration": 1570721159347
+          }
+          EOF
+      - name: Publish package
+        continue-on-error: false
+        run: pub publish -f
