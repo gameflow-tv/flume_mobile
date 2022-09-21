@@ -1,0 +1,22 @@
+dartdoc:
+  ignore:
+    - ambiguous-doc-reference
+    - unresolved-doc-reference
+  errors:
+    #- unresolved-doc-reference
+  warnings:
+    - tool-error
+  categories:
+    Flume:
+      markdown: doc/flume.md
+      name: Flume
+    Foundation:
+      markdown: doc/foundation.md
+      name: Foundation
+    Components:
+      markdown: doc/components.md
+      name: Components
+  categoryOrder: [Flume, Foundation, Components]
+  examplePathPrefix: example/
+  showUndocumentedCategories: true
+  favicon: assets/docs/favicon.ico

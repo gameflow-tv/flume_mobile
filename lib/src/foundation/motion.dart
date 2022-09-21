@@ -1,4 +1,5 @@
 /// {@category Foundation}
+/// {@subCategory Motion}
 /// Motion durations defined by Flume.
 class Motion {
   const Motion({
@@ -9,6 +10,7 @@ class Motion {
   });
 
   /// {@category Foundation}
+  /// {@subCategory Motion}
   /// Default motion durations defined by Flume.
   factory Motion.fallback() => const Motion(
         enabled: true,
@@ -18,6 +20,7 @@ class Motion {
       );
 
   /// {@category Foundation}
+  /// {@subCategory Motion}
   /// Returns a disabled motion instance.
   /// Used for devices with reduced motion.
   factory Motion.disabled() => const Motion(

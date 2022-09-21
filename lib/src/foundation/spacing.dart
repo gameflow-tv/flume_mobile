@@ -1,6 +1,7 @@
 import 'package:flutter/rendering.dart';
 
 /// {@category Foundation}
+/// {@subCategory Spacing}
 /// Spacing defined by Flume.
 class Spacing {
   final double xxxs;
@@ -24,6 +25,7 @@ class Spacing {
   });
 
   /// {@category Foundation}
+  /// {@subCategory Spacing}
   /// Default spacing defined by Flume.
   factory Spacing.fallback() => const Spacing(
         xxxs: 2,
@@ -37,12 +39,12 @@ class Spacing {
       );
 
   /// {@category Foundation}
+  /// {@subCategory Spacing}
   /// EdgeInsets with the same spacing on all sides.
   EdgeInsetsData insets() => EdgeInsetsData(this);
 }
 
-/// {@category Foundation}
-/// Utility class for using Flume spacing with Flutter's EdgeInsets.
+/// Utility class for using Flume spacing with Flutter's [EdgeInsets].
 class EdgeInsetsData {
   final Spacing _spacing;
 

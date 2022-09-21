@@ -15,6 +15,7 @@ class _FlumeIconData extends IconData {
 }
 
 /// {@category Components}
+/// {@subCategory Icons}
 /// Icons defined by Flume.
 @immutable
 class FlumeIcon {

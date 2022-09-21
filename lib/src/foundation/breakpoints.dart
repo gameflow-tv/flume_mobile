@@ -1,4 +1,5 @@
 /// {@category Foundation}
+/// {@subCategory Breakpoints}
 /// Breakpoints defined by Flume.
 class Breakpoints {
   const Breakpoints({
@@ -11,6 +12,7 @@ class Breakpoints {
   });
 
   /// {@category Foundation}
+  /// {@subCategory Breakpoints}
   /// Default breakpoints defined by Flume.
   factory Breakpoints.fallback() => const Breakpoints(
         xs: 464,
