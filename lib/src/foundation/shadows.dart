@@ -5,13 +5,43 @@ import 'package:flutter/painting.dart';
 /// Shadows defined by Flume.
 class Shadows {
   const Shadows({
-    required BoxShadow xs,
-    required BoxShadow sm,
-    required BoxShadow md,
-    required BoxShadow lg,
-    required BoxShadow focus,
-    required BoxShadow text,
+    required this.xs,
+    required this.sm,
+    required this.md,
+    required this.lg,
+    required this.focus,
+    required this.text,
   });
+
+  /// {@category Foundation}
+  /// {@subCategory Shadows}
+  /// Extra small shadow.
+  final BoxShadow xs;
+
+  /// {@category Foundation}
+  /// {@subCategory Shadows}
+  /// Small shadow.
+  final BoxShadow sm;
+
+  /// {@category Foundation}
+  /// {@subCategory Shadows}
+  /// Medium shadow.
+  final BoxShadow md;
+
+  /// {@category Foundation}
+  /// {@subCategory Shadows}
+  /// Large shadow.
+  final BoxShadow lg;
+
+  /// {@category Foundation}
+  /// {@subCategory Shadows}
+  /// Focus shadow.
+  final BoxShadow focus;
+
+  /// {@category Foundation}
+  /// {@subCategory Shadows}
+  /// Text shadow.
+  final BoxShadow text;
 
   /// {@category Foundation}
   /// {@subCategory Shadows}

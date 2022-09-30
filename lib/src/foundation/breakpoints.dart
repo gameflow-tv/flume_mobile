@@ -3,13 +3,43 @@
 /// Breakpoints defined by Flume.
 class Breakpoints {
   const Breakpoints({
-    required double xs,
-    required double sm,
-    required double md,
-    required double lg,
-    required double xl,
-    required double xxl,
+    required this.xs,
+    required this.sm,
+    required this.md,
+    required this.lg,
+    required this.xl,
+    required this.xxl,
   });
+
+  /// {@category Foundation}
+  /// {@subCategory Breakpoints}
+  /// Extra small breakpoint.
+  final double xs;
+
+  /// {@category Foundation}
+  /// {@subCategory Breakpoints}
+  /// Small breakpoint.
+  final double sm;
+
+  /// {@category Foundation}
+  /// {@subCategory Breakpoints}
+  /// Medium breakpoint.
+  final double md;
+
+  /// {@category Foundation}
+  /// {@subCategory Breakpoints}
+  /// Large breakpoint.
+  final double lg;
+
+  /// {@category Foundation}
+  /// {@subCategory Breakpoints}
+  /// Extra large breakpoint.
+  final double xl;
+
+  /// {@category Foundation}
+  /// {@subCategory Breakpoints}
+  /// Extra extra large breakpoint.
+  final double xxl;
 
   /// {@category Foundation}
   /// {@subCategory Breakpoints}
