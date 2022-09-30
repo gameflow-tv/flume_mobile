@@ -7,87 +7,169 @@ import 'package:flutter/painting.dart';
 /// Color scheme defined by Flume.
 class Colors {
   const Colors({
-    /// The [Brightness] of the palette
-    required Brightness brightness,
-
-    /// The primary/brand color.
-    required Color primary,
-
-    /// Contrast color to the primary color.
-    required Color onPrimary,
-
-    /// Complementary color to the primary color.
-    required Color secondary,
-
-    /// Third complementary color to the primary color.
-    required Color tertiary,
-
-    /// Contrast color to the secondary color.
-    required Color quaternary,
-
-    /// Text color for headings.
-    required Color header,
-
-    /// Text color for body text.
-    required Color body,
-
-    /// Text color for small/footer text.
-    required Color subtitle,
-
-    /// Color for icons.
-    required Color icon,
-
-    /// Color for button borders when focues
-    required Color buttonFocus,
-
-    /// Sharp, bright signaling color that contrasts most of the other colors.
-    required Color signal,
-
-    /// Contrast color to the signal color.
-    required Color onSignal,
-
-    /// Color signaling success or positive outcome.
-    required Color success,
-
-    /// Contrast color to the success color.
-    required Color onSuccess,
-
-    /// Color signaling warning or caution.
-    required Color warning,
-
-    /// Contrast color to the warning color.
-    required Color onWarning,
-
-    /// Color signaling error or negative outcome.
-    required Color error,
-
-    /// Contrast color to the error color.
-    required Color onError,
-
-    /// Color signaling neutral outcome.
-    required Color draw,
-
-    /// Subtle highlight color (overlay).
-    required Color highlight10,
-
-    /// Stronger highlight color (overlay).
-    required Color highlight30,
-
-    /// Colors signaling inactive/disabled elements.
-    required Color inactive,
-
-    /// Subtle dim overlay (overlay).
-    required Color overlay30,
-
-    /// Stronger dim overlay (overlay).
-    required Color overlay50,
-
-    /// Strongest dim overlay (overlay).
-    required Color overlay70,
-
-    /// Base color for shadows.
-    required Color shadow,
+    required this.brightness,
+    required this.primary,
+    required this.onPrimary,
+    required this.secondary,
+    required this.tertiary,
+    required this.quaternary,
+    required this.header,
+    required this.body,
+    required this.subtitle,
+    required this.icon,
+    required this.buttonFocus,
+    required this.signal,
+    required this.onSignal,
+    required this.success,
+    required this.onSuccess,
+    required this.warning,
+    required this.onWarning,
+    required this.error,
+    required this.onError,
+    required this.draw,
+    required this.highlight10,
+    required this.highlight30,
+    required this.inactive,
+    required this.overlay30,
+    required this.overlay50,
+    required this.overlay70,
+    required this.shadow,
   });
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// The [Brightness] of the palette
+  final Brightness brightness;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// The primary/brand color.
+  final Color primary;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Contrast color to the primary color.
+  final Color onPrimary;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Complementary color to the primary color.
+  final Color secondary;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Third complementary color to the primary color.
+  final Color tertiary;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Contrast color to the secondary color.
+  final Color quaternary;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Text color for headings.
+  final Color header;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Text color for body text.
+  final Color body;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Text color for small/footer text.
+  final Color subtitle;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Color for icons.
+  final Color icon;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Color for button borders when focues
+  final Color buttonFocus;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Sharp, bright signaling color that contrasts most of the other colors.
+  final Color signal;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Contrast color to the signal color.
+  final Color onSignal;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Color signaling success or positive outcome.
+  final Color success;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Contrast color to the success color.
+  final Color onSuccess;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Color signaling warning or caution.
+  final Color warning;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Contrast color to the warning color.
+  final Color onWarning;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Color signaling error or negative outcome.
+  final Color error;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Contrast color to the error color.
+  final Color onError;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Color signaling neutral outcome.
+  final Color draw;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Subtle highlight color (overlay).
+  final Color highlight10;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Stronger highlight color (overlay).
+  final Color highlight30;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Colors signaling inactive/disabled elements.
+  final Color inactive;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Subtle dim overlay (overlay).
+  final Color overlay30;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Stronger dim overlay (overlay).
+  final Color overlay50;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Strongest dim overlay (overlay).
+  final Color overlay70;
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Base color for shadows.
+  final Color shadow;
 
   /// {@category Foundation}
   /// {@subCategory Colors}

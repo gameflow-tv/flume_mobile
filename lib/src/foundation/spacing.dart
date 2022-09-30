@@ -4,15 +4,6 @@ import 'package:flutter/rendering.dart';
 /// {@subCategory Spacing}
 /// Spacing defined by Flume.
 class Spacing {
-  final double xxxs;
-  final double xxs;
-  final double xs;
-  final double sm;
-  final double md;
-  final double lg;
-  final double xl;
-  final double xxl;
-
   const Spacing({
     required this.xxxs,
     required this.xxs,
@@ -23,6 +14,46 @@ class Spacing {
     required this.xl,
     required this.xxl,
   });
+
+  /// {@category Foundation}
+  /// {@subCategory Spacing}
+  /// Extra extra extra small spacing.
+  final double xxxs;
+
+  /// {@category Foundation}
+  /// {@subCategory Spacing}
+  /// Extra extra small spacing.
+  final double xxs;
+
+  /// {@category Foundation}
+  /// {@subCategory Spacing}
+  /// Extra small spacing.
+  final double xs;
+
+  /// {@category Foundation}
+  /// {@subCategory Spacing}
+  /// Small spacing.
+  final double sm;
+
+  /// {@category Foundation}
+  /// {@subCategory Spacing}
+  /// Medium spacing.
+  final double md;
+
+  /// {@category Foundation}
+  /// {@subCategory Spacing}
+  /// Large spacing.
+  final double lg;
+
+  /// {@category Foundation}
+  /// {@subCategory Spacing}
+  /// Extra large spacing.
+  final double xl;
+
+  /// {@category Foundation}
+  /// {@subCategory Spacing}
+  /// Extra extra large spacing.
+  final double xxl;
 
   /// {@category Foundation}
   /// {@subCategory Spacing}
