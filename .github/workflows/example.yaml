@@ -8,7 +8,7 @@ jobs:
     name: build
     strategy:
       matrix:
-        target: [ios, appbundle, macos, linux, windows]
+        target: ["ios --no-codesign", appbundle, macos, linux, windows]
     runs-on: ${{ matrix.target == 'windows' && 'windows-latest' || matrix.target == 'linux' && 'ubuntu-latest' || 'macos-latest' }}
     steps:
       - uses: actions/checkout@v3
@@ -20,10 +20,6 @@ jobs:
 
       - run: flutter config --enable-macos-desktop --enable-windows-desktop --enable-linux-desktop
 
-      - id: build-args
-        run: |
-          echo '::set-output name=args::""'
-          [[ "${{ matrix.target }}" = 'ios' ]] && echo '::set-output name=args::--no-codesign'
       - if: matrix.target == 'appbundle'
         name: Set up JDK 11
         uses: actions/setup-java@v3
