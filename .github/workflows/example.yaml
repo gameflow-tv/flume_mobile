@@ -1,0 +1,24 @@
+name: Example
+on:
+  push:
+    branches: ["main", "example-build"]
+
+jobs:
+  build:
+    name: build
+    strategy:
+      matrix:
+        target: [ios, appbundle, macos, linux, windows]
+    runs-on: ${{ matrix.target == 'windows' && 'windows-latest' || matrix.target == 'linux' && 'ubuntu-latest' || 'macos-latest' }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - run: flutter pub get
+        working-directory: example
+
+      - run: flutter build ${{ matrix.target }}
+        working-directory: example
