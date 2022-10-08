@@ -1,4 +1,4 @@
-package com.example.example
+package tv.gameflow.flume
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.example">
+    package="tv.gameflow.flume">
    <application
-        android:label="example"
+        android:label="Flume"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
