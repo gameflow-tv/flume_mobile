@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// {@category Core}
+/// {@category Foundation}
 /// Splash factory that disables all ripple effects
 class NoSplashFactory extends InteractiveInkFeatureFactory {
   const NoSplashFactory();
