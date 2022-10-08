@@ -20,14 +20,9 @@ jobs:
 
       - run: flutter config --enable-macos-desktop --enable-windows-desktop --enable-linux-desktop
 
-      - id: args
+      - id: build-args
         run: |
-          echo "::set-output name=ios::--no-codesign"
-          echo "::set-output name=appbundle::''"
-          echo "::set-output name=macos::''"
-          echo "::set-output name=linux::''"
-          echo "::set-output name=windows::''"
-
+          ${{ matrix.target == 'ios' && echo '::set-output name=args::--no-codesign' || echo '::set-output name=args::""' }}
       - if: matrix.target == 'appbundle'
         name: Set up JDK 11
         uses: actions/setup-java@v3
@@ -43,5 +38,5 @@ jobs:
       - run: flutter pub get
         working-directory: example
 
-      - run: flutter build ${{ matrix.target }} ${{ steps.args.outputs.${{ matrix.target }} }}
+      - run: flutter build ${{ matrix.target }} ${{ steps.build-args.outputs.args }}
         working-directory: example
