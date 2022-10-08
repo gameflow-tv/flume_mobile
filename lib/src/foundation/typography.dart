@@ -3,8 +3,8 @@ import 'package:flutter/painting.dart';
 /// {@category Foundation}
 /// {@subCategory Typography}
 /// Baseline typography data.
-class TypographyData {
-  const TypographyData({
+class FlumeTypographyData {
+  const FlumeTypographyData({
     required this.fontSize,
     required this.fontWeight,
     required this.lineHeight,
@@ -35,8 +35,8 @@ class TypographyData {
 /// {@category Foundation}
 /// {@subCategory Typography}
 /// Typography defined by Flume.
-class Typography {
-  const Typography({
+class FlumeTypography {
+  const FlumeTypography({
     required this.header1,
     required this.header2,
     required this.header3,
@@ -55,145 +55,145 @@ class Typography {
   /// {@category Foundation}
   /// {@subCategory Typography}
   /// Header 1 typography data.
-  final TypographyData header1;
+  final FlumeTypographyData header1;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
   /// Header 2 typography data.
-  final TypographyData header2;
+  final FlumeTypographyData header2;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
   /// Header 3 typography data.
-  final TypographyData header3;
+  final FlumeTypographyData header3;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
   /// Header 4 typography data.
-  final TypographyData header4;
+  final FlumeTypographyData header4;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
   /// Header 5 typography data.
-  final TypographyData header5;
+  final FlumeTypographyData header5;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
   /// Body 1 typography data.
-  final TypographyData body1;
+  final FlumeTypographyData body1;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
   /// Body 2 typography data.
-  final TypographyData body2;
+  final FlumeTypographyData body2;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
   /// Body 3 typography data.
-  final TypographyData body3;
+  final FlumeTypographyData body3;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
   /// Button typography data.
-  final TypographyData button;
+  final FlumeTypographyData button;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
   /// Link typography data.
-  final TypographyData link;
+  final FlumeTypographyData link;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
   /// Label 1 typography data.
-  final TypographyData label1;
+  final FlumeTypographyData label1;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
   /// Label 2 typography data.
-  final TypographyData label2;
+  final FlumeTypographyData label2;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
   /// Label 3 typography data.
-  final TypographyData label3;
+  final FlumeTypographyData label3;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
   /// Default typography defined by Flume.
-  factory Typography.fallback() => const Typography(
-        header1: TypographyData(
+  factory FlumeTypography.fallback() => const FlumeTypography(
+        header1: FlumeTypographyData(
           fontSize: 24,
           fontWeight: FontWeight.w600,
           lineHeight: 1.2,
           fontFamily: 'Montserrat',
         ),
-        header2: TypographyData(
+        header2: FlumeTypographyData(
           fontSize: 18,
           fontWeight: FontWeight.w600,
           lineHeight: 1.2,
           fontFamily: 'Montserrat',
         ),
-        header3: TypographyData(
+        header3: FlumeTypographyData(
           fontSize: 16,
           fontWeight: FontWeight.w600,
           lineHeight: 1.2,
           fontFamily: 'Montserrat',
         ),
-        header4: TypographyData(
+        header4: FlumeTypographyData(
           fontSize: 14,
           fontWeight: FontWeight.w600,
           lineHeight: 1.2,
           fontFamily: 'Montserrat',
         ),
-        header5: TypographyData(
+        header5: FlumeTypographyData(
           fontSize: 14,
           fontWeight: FontWeight.w600,
           lineHeight: 1.2,
           fontFamily: 'Montserrat',
         ),
-        body1: TypographyData(
+        body1: FlumeTypographyData(
           fontSize: 14,
           fontWeight: FontWeight.w500,
           lineHeight: 1.3,
           fontFamily: 'Mulish',
         ),
-        body2: TypographyData(
+        body2: FlumeTypographyData(
           fontSize: 12,
           fontWeight: FontWeight.w500,
           lineHeight: 1.3,
           fontFamily: 'Mulish',
         ),
-        body3: TypographyData(
+        body3: FlumeTypographyData(
           fontSize: 10,
           fontWeight: FontWeight.w500,
           lineHeight: 1.3,
           fontFamily: 'Mulish',
         ),
-        button: TypographyData(
+        button: FlumeTypographyData(
           fontSize: 14,
           fontWeight: FontWeight.w600,
           lineHeight: 1.2,
           fontFamily: 'Montserrat',
         ),
-        link: TypographyData(
+        link: FlumeTypographyData(
           fontSize: 10,
           fontWeight: FontWeight.w500,
           lineHeight: 1.2,
           fontFamily: 'Montserrat',
         ),
-        label1: TypographyData(
+        label1: FlumeTypographyData(
           fontSize: 12,
           fontWeight: FontWeight.w600,
           lineHeight: 1.1,
           fontFamily: 'Montserrat',
         ),
-        label2: TypographyData(
+        label2: FlumeTypographyData(
           fontSize: 11,
           fontWeight: FontWeight.w600,
           lineHeight: 1.1,
           fontFamily: 'Montserrat',
         ),
-        label3: TypographyData(
+        label3: FlumeTypographyData(
           fontSize: 10,
           fontWeight: FontWeight.w600,
           lineHeight: 1.1,

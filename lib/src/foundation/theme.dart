@@ -5,12 +5,13 @@ import 'package:flume/src/foundation/motion.dart';
 import 'package:flume/src/foundation/shadows.dart';
 import 'package:flume/src/foundation/spacing.dart';
 import 'package:flume/src/foundation/typography.dart';
+import 'package:flutter/material.dart';
 
 /// {@category Foundation}
 /// {@subCategory Theme}
 /// A theme instance containing all Flume design tokens.
-class Theme {
-  const Theme({
+class FlumeTheme {
+  const FlumeTheme({
     required this.breakpoints,
     required this.shapes,
     required this.colors,
@@ -23,48 +24,48 @@ class Theme {
   /// {@category Foundation}
   /// {@subCategory Breakpoints}
   /// Breakpoints defined by Flume.
-  final Breakpoints breakpoints;
+  final FlumeBreakpoints breakpoints;
 
   /// {@category Foundation}
   /// {@subCategory Shapes}
   /// Border radii defined by Flume.
-  final Shapes shapes;
+  final FlumeShapes shapes;
 
   /// {@category Foundation}
   /// {@subCategory Colors}
   /// Color scheme defined by Flume.
-  final Colors colors;
+  final FlumeColors colors;
 
   /// {@category Foundation}
   /// {@subCategory Motion}
   /// Motion durations defined by Flume.
-  final Motion motion;
+  final FlumeMotion motion;
 
   /// {@category Foundation}
   /// {@subCategory Shadows}
   /// Shadows defined by Flume.
-  final Shadows shadows;
+  final FlumeShadows shadows;
 
   /// {@category Foundation}
   /// {@subCategory Spacing}
   /// Spacing defined by Flume.
-  final Spacing spacing;
+  final FlumeSpacing spacing;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
   /// Typography defined by Flume.
-  final Typography typography;
+  final FlumeTypography typography;
 
   /// {@category Foundation}
   /// {@subCategory Theme}
   /// Default theme defined by Flume.
-  factory Theme.fallback() => Theme(
-        breakpoints: Breakpoints.fallback(),
-        shapes: Shapes.fallback(),
-        colors: Colors.fallback(),
-        motion: Motion.fallback(),
-        shadows: Shadows.fallback(),
-        spacing: Spacing.fallback(),
-        typography: Typography.fallback(),
+  factory FlumeTheme.fallback() => FlumeTheme(
+        breakpoints: FlumeBreakpoints.fallback(),
+        shapes: FlumeShapes.fallback(),
+        colors: FlumeColors.fallback(),
+        motion: FlumeMotion.fallback(),
+        shadows: FlumeShadows.fallback(),
+        spacing: FlumeSpacing.fallback(),
+        typography: FlumeTypography.fallback(),
       );
 }

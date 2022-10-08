@@ -3,8 +3,8 @@ import 'package:flutter/painting.dart';
 /// {@category Foundation}
 /// {@subCategory Shadows}
 /// Shadows defined by Flume.
-class Shadows {
-  const Shadows({
+class FlumeShadows {
+  const FlumeShadows({
     required this.xs,
     required this.sm,
     required this.md,
@@ -46,7 +46,7 @@ class Shadows {
   /// {@category Foundation}
   /// {@subCategory Shadows}
   /// Default shadows defined by Flume.
-  factory Shadows.fallback() => const Shadows(
+  factory FlumeShadows.fallback() => const FlumeShadows(
         xs: BoxShadow(
           color: Color.fromRGBO(0, 0, 0, 0.1),
           offset: Offset(0, 2),

@@ -3,8 +3,8 @@ import 'package:flutter/rendering.dart';
 /// {@category Foundation}
 /// {@subCategory Spacing}
 /// Spacing defined by Flume.
-class Spacing {
-  const Spacing({
+class FlumeSpacing {
+  const FlumeSpacing({
     required this.xxxs,
     required this.xxs,
     required this.xs,
@@ -58,7 +58,7 @@ class Spacing {
   /// {@category Foundation}
   /// {@subCategory Spacing}
   /// Default spacing defined by Flume.
-  factory Spacing.fallback() => const Spacing(
+  factory FlumeSpacing.fallback() => const FlumeSpacing(
         xxxs: 2,
         xxs: 4,
         xs: 8,
@@ -77,7 +77,7 @@ class Spacing {
 
 /// Utility class for using Flume spacing with Flutter's [EdgeInsets].
 class EdgeInsetsData {
-  final Spacing _spacing;
+  final FlumeSpacing _spacing;
 
   const EdgeInsetsData(this._spacing);
 

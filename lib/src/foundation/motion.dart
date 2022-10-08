@@ -1,8 +1,8 @@
 /// {@category Foundation}
 /// {@subCategory Motion}
 /// Motion durations defined by Flume.
-class Motion {
-  const Motion({
+class FlumeMotion {
+  const FlumeMotion({
     required this.enabled,
     required this.short,
     required this.medium,
@@ -32,7 +32,7 @@ class Motion {
   /// {@category Foundation}
   /// {@subCategory Motion}
   /// Default motion durations defined by Flume.
-  factory Motion.fallback() => const Motion(
+  factory FlumeMotion.fallback() => const FlumeMotion(
         enabled: true,
         short: Duration(milliseconds: 100),
         medium: Duration(milliseconds: 200),
@@ -43,7 +43,7 @@ class Motion {
   /// {@subCategory Motion}
   /// Returns a disabled motion instance.
   /// Used for devices with reduced motion.
-  factory Motion.disabled() => const Motion(
+  factory FlumeMotion.disabled() => const FlumeMotion(
         enabled: false,
         short: Duration(milliseconds: 0),
         medium: Duration(milliseconds: 0),

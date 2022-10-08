@@ -1,8 +1,8 @@
 /// {@category Foundation}
 /// {@subCategory Shapes}
 /// Shapes and borders defined by Flume.
-class Shapes {
-  const Shapes({
+class FlumeShapes {
+  const FlumeShapes({
     required this.xs,
     required this.sm,
     required this.md,
@@ -32,7 +32,7 @@ class Shapes {
   /// {@category Foundation}
   /// {@subCategory Shapes}
   /// Default shapes defined by Flume.
-  factory Shapes.fallback() => const Shapes(
+  factory FlumeShapes.fallback() => const FlumeShapes(
         xs: 2,
         sm: 4,
         md: 6,

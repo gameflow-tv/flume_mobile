@@ -5,8 +5,8 @@ import 'package:flutter/painting.dart';
 /// {@category Foundation}
 /// {@subCategory Colors}
 /// Color scheme defined by Flume.
-class Colors {
-  const Colors({
+class FlumeColors {
+  const FlumeColors({
     required this.brightness,
     required this.primary,
     required this.onPrimary,
@@ -174,7 +174,7 @@ class Colors {
   /// {@category Foundation}
   /// {@subCategory Colors}
   /// Default color scheme.
-  factory Colors.fallback() => const Colors(
+  factory FlumeColors.fallback() => const FlumeColors(
         brightness: Brightness.dark,
         primary: FlumePalette.amberOrange,
         onPrimary: FlumePalette.abbeyBlue,
