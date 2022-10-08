@@ -5,7 +5,6 @@ import 'package:flume/src/foundation/motion.dart';
 import 'package:flume/src/foundation/shadows.dart';
 import 'package:flume/src/foundation/spacing.dart';
 import 'package:flume/src/foundation/typography.dart';
-import 'package:flutter/material.dart';
 
 /// {@category Foundation}
 /// {@subCategory Theme}
