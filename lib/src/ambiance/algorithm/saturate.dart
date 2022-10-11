@@ -7,7 +7,7 @@ import 'package:flume/flume.dart';
 extension SaturateExtension on Color {
   /// Returns a saturated version of this color.
   Color saturate(double amount) {
-    final lch = LCH.fromCIELAB(CIELAB.fromRGB(RGB(red, blue, green)));
+    final lch = LCH.fromColor(this);
     var c = lch.c;
     c += amount * 18;
     if (c < 0) c = 0;

@@ -11,11 +11,10 @@ extension BrightenExtension on Color {
   /// the brightest. If the [amount] is 0, the original color is returned.
   Color brighten(double amount) {
     if (amount == 0) return this;
-    if (amount < -1 || amount > 1) {
-      throw ArgumentError.value(amount, 'amount', 'must be between -1 and 1');
-    }
-    final hsl = HSL.fromRGB(RGB(red, green, blue)).toColor();
-    final lum = hsl.computeLuminance() + amount;
-    return hsl.luminance(lum);
+
+    final lab = CIELAB.fromColor(this);
+    var l = lab.l;
+    l -= 18 * amount;
+    return CIELAB(l, lab.a, lab.b).toColor();
   }
 }
