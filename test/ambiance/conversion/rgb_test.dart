@@ -12,7 +12,9 @@ void main() {
 
   test('RGB.fromHSV() returns correct values', () {
     const color = Color(0xff00ff00);
-    var result = RGB.fromHSV(const HSV(0, 1, 1));
+    var result = RGB.fromHSV(HSV.fromRGB(
+      RGB(color.red, color.green, color.blue),
+    ));
     expect(result, equals(RGB(color.red, color.green, color.blue)));
   });
 
@@ -45,7 +47,7 @@ void main() {
   test('toHex() returns correct hex string', () {
     const color = Color(0xff242729);
     var result = RGB(color.red, color.green, color.blue).toHex();
-    expect(result, equals('#242729'));
+    expect(result, equals('#242729ff'));
   });
 
   test('toColor() returns correct color', () {

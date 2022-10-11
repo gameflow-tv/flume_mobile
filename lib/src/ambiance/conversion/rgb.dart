@@ -36,7 +36,7 @@ class RGB extends Equatable {
 
   /// Converts hex string to [RGB] color.
   factory RGB.fromHex(String hex) {
-    final color = Color(int.parse(hex.substring(1, 7), radix: 16) + 0xFF000000);
+    final color = Color(int.parse(hex.substring(1, 7), radix: 16) + 0xff000000);
     return RGB(color.red, color.green, color.blue, color.alpha);
   }
 
