@@ -4,7 +4,7 @@ import 'package:flume/flume.dart';
 
 /// {@category Ambiance}
 /// Palette of ambiance colors.
-class AmbientPalette extends Equatable {
+class AmbiancePalette extends Equatable {
   /// The darkest color, corresponding to a 0.02 luminance value.
   final Color dark;
 
@@ -20,7 +20,7 @@ class AmbientPalette extends Equatable {
   /// The lightest color, run through the [lightColor] algorithm.
   final Color light;
 
-  const AmbientPalette({
+  const AmbiancePalette({
     required this.dark,
     required this.mediumDark,
     required this.medium,
@@ -29,7 +29,7 @@ class AmbientPalette extends Equatable {
   });
 
   /// Creates a palette from a given [Color].
-  factory AmbientPalette.fromColor(Color color) => AmbientPalette(
+  factory AmbiancePalette.fromColor(Color color) => AmbiancePalette(
         dark: color.luminance(0.02),
         mediumDark: color.luminance(0.04),
         medium: color.luminance(0.06),
