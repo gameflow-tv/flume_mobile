@@ -27,7 +27,7 @@ class Flume extends StatelessWidget {
     final provider =
         context.dependOnInheritedWidgetOfExactType<FlumeThemeProvider>();
     if (provider == null) {
-      throw Exception('No FlumeTheme found in the widget tree');
+      throw Exception('No FlumeThemeProvider found in the widget tree');
     }
     return provider.data;
   }
