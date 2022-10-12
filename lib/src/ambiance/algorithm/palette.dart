@@ -46,7 +46,7 @@ class AmbiancePalette extends Equatable {
 Color lightColor(Color color) {
   final hsv = HSV.fromColor(color);
   if (hsv.s > 0.12) {
-    return color.saturate(0.6).brighten(2.8);
+    return color.saturate(-0.6).brighten(2.8);
   } else {
     return color.brighten(2.5);
   }

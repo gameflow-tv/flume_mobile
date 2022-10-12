@@ -1,3 +1,4 @@
+import 'package:flume_example/pages/ambiance.dart';
 import 'package:flutter/material.dart';
 import 'package:flume/flume.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,6 +21,9 @@ class FlumeExample extends StatelessWidget {
         return MaterialApp(
           title: 'Flume',
           theme: theme,
+          routes: {
+            '/ambiance': (context) => const AmbiancePage(),
+          },
           home: Scaffold(
             appBar: AppBar(
               leading: Padding(
@@ -31,7 +35,16 @@ class FlumeExample extends StatelessWidget {
               ),
               title: const Text('Flume'),
             ),
-            body: ListView(),
+            body: Builder(
+              builder: (context) => ListView(
+                children: [
+                  ListTile(
+                    title: const Text('Ambiance'),
+                    onTap: () => Navigator.pushNamed(context, '/ambiance'),
+                  ),
+                ],
+              ),
+            ),
           ),
         );
       },

@@ -24,10 +24,7 @@ class RGB extends Equatable {
   /// _Minimum_ 0, _maximum_ 255.
   final int a;
 
-  const RGB(this.r, this.g, this.b, [this.a = 255])
-      : assert(r <= 255, 'Red must be between 0 and 255'),
-        assert(g <= 255, 'Green must be between 0 and 255'),
-        assert(b <= 255, 'Blue must be between 0 and 255');
+  const RGB(this.r, this.g, this.b, [this.a = 255]);
 
   /// Converts [Color] to [RGB] color.
   factory RGB.fromColor(Color color) {
