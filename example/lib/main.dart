@@ -1,3 +1,4 @@
+import 'package:flume_example/pages/ambiance.dart';
 import 'package:flutter/material.dart';
 import 'package:flume/flume.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,18 +21,60 @@ class FlumeExample extends StatelessWidget {
         return MaterialApp(
           title: 'Flume',
           theme: theme,
-          home: Scaffold(
-            appBar: AppBar(
-              leading: Padding(
-                padding: EdgeInsets.all(spacing.sm),
-                child: SvgPicture.asset(
-                  'assets/icon/flume.svg',
-                  color: theme.colorScheme.primary,
+          routes: {
+            '/ambiance': (context) => const AmbiancePage(),
+          },
+          home: Ambiance(
+            builder: (context, color, elevation) {
+              return Scaffold(
+                backgroundColor: color,
+                appBar: TopBar(
+                  leading: Padding(
+                    padding: EdgeInsets.all(spacing.sm),
+                    child: SvgPicture.asset(
+                      'assets/icon/flume.svg',
+                      color: theme.colorScheme.primary,
+                    ),
+                  ),
+                  title: const Text('Flume'),
                 ),
-              ),
-              title: const Text('Flume'),
-            ),
-            body: ListView(),
+                body: Builder(
+                  builder: (context) {
+                    final theme = Flume.of(context);
+
+                    return ListView(
+                      children: [
+                        Cell(
+                          title: const Text('Ambiance'),
+                          onTap: () =>
+                              Navigator.pushNamed(context, '/ambiance'),
+                        ),
+                        Cell(
+                          title: const Text('Foundation'),
+                          onTap: () =>
+                              Navigator.pushNamed(context, '/ambiance'),
+                        ),
+                        Cell(
+                          title: const Text('Components'),
+                          onTap: () =>
+                              Navigator.pushNamed(context, '/ambiance'),
+                        ),
+                      ]
+                          .map(
+                            (e) => Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: theme.spacing.xs,
+                                vertical: theme.spacing.xxs,
+                              ),
+                              child: e,
+                            ),
+                          )
+                          .toList(),
+                    );
+                  },
+                ),
+              );
+            },
           ),
         );
       },

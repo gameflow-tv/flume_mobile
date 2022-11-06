@@ -72,7 +72,7 @@ class FlumeSpacing {
   /// {@category Foundation}
   /// {@subCategory Spacing}
   /// EdgeInsets with the same spacing on all sides.
-  EdgeInsetsData insets() => EdgeInsetsData(this);
+  EdgeInsetsData get insets => EdgeInsetsData(this);
 }
 
 /// Utility class for using Flume spacing with Flutter's [EdgeInsets].

@@ -8,6 +8,7 @@ environment:
   flutter: ">=3.0.0"
 
 dependencies:
+  equatable: ^2.0.5
   flutter:
     sdk: flutter
 
@@ -22,7 +23,22 @@ dev_dependencies:
   test: ^1.21.4
 
 flutter:
+  assets:
+    - lib/licenses/
+
   fonts:
     - family: FlumeIcons
       fonts:
         - asset: lib/fonts/FlumeIcons.ttf
+
+    - family: Montserrat
+      fonts:
+        - asset: lib/fonts/MontserratMedium.ttf
+          weight: 500
+        - asset: lib/fonts/MontserratSemiBold.ttf
+          weight: 600
+
+    - family: Mulish
+      fonts:
+        - asset: lib/fonts/MulishMedium.ttf
+          weight: 500
