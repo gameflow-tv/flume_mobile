@@ -6,10 +6,7 @@ import 'package:flutter/widgets.dart';
 @immutable
 class _FlumeIconData extends IconData {
   const _FlumeIconData(int codePoint, this.name)
-      : super(
-          codePoint,
-          fontFamily: 'FlumeIcon',
-        );
+      : super(codePoint, fontFamily: 'FlumeIcons', fontPackage: 'flume');
 
   final String name;
 }

@@ -6,19 +6,16 @@ void main() {
   test('getColorFromElevation() should return a color based on the elevation',
       () {
     final dark = getColorFromElevation(const Color(0xff242729), 0);
-    expect(dark, const Color(0xff242729));
-
     final mediumDark = getColorFromElevation(const Color(0xff242729), 1);
-    expect(mediumDark, const Color(0xff353839));
-
     final medium = getColorFromElevation(const Color(0xff242729), 2);
-    expect(medium, const Color(0xff424546));
-
     final mediumLight = getColorFromElevation(const Color(0xff242729), 3);
-    expect(mediumLight, const Color(0xff525556));
-
     final light = getColorFromElevation(const Color(0xff242729), 4);
-    expect(light, const Color(0xffa17781));
+
+    expect(dark, const Color(0xff242729));
+    expect(mediumDark, const Color(0xff34383b));
+    expect(medium, const Color(0xff41464a));
+    expect(mediumLight, const Color(0xff4f555a));
+    expect(light, const Color(0xffcfd7dd));
   });
 
   testWidgets('Ambiance generates correct color values', (tester) async {
@@ -71,16 +68,16 @@ void main() {
           expect(color, const Color(0xff242729));
           break;
         case 1:
-          expect(color, const Color(0xff353839));
+          expect(color, const Color(0xff34383b));
           break;
         case 2:
-          expect(color, const Color(0xff424546));
+          expect(color, const Color(0xff41464a));
           break;
         case 3:
-          expect(color, const Color(0xff525556));
+          expect(color, const Color(0xff4f555a));
           break;
         case 4:
-          expect(color, const Color(0xffdbe0e1));
+          expect(color, const Color(0xffcfd7dd));
           break;
       }
     }

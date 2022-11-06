@@ -20,6 +20,7 @@ class FlumeThemeAdapter {
   ThemeData get theme {
     final flume = Flume.of(context);
     final colors = flume.colors;
+    final typography = flume.typography;
 
     if (statusBarColor != null) {
       setStatusBarColor(
@@ -64,6 +65,21 @@ class FlumeThemeAdapter {
         ),
       ),
       splashFactory: const NoSplashFactory(),
+      textTheme: TextTheme(
+        headline1: typography.header1.toTextStyle(),
+        headline2: typography.header2.toTextStyle(),
+        headline3: typography.header3.toTextStyle(),
+        headline4: typography.header4.toTextStyle(),
+        headline5: typography.header5.toTextStyle(),
+        headline6: typography.header5.toTextStyle(),
+        subtitle1: typography.label1.toTextStyle(),
+        subtitle2: typography.label2.toTextStyle(),
+        bodyText1: typography.body1.toTextStyle(),
+        bodyText2: typography.body2.toTextStyle(),
+        button: typography.button.toTextStyle(),
+        caption: typography.body3.toTextStyle(),
+        overline: typography.label3.toTextStyle(),
+      ),
     );
   }
 

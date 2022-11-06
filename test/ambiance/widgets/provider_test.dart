@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('AmbianceProvider exposes given values', (tester) async {
     await tester.pumpWidget(AmbianceProvider(
+      source: const Color(0xff00ff00),
       color: const Color(0xff00ff00),
       elevation: 0,
       child: Container(),

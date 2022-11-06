@@ -6,12 +6,14 @@ import 'package:flutter/widgets.dart';
 class AmbianceProvider extends InheritedWidget {
   final Color color;
   final int elevation;
+  final Color source;
 
   const AmbianceProvider({
     super.key,
     required this.elevation,
     required Widget child,
     required this.color,
+    required this.source,
   }) : super(child: child);
 
   static AmbianceProvider? of(BuildContext context) {
@@ -20,6 +22,8 @@ class AmbianceProvider extends InheritedWidget {
 
   @override
   bool updateShouldNotify(AmbianceProvider oldWidget) {
-    return elevation != oldWidget.elevation || color != oldWidget.color;
+    return elevation != oldWidget.elevation ||
+        color != oldWidget.color ||
+        source != oldWidget.source;
   }
 }

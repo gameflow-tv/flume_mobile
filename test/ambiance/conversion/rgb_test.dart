@@ -10,14 +10,6 @@ void main() {
     expect(result, equals(RGB(color.red, color.green, color.blue)));
   });
 
-  test('RGB.fromHSV() returns correct values', () {
-    const color = Color(0xff00ff00);
-    var result = RGB.fromHSV(HSV.fromRGB(
-      RGB(color.red, color.green, color.blue),
-    ));
-    expect(result, equals(RGB(color.red, color.green, color.blue)));
-  });
-
   test('RGB.fromHSL() returns correct values', () {
     const color = Color(0xff00ff00);
     var result = RGB.fromHSL(const HSL(120, 1, 0.5));

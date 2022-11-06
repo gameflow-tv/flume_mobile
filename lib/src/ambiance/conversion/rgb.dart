@@ -37,34 +37,6 @@ class RGB extends Equatable {
     return RGB(color.red, color.green, color.blue, color.alpha);
   }
 
-  /// Converts [HSV] color to [RGB] color.
-  factory RGB.fromHSV(HSV color) {
-    final h = color.h / 60;
-    final s = color.s;
-    final v = color.v;
-
-    final i = h.floor();
-    final f = h - i;
-    final p = v * (1 - s);
-    final q = v * (1 - s * f);
-    final t = v * (1 - s * (1 - f));
-
-    switch (i) {
-      case 0:
-        return RGB((v * 255).round(), (t * 255).round(), (p * 255).round());
-      case 1:
-        return RGB((q * 255).round(), (v * 255).round(), (p * 255).round());
-      case 2:
-        return RGB((p * 255).round(), (v * 255).round(), (t * 255).round());
-      case 3:
-        return RGB((p * 255).round(), (q * 255).round(), (v * 255).round());
-      case 4:
-        return RGB((t * 255).round(), (p * 255).round(), (v * 255).round());
-      default:
-        return RGB((v * 255).round(), (p * 255).round(), (q * 255).round());
-    }
-  }
-
   /// Converts [HSL] color to [RGB] color.
   factory RGB.fromHSL(HSL color) {
     final h = color.h / 360;
@@ -83,9 +55,9 @@ class RGB extends Equatable {
       return p;
     }
 
-    final r = (hueToRgb(h + 1 / 3) * 255).round();
-    final g = (hueToRgb(h) * 255).round();
-    final b = (hueToRgb(h - 1 / 3) * 255).round();
+    final r = (hueToRgb(h + 1 / 3) * 255).toInt();
+    final g = (hueToRgb(h) * 255).toInt();
+    final b = (hueToRgb(h - 1 / 3) * 255).toInt();
 
     return RGB(r, g, b);
   }
@@ -119,7 +91,7 @@ class RGB extends Equatable {
     g = xyzToRGB(x * -0.9689 + y * 1.8758 + z * 0.0415);
     b = xyzToRGB(x * 0.0557 + y * -0.2040 + z * 1.0570);
 
-    return RGB(r.round(), g.round(), b.round());
+    return RGB(r.toInt(), g.toInt(), b.toInt());
   }
 
   /// Converts color to hex string.

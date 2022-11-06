@@ -1,3 +1,6 @@
 library components;
 
-export 'package:flume/src/components/icons.dart';
+export 'components/lists/cell.dart';
+export 'components/icons.dart';
+
+export 'components/material/top_bar.dart';

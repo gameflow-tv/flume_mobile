@@ -30,6 +30,17 @@ class FlumeTypographyData {
   /// {@subCategory Typography}
   /// Font family.
   final String fontFamily;
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Returns a [TextStyle] instance created from the current [FlumeTypographyData].
+  TextStyle toTextStyle() => TextStyle(
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        fontFamily: fontFamily,
+        height: lineHeight,
+        package: 'flume',
+      );
 }
 
 /// {@category Foundation}

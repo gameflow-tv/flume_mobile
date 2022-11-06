@@ -2,6 +2,7 @@ import 'package:flume/flume.dart';
 import 'package:flutter/widgets.dart';
 
 class Ambiance extends StatelessWidget {
+  final Color? source;
   final Color? color;
   final Widget? child;
   final int? elevation;
@@ -13,6 +14,7 @@ class Ambiance extends StatelessWidget {
     this.builder,
     this.color,
     this.elevation,
+    this.source,
   }) : assert(child != null || builder != null);
 
   static AmbianceProvider? of(BuildContext context) {
@@ -26,11 +28,12 @@ class Ambiance extends StatelessWidget {
     final computedElevation =
         elevation ?? (parent != null ? parent.elevation + 1 : 0);
     final computedColor = getColorFromElevation(
-        color ?? parent?.color ?? theme.colors.secondary, computedElevation);
+        color ?? parent?.source ?? theme.colors.secondary, computedElevation);
 
     return AmbianceProvider(
       elevation: computedElevation,
       color: computedColor,
+      source: color ?? parent?.source ?? theme.colors.secondary,
       child: Proxy(
         builder: (ctx) {
           return child ?? builder!(ctx, computedColor, computedElevation);
@@ -50,8 +53,16 @@ class Proxy extends StatelessWidget {
   }
 }
 
+Map<Color, AmbiancePalette> _computedPalettes = {};
+
 Color getColorFromElevation(Color color, int elevation) {
-  final palette = AmbiancePalette.fromColor(color);
+  AmbiancePalette palette;
+
+  if (_computedPalettes.containsKey(color)) {
+    palette = _computedPalettes[color]!;
+  } else {
+    palette = AmbiancePalette.fromColor(color);
+  }
 
   switch (elevation) {
     case 0:

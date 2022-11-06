@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui';
 
 const eps = 1e-7;
@@ -18,10 +19,14 @@ extension LuminanceExtension on Color {
     }
 
     final currentLuminance = computeLuminance();
-    var mi = maxIter;
+    int mi = maxIter;
 
     Color test(Color low, Color high) {
-      final mid = Color.lerp(high, low, 0.5)!;
+      final mid = Color.lerp(high, low, 0.5);
+      if (mid == null) {
+        throw Exception('Color.lerp returned null');
+      }
+
       final lm = mid.computeLuminance();
 
       if ((lum - lm).abs() < eps || 0 == mi--) {

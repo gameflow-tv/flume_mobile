@@ -21,13 +21,13 @@ class AmbianceBox extends StatelessWidget {
             borderRadius: BorderRadius.circular(theme.shapes.md),
             color: color,
           ),
-          padding: theme.spacing.insets().xl,
+          padding: theme.spacing.insets.md,
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(bottom: 16.0),
+                padding: theme.spacing.insets.sm,
                 child: Text(
-                  'elevation: $elevation\ncolor:$color',
+                  'elevation: $elevation\ncolor: #${color.toString().substring(10, 16)}',
                   style: elevation == 4
                       ? TextStyle(color: theme.colors.secondary)
                       : TextStyle(color: theme.colors.body),
@@ -55,7 +55,7 @@ class _AmbiancePageState extends State<AmbiancePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: TopBar(
         title: const Text('Ambiance'),
       ),
       body: Center(
