@@ -7,6 +7,6 @@ void main() {
   test('lightColor() should return a light version of the color', () {
     const color = Color(0xff11aa11);
     final light = lightColor(color);
-    expect(light, const Color(0xff53e82b));
+    expect(light, const Color(0xff7b0435));
   });
 }
