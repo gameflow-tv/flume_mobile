@@ -1,7 +1,7 @@
 name: Preview
 on:
   push:
-    branches: ["main", "example-build"]
+    branches: ["main"]
 
 jobs:
   build:
@@ -9,6 +9,7 @@ jobs:
     strategy:
       matrix:
         target: ["ios --no-codesign", appbundle, macos, linux, windows]
+      fail-fast: false
     runs-on: ${{ matrix.target == 'windows' && 'windows-latest' || matrix.target == 'linux' && 'ubuntu-latest' || 'macos-latest' }}
     steps:
       - uses: actions/checkout@v3
@@ -34,6 +35,14 @@ jobs:
 
       - run: flutter pub get
         working-directory: example
+
+      - if: matrix.target == 'ios --no-codesign'
+        run: cd ios && pod install
+        working-directory: example
+
+      - if: matrix.target == 'macos'
+        run: cd macos && pod install
+        working-directory: example        
 
       - run: flutter build ${{ matrix.target }} ${{ steps.build-args.outputs.args }}
         working-directory: example
