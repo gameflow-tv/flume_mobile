@@ -6,6 +6,9 @@ on:
 jobs:
   build:
     name: build
+    concurrency:
+      group: preview
+      cancel-in-progress: true
     strategy:
       matrix:
         target: ["ios --no-codesign", appbundle, macos, linux, windows]
@@ -42,7 +45,7 @@ jobs:
 
       - if: matrix.target == 'macos'
         run: cd macos && pod install
-        working-directory: example        
+        working-directory: example
 
       - run: flutter build ${{ matrix.target }} ${{ steps.build-args.outputs.args }}
         working-directory: example
