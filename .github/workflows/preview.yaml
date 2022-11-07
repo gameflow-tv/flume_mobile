@@ -6,9 +6,6 @@ on:
 jobs:
   build:
     name: build
-    concurrency:
-      group: preview
-      cancel-in-progress: true
     strategy:
       matrix:
         target: ["ios --no-codesign", appbundle, macos, linux, windows]
