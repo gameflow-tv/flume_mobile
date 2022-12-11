@@ -26,32 +26,32 @@ class Cell extends StatelessWidget {
         return GestureDetector(
           onTap: onTap,
           child: Container(
+            padding: theme.spacing.insets.md,
             decoration: BoxDecoration(
               color: ambiance.color,
               borderRadius: BorderRadius.circular(theme.shapes.md),
             ),
-            child: Padding(
-              padding: theme.spacing.insets.md,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  if (leading != null) leading!,
-                  Column(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                if (leading != null) leading!,
+                Flexible(
+                  child: Column(
                     children: [
                       title,
                       if (subtitle != null) subtitle!,
                     ],
                   ),
-                  if (trailing != null)
-                    trailing!
-                  else if (onTap != null)
-                    const Icon(
-                      FlumeIcon.chevron_right,
-                      size: 14,
-                    ),
-                ],
-              ),
+                ),
+                if (trailing != null)
+                  trailing!
+                else if (onTap != null)
+                  const Icon(
+                    FlumeIcon.chevron_right,
+                    size: 14,
+                  ),
+              ],
             ),
           ),
         );

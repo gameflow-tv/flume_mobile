@@ -2,6 +2,10 @@ import 'package:flume_example/pages/ambiance.dart';
 import 'package:flume_example/pages/foundation.dart';
 import 'package:flume_example/pages/foundation/breakpoints.dart';
 import 'package:flume_example/pages/foundation/colors.dart';
+import 'package:flume_example/pages/foundation/motion.dart';
+import 'package:flume_example/pages/foundation/shadows.dart';
+import 'package:flume_example/pages/foundation/shapes.dart';
+import 'package:flume_example/pages/foundation/typography.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flume/flume.dart';
@@ -30,6 +34,10 @@ class FlumeExample extends StatelessWidget {
             '/foundation': (context) => const FoundationPage(),
             '/foundation/breakpoints': (context) => const BreakpointsPage(),
             '/foundation/colors': (context) => const ColorsPage(),
+            '/foundation/motion': (context) => const MotionPage(),
+            '/foundation/shadows': (context) => const ShadowsPage(),
+            '/foundation/shapes': (context) => const ShapesPage(),
+            '/foundation/typography': (context) => const TypographyPage(),
           },
           home: Ambiance(
             builder: (context, ambiance) {
