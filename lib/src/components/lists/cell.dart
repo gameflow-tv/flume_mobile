@@ -22,12 +22,12 @@ class Cell extends StatelessWidget {
     final theme = Flume.of(context);
 
     return Ambiance(
-      builder: (context, color, elevation) {
+      builder: (context, ambiance) {
         return GestureDetector(
           onTap: onTap,
           child: Container(
             decoration: BoxDecoration(
-              color: color,
+              color: ambiance.color,
               borderRadius: BorderRadius.circular(theme.shapes.md),
             ),
             child: Padding(

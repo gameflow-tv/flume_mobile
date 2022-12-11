@@ -15,7 +15,7 @@ void main() {
     expect(mediumDark, const Color(0xff34383b));
     expect(medium, const Color(0xff41464a));
     expect(mediumLight, const Color(0xff4f555a));
-    expect(light, const Color(0xffcfd7dd));
+    expect(light, const Color(0xffe4d5d6));
   });
 
   testWidgets('Ambiance generates correct color values', (tester) async {
@@ -26,19 +26,19 @@ void main() {
         theme: FlumeTheme.fallback(),
         child: Ambiance(
           color: const Color(0xff242729),
-          builder: (context, _, __) {
+          builder: (context, _) {
             contexts.add(context);
             return Ambiance(
-              builder: (context, _, __) {
+              builder: (context, _) {
                 contexts.add(context);
                 return Ambiance(
-                  builder: (context, _, __) {
+                  builder: (context, _) {
                     contexts.add(context);
                     return Ambiance(
-                      builder: (context, _, __) {
+                      builder: (context, _) {
                         contexts.add(context);
                         return Ambiance(
-                          builder: (context, _, __) {
+                          builder: (context, _) {
                             contexts.add(context);
                             return Ambiance(
                               child: Container(),
@@ -77,7 +77,7 @@ void main() {
           expect(color, const Color(0xff4f555a));
           break;
         case 4:
-          expect(color, const Color(0xffcfd7dd));
+          expect(color, const Color(0xffe4d5d6));
           break;
       }
     }

@@ -5,9 +5,14 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('AmbianceProvider exposes given values', (tester) async {
     await tester.pumpWidget(AmbianceProvider(
-      source: const Color(0xff00ff00),
-      color: const Color(0xff00ff00),
-      elevation: 0,
+      state: AmbianceState(
+        source: const Color(0xff00ff00),
+        color: const Color(0xff00ff00),
+        elevation: 0,
+        up: () => const Color(0xff00ff00),
+        down: () => const Color(0xff00ff00),
+        at: (p0) => const Color(0xff00ff00),
+      ),
       child: Container(),
     ));
 
@@ -15,8 +20,8 @@ void main() {
 
     finder.evaluate().forEach((element) {
       final provider = element.widget as AmbianceProvider;
-      expect(provider.color, const Color(0xff00ff00));
-      expect(provider.elevation, 0);
+      expect(provider.state.color, const Color(0xff00ff00));
+      expect(provider.state.elevation, 0);
     });
   });
 }

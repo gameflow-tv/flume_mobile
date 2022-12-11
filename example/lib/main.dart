@@ -1,4 +1,8 @@
 import 'package:flume_example/pages/ambiance.dart';
+import 'package:flume_example/pages/foundation.dart';
+import 'package:flume_example/pages/foundation/breakpoints.dart';
+import 'package:flume_example/pages/foundation/colors.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flume/flume.dart';
 import 'package:flutter_svg/svg.dart';
@@ -23,55 +27,50 @@ class FlumeExample extends StatelessWidget {
           theme: theme,
           routes: {
             '/ambiance': (context) => const AmbiancePage(),
+            '/foundation': (context) => const FoundationPage(),
+            '/foundation/breakpoints': (context) => const BreakpointsPage(),
+            '/foundation/colors': (context) => const ColorsPage(),
           },
           home: Ambiance(
-            builder: (context, color, elevation) {
+            builder: (context, ambiance) {
+              final theme = Flume.of(context);
               return Scaffold(
-                backgroundColor: color,
+                backgroundColor: ambiance.color,
                 appBar: TopBar(
                   leading: Padding(
                     padding: EdgeInsets.all(spacing.sm),
                     child: SvgPicture.asset(
                       'assets/icon/flume.svg',
-                      color: theme.colorScheme.primary,
+                      color: theme.colors.primary,
                     ),
                   ),
                   title: const Text('Flume'),
                 ),
-                body: Builder(
-                  builder: (context) {
-                    final theme = Flume.of(context);
-
-                    return ListView(
-                      children: [
-                        Cell(
-                          title: const Text('Ambiance'),
-                          onTap: () =>
-                              Navigator.pushNamed(context, '/ambiance'),
+                body: ListView(
+                  children: [
+                    Cell(
+                      title: const Text('Ambiance'),
+                      onTap: () => Navigator.pushNamed(context, '/ambiance'),
+                    ),
+                    Cell(
+                      title: const Text('Foundation'),
+                      onTap: () => Navigator.pushNamed(context, '/foundation'),
+                    ),
+                    Cell(
+                      title: const Text('Components'),
+                      onTap: () => Navigator.pushNamed(context, '/ambiance'),
+                    ),
+                  ]
+                      .map(
+                        (e) => Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: theme.spacing.xs,
+                            vertical: theme.spacing.xxs,
+                          ),
+                          child: e,
                         ),
-                        Cell(
-                          title: const Text('Foundation'),
-                          onTap: () =>
-                              Navigator.pushNamed(context, '/ambiance'),
-                        ),
-                        Cell(
-                          title: const Text('Components'),
-                          onTap: () =>
-                              Navigator.pushNamed(context, '/ambiance'),
-                        ),
-                      ]
-                          .map(
-                            (e) => Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: theme.spacing.xs,
-                                vertical: theme.spacing.xxs,
-                              ),
-                              child: e,
-                            ),
-                          )
-                          .toList(),
-                    );
-                  },
+                      )
+                      .toList(),
                 ),
               );
             },

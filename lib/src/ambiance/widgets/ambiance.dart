@@ -1,12 +1,30 @@
 import 'package:flume/flume.dart';
 import 'package:flutter/widgets.dart';
 
+class AmbianceState {
+  final Color color;
+  final int elevation;
+  final Color source;
+  final Color Function() down;
+  final Color Function() up;
+  final Color Function(int) at;
+
+  AmbianceState({
+    required this.color,
+    required this.elevation,
+    required this.source,
+    required this.down,
+    required this.up,
+    required this.at,
+  });
+}
+
 class Ambiance extends StatelessWidget {
   final Color? source;
   final Color? color;
   final Widget? child;
   final int? elevation;
-  final Widget Function(BuildContext, Color, int)? builder;
+  final Widget Function(BuildContext, AmbianceState)? builder;
 
   const Ambiance({
     super.key,
@@ -17,8 +35,10 @@ class Ambiance extends StatelessWidget {
     this.source,
   }) : assert(child != null || builder != null);
 
-  static AmbianceProvider? of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<AmbianceProvider>();
+  static AmbianceState? of(BuildContext context) {
+    return context
+        .dependOnInheritedWidgetOfExactType<AmbianceProvider>()
+        ?.state;
   }
 
   @override
@@ -29,14 +49,26 @@ class Ambiance extends StatelessWidget {
         elevation ?? (parent != null ? parent.elevation + 1 : 0);
     final computedColor = getColorFromElevation(
         color ?? parent?.source ?? theme.colors.secondary, computedElevation);
+    final source = color ?? parent?.source ?? theme.colors.secondary;
+
+    final state = AmbianceState(
+      color: computedColor,
+      elevation: computedElevation,
+      source: source,
+      down: () => getColorFromElevation(source, computedElevation + 1),
+      up: () => getColorFromElevation(source, computedElevation - 1),
+      at: (elevation) => getColorFromElevation(source, elevation),
+    );
 
     return AmbianceProvider(
-      elevation: computedElevation,
-      color: computedColor,
-      source: color ?? parent?.source ?? theme.colors.secondary,
+      state: state,
       child: Proxy(
         builder: (ctx) {
-          return child ?? builder!(ctx, computedColor, computedElevation);
+          return child ??
+              builder!(
+                ctx,
+                state,
+              );
         },
       ),
     );

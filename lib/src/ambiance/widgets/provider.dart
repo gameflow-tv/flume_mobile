@@ -1,19 +1,19 @@
+import 'package:flume/src/ambiance.dart';
 import 'package:flutter/widgets.dart';
+
+typedef ColorCallback = Color Function();
+typedef ColorCallbackWithArg = Color Function(int);
 
 /// {@category Foundation}
 /// A provider wrapper around [FlumeTheme] allowing its children
 /// to be notified and rebuilt when the theme changes.
 class AmbianceProvider extends InheritedWidget {
-  final Color color;
-  final int elevation;
-  final Color source;
+  final AmbianceState state;
 
   const AmbianceProvider({
     super.key,
-    required this.elevation,
     required Widget child,
-    required this.color,
-    required this.source,
+    required this.state,
   }) : super(child: child);
 
   static AmbianceProvider? of(BuildContext context) {
@@ -22,8 +22,8 @@ class AmbianceProvider extends InheritedWidget {
 
   @override
   bool updateShouldNotify(AmbianceProvider oldWidget) {
-    return elevation != oldWidget.elevation ||
-        color != oldWidget.color ||
-        source != oldWidget.source;
+    return state.elevation != oldWidget.state.elevation ||
+        state.color != oldWidget.state.color ||
+        state.source != oldWidget.state.source;
   }
 }

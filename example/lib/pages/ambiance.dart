@@ -15,11 +15,14 @@ class AmbianceBox extends StatelessWidget {
 
     return Ambiance(
       color: color,
-      builder: (context, color, elevation) {
+      builder: (context, ambiance) {
+        final color = ambiance.color;
+        final elevation = ambiance.elevation;
+
         return Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(theme.shapes.md),
-            color: color,
+            color: ambiance.color,
           ),
           padding: theme.spacing.insets.md,
           child: Column(
