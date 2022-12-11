@@ -69,34 +69,47 @@ class RGB extends Equatable {
 
   /// Converts [CIELAB] color to [RGB] color.
   factory RGB.fromCIELAB(CIELAB color) {
-    double labToXYZ(double t) {
-      return t > t1 ? t * t * t : t2 * (t - t0);
-    }
+    final l = color.l;
+    final a = color.a;
+    final b = color.b;
 
-    double xyzToRGB(double t) {
-      return 255 * (t <= 0.00304 ? 12.92 * t : 1.055 * pow(t, 1 / 2.4) - 0.055);
-    }
+    // Convert the CIELAB color to XYZ
+    final double tmpY = (l + 16) / 116;
+    final double tmpX = a / 500 + tmpY;
+    final double tmpZ = tmpY - b / 200;
 
-    double x, y, z, r, g, b;
+    final double x = tmpX > 0.20689655172413793
+        ? tmpX * tmpX * tmpX
+        : (tmpX - 16 / 116) / 7.787;
+    final double y = tmpY > 0.20689655172413793
+        ? tmpY * tmpY * tmpY
+        : (tmpY - 16 / 116) / 7.787;
+    final double z = tmpZ > 0.20689655172413793
+        ? tmpZ * tmpZ * tmpZ
+        : (tmpZ - 16 / 116) / 7.787;
 
-    y = (color.l + 16) / 116;
-    x = color.a / 500 + y;
-    z = y - color.b / 200;
+    // Convert the XYZ color to RGB
+    final double tmpR = x * 3.2406 + y * -1.5372 + z * -0.4986;
+    final double tmpG = x * -0.9689 + y * 1.8758 + z * 0.0415;
+    final double tmpB = x * 0.0557 + y * -0.2040 + z * 1.0570;
 
-    y = yn * labToXYZ(y);
-    x = xn * labToXYZ(x);
-    z = zn * labToXYZ(z);
+    final int r = (tmpR > 0.0031308)
+        ? (pow(tmpR, 1 / 2.4) * 255 + 0.5).toInt()
+        : (tmpR * 12.92 * 255 + 0.5).toInt();
+    final int g = (tmpG > 0.0031308)
+        ? (pow(tmpG, 1 / 2.4) * 255 + 0.5).toInt()
+        : (tmpG * 12.92 * 255 + 0.5).toInt();
+    final int b_ = (tmpB > 0.0031308)
+        ? (pow(tmpB, 1 / 2.4) * 255 + 0.5).toInt()
+        : (tmpB * 12.92 * 255 + 0.5).toInt();
 
-    r = xyzToRGB(x * 3.2406 + y * -1.5372 + z * -0.4986);
-    g = xyzToRGB(x * -0.9689 + y * 1.8758 + z * 0.0415);
-    b = xyzToRGB(x * 0.0557 + y * -0.2040 + z * 1.0570);
-
-    return RGB(r.toInt(), g.toInt(), b.toInt());
+    // Cap values at 255
+    return RGB(r.clamp(0, 255), g.clamp(0, 255), b_.clamp(0, 255));
   }
 
   /// Converts color to hex string.
   String toHex() {
-    return '#${r.toRadixString(16).padLeft(2, '0')}${g.toRadixString(16).padLeft(2, '0')}${b.toRadixString(16).padLeft(2, '0')}${a.toRadixString(16).padLeft(2, '0')}';
+    return '#${r.toRadixString(16).padLeft(2, '0')}${g.toRadixString(16).padLeft(2, '0')}${b.toRadixString(16).padLeft(2, '0')}';
   }
 
   /// Converts color to [Color].

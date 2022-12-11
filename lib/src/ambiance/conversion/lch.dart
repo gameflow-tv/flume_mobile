@@ -24,7 +24,7 @@ class LCH extends Equatable {
     final double b = lab.b;
 
     final double c = sqrt(a * a + b * b);
-    final double h = (atan2(b, a) * 180 + 360) % 360;
+    final double h = (atan2(b, a) * 180 / pi + 360) % 360;
 
     return LCH(l, c, h);
   }
