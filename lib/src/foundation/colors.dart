@@ -203,4 +203,35 @@ class FlumeColors {
         overlay70: FlumePalette.black70,
         shadow: FlumePalette.black,
       );
+
+  Map<String, Color> get all {
+    return {
+      'primary': primary,
+      'onPrimary': onPrimary,
+      'secondary': secondary,
+      'tertiary': tertiary,
+      'quaternary': quaternary,
+      'header': header,
+      'body': body,
+      'subtitle': subtitle,
+      'icon': icon,
+      'buttonFocus': buttonFocus,
+      'signal': signal,
+      'onSignal': onSignal,
+      'success': success,
+      'onSuccess': onSuccess,
+      'warning': warning,
+      'onWarning': onWarning,
+      'error': error,
+      'onError': onError,
+      'draw': draw,
+      'highlight10': highlight10,
+      'highlight30': highlight30,
+      'inactive': inactive,
+      'overlay30': overlay30,
+      'overlay50': overlay50,
+      'overlay70': overlay70,
+      'shadow': shadow,
+    };
+  }
 }
