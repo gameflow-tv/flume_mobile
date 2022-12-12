@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:equatable/equatable.dart';
 import 'package:flume/flume.dart';
 import 'package:flume/src/ambiance/conversion/constants.dart';
+import 'package:flume/src/ambiance/conversion/xyz.dart';
 
 /// {@category Ambiance}
 /// Class representing the RGB colorspace.
@@ -69,42 +70,7 @@ class RGB extends Equatable {
 
   /// Converts [CIELAB] color to [RGB] color.
   factory RGB.fromCIELAB(CIELAB color) {
-    final l = color.l;
-    final a = color.a;
-    final b = color.b;
-
-    // Convert the CIELAB color to XYZ
-    final double tmpY = (l + 16) / 116;
-    final double tmpX = a / 500 + tmpY;
-    final double tmpZ = tmpY - b / 200;
-
-    final double x = tmpX > 0.20689655172413793
-        ? tmpX * tmpX * tmpX
-        : (tmpX - 16 / 116) / 7.787;
-    final double y = tmpY > 0.20689655172413793
-        ? tmpY * tmpY * tmpY
-        : (tmpY - 16 / 116) / 7.787;
-    final double z = tmpZ > 0.20689655172413793
-        ? tmpZ * tmpZ * tmpZ
-        : (tmpZ - 16 / 116) / 7.787;
-
-    // Convert the XYZ color to RGB
-    final double tmpR = x * 3.2406 + y * -1.5372 + z * -0.4986;
-    final double tmpG = x * -0.9689 + y * 1.8758 + z * 0.0415;
-    final double tmpB = x * 0.0557 + y * -0.2040 + z * 1.0570;
-
-    final int r = (tmpR > 0.0031308)
-        ? (pow(tmpR, 1 / 2.4) * 255 + 0.5).toInt()
-        : (tmpR * 12.92 * 255 + 0.5).toInt();
-    final int g = (tmpG > 0.0031308)
-        ? (pow(tmpG, 1 / 2.4) * 255 + 0.5).toInt()
-        : (tmpG * 12.92 * 255 + 0.5).toInt();
-    final int b_ = (tmpB > 0.0031308)
-        ? (pow(tmpB, 1 / 2.4) * 255 + 0.5).toInt()
-        : (tmpB * 12.92 * 255 + 0.5).toInt();
-
-    // Cap values at 255
-    return RGB(r.clamp(0, 255), g.clamp(0, 255), b_.clamp(0, 255));
+    return color.toRGB();
   }
 
   /// Converts color to hex string.
