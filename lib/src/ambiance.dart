@@ -11,6 +11,8 @@ export 'ambiance/conversion/rgb.dart';
 export 'ambiance/conversion/hsl.dart';
 export 'ambiance/conversion/lab.dart';
 export 'ambiance/conversion/lch.dart';
+export 'ambiance/conversion/xyz.dart';
+export 'ambiance/conversion/constants.dart';
 
 // Widgets
 export 'ambiance/widgets/ambiance.dart';

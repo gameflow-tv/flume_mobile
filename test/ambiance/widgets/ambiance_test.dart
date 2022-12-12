@@ -15,7 +15,7 @@ void main() {
     expect(mediumDark, const Color(0xff34383b));
     expect(medium, const Color(0xff41464a));
     expect(mediumLight, const Color(0xff4f555a));
-    expect(light, const Color(0xffe4d5d6));
+    expect(light, const Color(0xffcfd7dd));
   });
 
   testWidgets('Ambiance generates correct color values', (tester) async {
@@ -77,7 +77,7 @@ void main() {
           expect(color, const Color(0xff4f555a));
           break;
         case 4:
-          expect(color, const Color(0xffe4d5d6));
+          expect(color, const Color(0xffcfd7dd));
           break;
       }
     }

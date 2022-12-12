@@ -39,7 +39,7 @@ void main() {
   test('toHex() returns correct hex string', () {
     const color = Color(0xff242729);
     var result = RGB(color.red, color.green, color.blue).toHex();
-    expect(result, equals('#242729ff'));
+    expect(result, equals('#242729'));
   });
 
   test('toColor() returns correct color', () {
