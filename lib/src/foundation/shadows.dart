@@ -70,8 +70,8 @@ class FlumeShadows {
         focus: BoxShadow(
           color: Color.fromRGBO(255, 255, 255, 1.0),
           offset: Offset(0, 0),
-          blurRadius: 4,
-          spreadRadius: 2,
+          blurRadius: 2,
+          spreadRadius: 1,
         ),
         text: BoxShadow(
           color: Color.fromRGBO(0, 0, 0, 0.6),
