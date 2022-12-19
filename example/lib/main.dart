@@ -1,4 +1,6 @@
 import 'package:flume_example/pages/ambiance.dart';
+import 'package:flume_example/pages/components.dart';
+import 'package:flume_example/pages/components/buttons.dart';
 import 'package:flume_example/pages/foundation.dart';
 import 'package:flume_example/pages/foundation/breakpoints.dart';
 import 'package:flume_example/pages/foundation/colors.dart';
@@ -38,6 +40,8 @@ class FlumeExample extends StatelessWidget {
             '/foundation/shadows': (context) => const ShadowsPage(),
             '/foundation/shapes': (context) => const ShapesPage(),
             '/foundation/typography': (context) => const TypographyPage(),
+            '/components': (context) => const ComponentsPage(),
+            '/components/buttons': (context) => const ButtonsPage(),
           },
           home: Ambiance(
             builder: (context, ambiance) {
@@ -66,7 +70,7 @@ class FlumeExample extends StatelessWidget {
                     ),
                     Cell(
                       title: const Text('Components'),
-                      onTap: () => Navigator.pushNamed(context, '/ambiance'),
+                      onTap: () => Navigator.pushNamed(context, '/components'),
                     ),
                   ]
                       .map(
