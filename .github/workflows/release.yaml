@@ -23,7 +23,7 @@ jobs:
       - name: Set pubspec version
         uses: mikefarah/yq@master
         with:
-          cmd: yq eval -i ".version = \"${{ env.RELEASE_VERSION }}\"" pubspec.yaml
+          cmd: yq eval -i ".version = ${{ env.RELEASE_VERSION }}" pubspec.yaml
 
       - name: Setup credentials
         run: |
