@@ -31,7 +31,7 @@ jobs:
             "refreshToken":"${{ secrets.PUB_OAUTH_REFRESH_TOKEN }}",
             "tokenEndpoint":"https://accounts.google.com/o/oauth2/token",
             "scopes": [ "openid", "https://www.googleapis.com/auth/userinfo.email" ],
-            "expiration": 1570721159347
+            "expiration": 1673608638916
           }
           EOF
       - name: Publish package
