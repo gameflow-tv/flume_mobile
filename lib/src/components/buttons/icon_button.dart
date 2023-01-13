@@ -157,6 +157,7 @@ class _SymbolButtonState extends State<SymbolButton> {
       case ButtonSize.medium:
         return EdgeInsets.all(theme.spacing.xs);
       case ButtonSize.large:
+      case ButtonSize.expand:
         return EdgeInsets.all(theme.spacing.sm);
     }
   }
@@ -172,10 +173,13 @@ class _SymbolButtonState extends State<SymbolButton> {
         base = theme.colors.primary;
         break;
       case ButtonVariant.tonal:
-        base = ambiance?.color ?? theme.colors.secondary;
+        base = ambiance.color;
         break;
       case ButtonVariant.signal:
         base = theme.colors.signal;
+        break;
+      case ButtonVariant.light:
+        base = ambiance.palette.light;
         break;
     }
 
@@ -213,10 +217,13 @@ class _SymbolButtonState extends State<SymbolButton> {
         base = theme.colors.onPrimary;
         break;
       case ButtonVariant.tonal:
-        base = ambiance?.at(5) ?? theme.colors.header;
+        base = ambiance.at(5);
         break;
       case ButtonVariant.signal:
         base = theme.colors.onSignal;
+        break;
+      case ButtonVariant.light:
+        base = ambiance.palette.dark;
         break;
     }
 

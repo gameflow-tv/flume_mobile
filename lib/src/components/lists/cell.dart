@@ -48,7 +48,7 @@ class Cell extends StatelessWidget {
                   trailing!
                 else if (onTap != null)
                   const Icon(
-                    FlumeIcon.chevron_right,
+                    FlumeIcons.chevron_right,
                     size: 14,
                   ),
               ],

@@ -17,3 +17,6 @@ export 'ambiance/conversion/constants.dart';
 // Widgets
 export 'ambiance/widgets/ambiance.dart';
 export 'ambiance/widgets/provider.dart';
+
+// Extensions
+export 'ambiance/extensions.dart';

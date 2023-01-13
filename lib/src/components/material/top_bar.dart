@@ -16,6 +16,7 @@ class TopBar<T> extends StatelessWidget implements PreferredSizeWidget {
     this.automaticallyImplyLeading = true,
     this.usePlatformNavigation = false,
     this.result,
+    this.backgroundColor,
   }) : preferredSize = Size.fromHeight(
           bottom?.preferredSize.height ?? 0.0 + kToolbarHeight,
         );
@@ -144,6 +145,9 @@ class TopBar<T> extends StatelessWidget implements PreferredSizeWidget {
   /// [TopBar] is popped of the navigation stack.
   final T? result;
 
+  /// The color to use for the app bar's [Material].
+  final Color? backgroundColor;
+
   @override
   Widget build(BuildContext context) {
     final theme = Flume.of(context);
@@ -161,7 +165,7 @@ class TopBar<T> extends StatelessWidget implements PreferredSizeWidget {
       if (automaticallyImplyLeading && canPop) {
         icon = GestureDetector(
           behavior: HitTestBehavior.opaque,
-          child: const Icon(FlumeIcon.chevron_left, size: 16.0),
+          child: const Icon(FlumeIcons.chevron_left, size: 24.0),
           onTap: () => usePlatformNavigation
               ? SystemNavigator.pop()
               : Navigator.of(context).pop(result),
@@ -170,6 +174,7 @@ class TopBar<T> extends StatelessWidget implements PreferredSizeWidget {
     }
 
     return AppBar(
+      backgroundColor: backgroundColor,
       title: DefaultTextStyle(
         style: style,
         child: AnimatedSwitcher(

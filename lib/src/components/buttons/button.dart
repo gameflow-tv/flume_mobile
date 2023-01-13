@@ -15,6 +15,9 @@ class Button extends StatefulWidget {
   /// Optional icon to display on the right side of the button.
   final Widget? icon;
 
+  /// Optional position of the icon.
+  final IconPosition iconPosition;
+
   /// Optional state to override the default initial state.
   final ButtonState? state;
 
@@ -27,6 +30,7 @@ class Button extends StatefulWidget {
     required this.variant,
     required this.child,
     this.icon,
+    this.iconPosition = IconPosition.right,
     this.state,
     this.onPressed,
   });
@@ -46,34 +50,54 @@ class _ButtonState extends State<Button> {
     state = widget.state ?? ButtonState.normal;
   }
 
+  @override
+  void didUpdateWidget(covariant Button oldWidget) {
+    if (widget.state != oldWidget.state) {
+      setState(() {
+        state = widget.state ?? ButtonState.normal;
+      });
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
   void handleTapDown(TapDownDetails _) {
-    setState(() {
-      state = ButtonState.pressed;
-    });
+    if (widget.state == null) {
+      setState(() {
+        state = ButtonState.pressed;
+      });
+    }
   }
 
   void handlePointerEnter([PointerEnterEvent? _]) {
-    setState(() {
-      state = ButtonState.hover;
-    });
+    if (widget.state == null) {
+      setState(() {
+        state = ButtonState.hover;
+      });
+    }
   }
 
   void handlePointerExit([PointerExitEvent? _]) {
-    setState(() {
-      state = ButtonState.normal;
-    });
+    if (widget.state == null) {
+      setState(() {
+        state = ButtonState.normal;
+      });
+    }
   }
 
   void handleTapUp([TapUpDetails? _]) {
-    setState(() {
-      state = ButtonState.normal;
-    });
+    if (widget.state == null) {
+      setState(() {
+        state = ButtonState.normal;
+      });
+    }
   }
 
   void handleFocus(bool hasFocus) {
-    setState(() {
-      state = hasFocus ? ButtonState.focus : ButtonState.normal;
-    });
+    if (widget.state == null) {
+      setState(() {
+        state = hasFocus ? ButtonState.focus : ButtonState.normal;
+      });
+    }
   }
 
   @override
@@ -98,9 +122,16 @@ class _ButtonState extends State<Button> {
                   onTapCancel: handleTapUp,
                   onTap: widget.onPressed,
                   child: AnimatedContainer(
+                    width: widget.size == ButtonSize.expand
+                        ? double.infinity
+                        : null,
                     duration: theme.motion.short,
                     constraints: BoxConstraints(
-                      minWidth: widget.size == ButtonSize.large ? 160 : 0.0,
+                      minWidth: widget.size == ButtonSize.large
+                          ? 160
+                          : widget.size == ButtonSize.expand
+                              ? double.infinity
+                              : 0.0,
                       maxWidth: double.infinity,
                     ),
                     decoration: getBoxDecoration(theme),
@@ -113,23 +144,15 @@ class _ButtonState extends State<Button> {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            widget.child,
-                            if (widget.icon != null) ...[
-                              SizedBox(width: theme.spacing.xs),
-                              Theme(
-                                data: ThemeData(
-                                  iconTheme: IconThemeData(
-                                    color: foregroundColor,
-                                    size: 16.0,
-                                  ),
-                                ),
-                                child: state == ButtonState.loading
-                                    ? getProgressIndicator()
-                                    : widget.icon!,
-                              ),
+                          children: <Widget>[
+                            if (widget.iconPosition == IconPosition.right) ...[
+                              widget.child,
+                              getIcon(),
+                            ] else ...[
+                              getIcon(),
+                              widget.child,
                             ],
-                          ],
+                          ].spaced(theme.spacing.xs),
                         ),
                       ),
                     ),
@@ -140,6 +163,23 @@ class _ButtonState extends State<Button> {
           ),
         );
       },
+    );
+  }
+
+  Widget getIcon() {
+    if (widget.icon == null && state != ButtonState.loading) {
+      return const SizedBox.shrink();
+    }
+
+    return Theme(
+      data: ThemeData(
+        iconTheme: IconThemeData(
+          color: foregroundColor,
+          size: 16.0,
+        ),
+      ),
+      child:
+          state == ButtonState.loading ? getProgressIndicator() : widget.icon!,
     );
   }
 
@@ -182,6 +222,7 @@ class _ButtonState extends State<Button> {
           horizontal: theme.spacing.lg,
         );
       case ButtonSize.large:
+      case ButtonSize.expand:
         return EdgeInsets.all(theme.spacing.md);
     }
   }
@@ -197,10 +238,13 @@ class _ButtonState extends State<Button> {
         base = theme.colors.primary;
         break;
       case ButtonVariant.tonal:
-        base = ambiance?.color ?? theme.colors.secondary;
+        base = ambiance.color;
         break;
       case ButtonVariant.signal:
         base = theme.colors.signal;
+        break;
+      case ButtonVariant.light:
+        base = ambiance.palette.light;
         break;
     }
 
@@ -220,7 +264,7 @@ class _ButtonState extends State<Button> {
         base = base.withOpacity(0.4);
         break;
       case ButtonState.loading:
-        base = base.withOpacity(0.4);
+        base = base.withOpacity(0.6);
         break;
     }
 
@@ -238,10 +282,13 @@ class _ButtonState extends State<Button> {
         base = theme.colors.onPrimary;
         break;
       case ButtonVariant.tonal:
-        base = ambiance?.at(5) ?? theme.colors.header;
+        base = ambiance.at(5);
         break;
       case ButtonVariant.signal:
         base = theme.colors.onSignal;
+        break;
+      case ButtonVariant.light:
+        base = ambiance.palette.dark;
         break;
     }
 
@@ -258,7 +305,7 @@ class _ButtonState extends State<Button> {
         base = base.withOpacity(0.4);
         break;
       case ButtonState.loading:
-        base = base.withOpacity(0.4);
+        base = base.withOpacity(0.6);
         break;
     }
 

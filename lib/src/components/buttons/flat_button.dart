@@ -2,36 +2,28 @@ import 'package:flume/flume.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class ToggleButton extends StatefulWidget {
-  /// The variant of the button.
-  final ToggleButtonVariant variant;
-
-  /// Whether the button is selected.
-  final bool selected;
-
+class FlatButton extends StatefulWidget {
   /// Optional state to override the default initial state.
   final ButtonState? state;
 
   /// Optional callback to be called when the button is pressed.
-  final ValueChanged<bool>? onChange;
+  final VoidCallback? onPressed;
 
   /// The child widget to render.
   final Widget child;
 
-  const ToggleButton({
+  const FlatButton({
     super.key,
-    required this.variant,
-    required this.selected,
     required this.child,
     this.state,
-    this.onChange,
+    this.onPressed,
   });
 
   @override
-  State<ToggleButton> createState() => _ToggleButtonState();
+  State<FlatButton> createState() => _FlatButtonState();
 }
 
-class _ToggleButtonState extends State<ToggleButton> {
+class _FlatButtonState extends State<FlatButton> {
   late ButtonState state;
   late Color backgroundColor;
   late Color foregroundColor;
@@ -92,20 +84,27 @@ class _ToggleButtonState extends State<ToggleButton> {
                   onTapDown: handleTapDown,
                   onTapUp: handleTapUp,
                   onTapCancel: handleTapUp,
-                  onTap: () => widget.onChange?.call(!widget.selected),
+                  onTap: widget.onPressed,
                   child: AnimatedContainer(
-                    width: 40.0,
-                    height: 40.0,
                     duration: theme.motion.short,
                     decoration: getBoxDecoration(theme),
-                    child: IconTheme(
-                      data: IconThemeData(
-                        color: foregroundColor,
-                        size: 22.0,
+                    padding: EdgeInsets.symmetric(
+                      vertical: theme.spacing.xxs,
+                      horizontal: theme.spacing.xxs,
+                    ),
+                    child: DefaultTextStyle(
+                      style: theme.typography.link.toTextStyle().copyWith(
+                            color: foregroundColor,
+                          ),
+                      child: IconTheme(
+                        data: IconThemeData(
+                          color: foregroundColor,
+                          size: 24.0,
+                        ),
+                        child: state != ButtonState.loading
+                            ? widget.child
+                            : getProgressIndicator(theme),
                       ),
-                      child: state != ButtonState.loading
-                          ? widget.child
-                          : getProgressIndicator(theme),
                     ),
                   ),
                 ),
@@ -119,7 +118,7 @@ class _ToggleButtonState extends State<ToggleButton> {
 
   Widget getProgressIndicator(FlumeTheme theme) {
     return Padding(
-      padding: EdgeInsets.all(theme.spacing.sm),
+      padding: EdgeInsets.all(theme.spacing.xs),
       child: SizedBox(
         width: 16.0,
         height: 16.0,
@@ -150,20 +149,16 @@ class _ToggleButtonState extends State<ToggleButton> {
   }
 
   Color getBackgroundColor(BuildContext context) {
-    final ambiance = Ambiance.of(context);
-    final base = ambiance.up();
+    const base = Colors.transparent;
 
     switch (state) {
       case ButtonState.normal:
       case ButtonState.focus:
         return base;
       case ButtonState.hover:
-        if (widget.variant == ToggleButtonVariant.tonal) {
-          return ambiance.color;
-        }
-        return base;
+        return base.withOpacity(0.1);
       case ButtonState.pressed:
-        return base.withOpacity(0.6);
+        return base.withOpacity(0.25);
       case ButtonState.disabled:
       case ButtonState.loading:
         return base.withOpacity(0.4);
@@ -172,36 +167,18 @@ class _ToggleButtonState extends State<ToggleButton> {
 
   Color getForegroundColor(BuildContext context) {
     final theme = Flume.of(context);
-    final ambiance = Ambiance.of(context);
-
-    Color base;
-
-    switch (widget.variant) {
-      case ToggleButtonVariant.standard:
-        base = widget.selected ? theme.colors.primary : theme.colors.icon;
-        break;
-      case ToggleButtonVariant.tonal:
-        base = widget.selected ? theme.colors.primary : ambiance.at(5);
-        break;
-    }
+    final base = theme.colors.body;
 
     switch (state) {
-      case ButtonState.focus:
       case ButtonState.normal:
+      case ButtonState.focus:
         return base;
       case ButtonState.hover:
-        if (widget.variant == ToggleButtonVariant.standard) {
-          return theme.colors.primary;
-        }
-        return base;
+        return base.darken(0.25);
       case ButtonState.pressed:
-        if (widget.variant == ToggleButtonVariant.standard) {
-          base = theme.colors.primary;
-        }
-        return base.withOpacity(0.4);
+        return base.darken(0.5);
       case ButtonState.disabled:
       case ButtonState.loading:
-        base = theme.colors.icon;
         return base.withOpacity(0.4);
     }
   }

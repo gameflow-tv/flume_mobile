@@ -6,6 +6,7 @@ void main() {
   testWidgets('AmbianceProvider exposes given values', (tester) async {
     await tester.pumpWidget(AmbianceProvider(
       state: AmbianceState(
+        palette: getPaletteFromColor(const Color(0xff00ff00)),
         source: const Color(0xff00ff00),
         color: const Color(0xff00ff00),
         elevation: 0,

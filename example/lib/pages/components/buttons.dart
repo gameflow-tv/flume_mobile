@@ -41,41 +41,41 @@ class ButtonsPage extends StatelessWidget {
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.primary,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           child: Text('Medium'),
                         ),
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.primary,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.hover,
                           child: Text('Medium'),
                         ),
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.primary,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.pressed,
                           child: Text('Medium'),
                         ),
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.primary,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.focus,
                           child: Text('Medium'),
                         ),
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.primary,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.disabled,
                           child: Text('Medium'),
                         ),
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.primary,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.loading,
                           child: Text('Medium'),
                         ),
@@ -106,41 +106,41 @@ class ButtonsPage extends StatelessWidget {
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.primary,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           child: Text('Large'),
                         ),
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.primary,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.hover,
                           child: Text('Large'),
                         ),
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.primary,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.pressed,
                           child: Text('Large'),
                         ),
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.primary,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.focus,
                           child: Text('Large'),
                         ),
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.primary,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.disabled,
                           child: Text('Large'),
                         ),
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.primary,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.loading,
                           child: Text('Large'),
                         ),
@@ -169,41 +169,41 @@ class ButtonsPage extends StatelessWidget {
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.tonal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           child: Text('Medium'),
                         ),
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.tonal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.hover,
                           child: Text('Medium'),
                         ),
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.tonal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.pressed,
                           child: Text('Medium'),
                         ),
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.tonal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.focus,
                           child: Text('Medium'),
                         ),
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.tonal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.disabled,
                           child: Text('Medium'),
                         ),
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.tonal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.loading,
                           child: Text('Medium'),
                         ),
@@ -234,41 +234,41 @@ class ButtonsPage extends StatelessWidget {
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.tonal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           child: Text('Large'),
                         ),
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.tonal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.hover,
                           child: Text('Large'),
                         ),
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.tonal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.pressed,
                           child: Text('Large'),
                         ),
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.tonal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.focus,
                           child: Text('Large'),
                         ),
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.tonal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.disabled,
                           child: Text('Large'),
                         ),
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.tonal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.loading,
                           child: Text('Large'),
                         ),
@@ -299,41 +299,41 @@ class ButtonsPage extends StatelessWidget {
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.signal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           child: Text('Medium'),
                         ),
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.signal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.hover,
                           child: Text('Medium'),
                         ),
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.signal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.pressed,
                           child: Text('Medium'),
                         ),
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.signal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.focus,
                           child: Text('Medium'),
                         ),
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.signal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.disabled,
                           child: Text('Medium'),
                         ),
                         Button(
                           size: ButtonSize.medium,
                           variant: ButtonVariant.signal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.loading,
                           child: Text('Medium'),
                         ),
@@ -364,41 +364,41 @@ class ButtonsPage extends StatelessWidget {
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.signal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           child: Text('Large'),
                         ),
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.signal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.hover,
                           child: Text('Large'),
                         ),
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.signal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.pressed,
                           child: Text('Large'),
                         ),
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.signal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.focus,
                           child: Text('Large'),
                         ),
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.signal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.disabled,
                           child: Text('Large'),
                         ),
                         Button(
                           size: ButtonSize.large,
                           variant: ButtonVariant.signal,
-                          icon: Icon(FlumeIcon.arrow_right),
+                          icon: Icon(FlumeIcons.arrow_right),
                           state: ButtonState.loading,
                           child: Text('Large'),
                         ),
@@ -437,7 +437,7 @@ class ButtonsPage extends StatelessWidget {
                           size: ButtonSize.medium,
                           variant: ButtonVariant.primary,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         const SymbolButton(
@@ -445,7 +445,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.primary,
                           state: ButtonState.hover,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         const SymbolButton(
@@ -453,7 +453,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.primary,
                           state: ButtonState.pressed,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         const SymbolButton(
@@ -461,7 +461,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.primary,
                           state: ButtonState.focus,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         const SymbolButton(
@@ -469,7 +469,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.primary,
                           state: ButtonState.disabled,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         const SymbolButton(
@@ -477,7 +477,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.primary,
                           state: ButtonState.loading,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                       ]
@@ -509,7 +509,7 @@ class ButtonsPage extends StatelessWidget {
                           size: ButtonSize.large,
                           variant: ButtonVariant.primary,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         const SymbolButton(
@@ -517,7 +517,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.primary,
                           state: ButtonState.hover,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         const SymbolButton(
@@ -525,7 +525,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.primary,
                           state: ButtonState.pressed,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         const SymbolButton(
@@ -533,7 +533,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.primary,
                           state: ButtonState.focus,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         const SymbolButton(
@@ -541,7 +541,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.primary,
                           state: ButtonState.disabled,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         const SymbolButton(
@@ -549,7 +549,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.primary,
                           state: ButtonState.loading,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                       ]
@@ -582,7 +582,7 @@ class ButtonsPage extends StatelessWidget {
                           size: ButtonSize.medium,
                           variant: ButtonVariant.tonal,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -590,7 +590,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.tonal,
                           state: ButtonState.hover,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -598,7 +598,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.tonal,
                           state: ButtonState.pressed,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -606,7 +606,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.tonal,
                           state: ButtonState.focus,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -614,7 +614,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.tonal,
                           state: ButtonState.disabled,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -622,7 +622,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.tonal,
                           state: ButtonState.loading,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                       ]
@@ -655,7 +655,7 @@ class ButtonsPage extends StatelessWidget {
                           size: ButtonSize.large,
                           variant: ButtonVariant.tonal,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -663,7 +663,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.tonal,
                           state: ButtonState.hover,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -671,7 +671,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.tonal,
                           state: ButtonState.pressed,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -679,7 +679,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.tonal,
                           state: ButtonState.focus,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -687,7 +687,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.tonal,
                           state: ButtonState.disabled,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -695,7 +695,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.tonal,
                           state: ButtonState.loading,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                       ]
@@ -728,7 +728,7 @@ class ButtonsPage extends StatelessWidget {
                           size: ButtonSize.medium,
                           variant: ButtonVariant.signal,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -736,7 +736,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.signal,
                           state: ButtonState.hover,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -744,7 +744,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.signal,
                           state: ButtonState.pressed,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -752,7 +752,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.signal,
                           state: ButtonState.focus,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -760,7 +760,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.signal,
                           state: ButtonState.disabled,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -768,7 +768,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.signal,
                           state: ButtonState.loading,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                       ]
@@ -801,7 +801,7 @@ class ButtonsPage extends StatelessWidget {
                           size: ButtonSize.large,
                           variant: ButtonVariant.signal,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -809,7 +809,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.signal,
                           state: ButtonState.hover,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -817,7 +817,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.signal,
                           state: ButtonState.pressed,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -825,7 +825,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.signal,
                           state: ButtonState.focus,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -833,7 +833,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.signal,
                           state: ButtonState.disabled,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                         SymbolButton(
@@ -841,7 +841,7 @@ class ButtonsPage extends StatelessWidget {
                           variant: ButtonVariant.signal,
                           state: ButtonState.loading,
                           child: Icon(
-                            FlumeIcon.info,
+                            FlumeIcons.info,
                           ),
                         ),
                       ]
@@ -882,37 +882,37 @@ class ButtonsPage extends StatelessWidget {
                           variant: ToggleButtonVariant.standard,
                           selected: false,
                           state: ButtonState.normal,
-                          child: Icon(FlumeIcon.heart),
+                          child: Icon(FlumeIcons.heart),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.standard,
                           selected: false,
                           state: ButtonState.hover,
-                          child: Icon(FlumeIcon.heart),
+                          child: Icon(FlumeIcons.heart),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.standard,
                           selected: false,
                           state: ButtonState.pressed,
-                          child: Icon(FlumeIcon.heart),
+                          child: Icon(FlumeIcons.heart),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.standard,
                           selected: false,
                           state: ButtonState.focus,
-                          child: Icon(FlumeIcon.heart),
+                          child: Icon(FlumeIcons.heart),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.standard,
                           selected: false,
                           state: ButtonState.disabled,
-                          child: Icon(FlumeIcon.heart),
+                          child: Icon(FlumeIcons.heart),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.standard,
                           selected: false,
                           state: ButtonState.loading,
-                          child: Icon(FlumeIcon.heart),
+                          child: Icon(FlumeIcons.heart),
                         ),
                       ]
                           .map(
@@ -942,37 +942,37 @@ class ButtonsPage extends StatelessWidget {
                           variant: ToggleButtonVariant.standard,
                           selected: true,
                           state: ButtonState.normal,
-                          child: Icon(FlumeIcon.heart_filled),
+                          child: Icon(FlumeIcons.heart_filled),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.standard,
                           selected: true,
                           state: ButtonState.hover,
-                          child: Icon(FlumeIcon.heart_filled),
+                          child: Icon(FlumeIcons.heart_filled),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.standard,
                           selected: true,
                           state: ButtonState.pressed,
-                          child: Icon(FlumeIcon.heart_filled),
+                          child: Icon(FlumeIcons.heart_filled),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.standard,
                           selected: true,
                           state: ButtonState.focus,
-                          child: Icon(FlumeIcon.heart_filled),
+                          child: Icon(FlumeIcons.heart_filled),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.standard,
                           selected: true,
                           state: ButtonState.disabled,
-                          child: Icon(FlumeIcon.heart_filled),
+                          child: Icon(FlumeIcons.heart_filled),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.standard,
                           selected: true,
                           state: ButtonState.loading,
-                          child: Icon(FlumeIcon.heart_filled),
+                          child: Icon(FlumeIcons.heart_filled),
                         ),
                       ]
                           .map(
@@ -1002,37 +1002,37 @@ class ButtonsPage extends StatelessWidget {
                           variant: ToggleButtonVariant.tonal,
                           selected: false,
                           state: ButtonState.normal,
-                          child: Icon(FlumeIcon.heart),
+                          child: Icon(FlumeIcons.heart),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.tonal,
                           selected: false,
                           state: ButtonState.hover,
-                          child: Icon(FlumeIcon.heart),
+                          child: Icon(FlumeIcons.heart),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.tonal,
                           selected: false,
                           state: ButtonState.pressed,
-                          child: Icon(FlumeIcon.heart),
+                          child: Icon(FlumeIcons.heart),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.tonal,
                           selected: false,
                           state: ButtonState.focus,
-                          child: Icon(FlumeIcon.heart),
+                          child: Icon(FlumeIcons.heart),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.tonal,
                           selected: false,
                           state: ButtonState.disabled,
-                          child: Icon(FlumeIcon.heart),
+                          child: Icon(FlumeIcons.heart),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.tonal,
                           selected: false,
                           state: ButtonState.loading,
-                          child: Icon(FlumeIcon.heart),
+                          child: Icon(FlumeIcons.heart),
                         ),
                       ]
                           .map(
@@ -1062,37 +1062,37 @@ class ButtonsPage extends StatelessWidget {
                           variant: ToggleButtonVariant.tonal,
                           selected: true,
                           state: ButtonState.normal,
-                          child: Icon(FlumeIcon.heart_filled),
+                          child: Icon(FlumeIcons.heart_filled),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.tonal,
                           selected: true,
                           state: ButtonState.hover,
-                          child: Icon(FlumeIcon.heart_filled),
+                          child: Icon(FlumeIcons.heart_filled),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.tonal,
                           selected: true,
                           state: ButtonState.pressed,
-                          child: Icon(FlumeIcon.heart_filled),
+                          child: Icon(FlumeIcons.heart_filled),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.tonal,
                           selected: true,
                           state: ButtonState.focus,
-                          child: Icon(FlumeIcon.heart_filled),
+                          child: Icon(FlumeIcons.heart_filled),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.tonal,
                           selected: true,
                           state: ButtonState.disabled,
-                          child: Icon(FlumeIcon.heart_filled),
+                          child: Icon(FlumeIcons.heart_filled),
                         ),
                         ToggleButton(
                           variant: ToggleButtonVariant.tonal,
                           selected: true,
                           state: ButtonState.loading,
-                          child: Icon(FlumeIcon.heart_filled),
+                          child: Icon(FlumeIcons.heart_filled),
                         ),
                       ]
                           .map(
@@ -1124,27 +1124,27 @@ class ButtonsPage extends StatelessWidget {
                       children: const [
                         GhostButton(
                           state: ButtonState.normal,
-                          child: Icon(FlumeIcon.times),
+                          child: Icon(FlumeIcons.times),
                         ),
                         GhostButton(
                           state: ButtonState.hover,
-                          child: Icon(FlumeIcon.times),
+                          child: Icon(FlumeIcons.times),
                         ),
                         GhostButton(
                           state: ButtonState.pressed,
-                          child: Icon(FlumeIcon.times),
+                          child: Icon(FlumeIcons.times),
                         ),
                         GhostButton(
                           state: ButtonState.focus,
-                          child: Icon(FlumeIcon.times),
+                          child: Icon(FlumeIcons.times),
                         ),
                         GhostButton(
                           state: ButtonState.disabled,
-                          child: Icon(FlumeIcon.times),
+                          child: Icon(FlumeIcons.times),
                         ),
                         GhostButton(
                           state: ButtonState.loading,
-                          child: Icon(FlumeIcon.times),
+                          child: Icon(FlumeIcons.times),
                         ),
                       ]
                           .map(

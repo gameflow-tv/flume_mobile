@@ -85,6 +85,8 @@ Future<void> download(
           throw Exception('Could not retrieve file');
       }
     }
+
+    throw Exception('Could not retrieve file');
   });
 
   // Retrieve icon canvas.
@@ -223,13 +225,27 @@ Future<void> main(List<String> args) async {
   parser.addOption(
     'file',
     abbr: 'f',
+    help: 'Figma file reference',
     defaultsTo: '4aGRieJsOTu9aqMPFGFf2u',
   );
 
   parser.addOption(
-    'access-token',
-    abbr: 'a',
+    'token',
+    abbr: 't',
+    help: 'Figma access token',
     defaultsTo: 'figd_WHj1ryknfvPbkmyJ4kFR00I7OM0_sn7KZ58QaEKR',
+  );
+
+  parser.addOption(
+    'dart-out',
+    help: 'Path to save Flutter icon class to',
+    defaultsTo: 'lib/src/components/icons.dart',
+  );
+
+  parser.addOption(
+    'ttf-out',
+    help: 'Path to save icon font (.ttf) to',
+    defaultsTo: 'lib/fonts/FlumeIcons.ttf',
   );
 
   // Parse arguments.
@@ -237,7 +253,7 @@ Future<void> main(List<String> args) async {
 
   // Get file reference.
   final ref = results['file'];
-  final accessToken = results['access-token'];
+  final accessToken = results['token'];
 
   final dir = Directory('${Directory.current.path}/.cache');
 
@@ -256,9 +272,9 @@ Future<void> main(List<String> args) async {
   // Generate icon font.
   await generateIconFont(
     dir,
-    'FlumeIcon',
-    '${Directory.current.path}/lib/fonts/FlumeIcons.ttf',
-    '${Directory.current.path}/lib/icons.dart',
+    'FlumeIcons',
+    '${Directory.current.path}/${results['ttf-out']}',
+    '${Directory.current.path}/${results['dart-out']}',
   ).catchError((e) {
     print(e);
     exit(1);

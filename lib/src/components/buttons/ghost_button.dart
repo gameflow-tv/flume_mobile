@@ -143,14 +143,14 @@ class _GhostButtonState extends State<GhostButton> {
 
   Color getBackgroundColor(BuildContext context) {
     final ambiance = Ambiance.of(context);
-    final base = ambiance?.up() ?? Colors.transparent;
+    final base = ambiance.up();
 
     switch (state) {
       case ButtonState.normal:
       case ButtonState.focus:
         return base;
       case ButtonState.hover:
-        return ambiance?.down() ?? base.brighten(0.25);
+        return ambiance.down();
       case ButtonState.pressed:
         return base.darken(0.25);
       case ButtonState.disabled:
@@ -160,10 +160,9 @@ class _GhostButtonState extends State<GhostButton> {
   }
 
   Color getForegroundColor(BuildContext context) {
-    final theme = Flume.of(context);
     final ambiance = Ambiance.of(context);
 
-    var base = ambiance?.at(5) ?? theme.colors.icon;
+    var base = ambiance.at(5);
 
     switch (state) {
       case ButtonState.focus:

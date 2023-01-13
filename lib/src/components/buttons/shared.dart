@@ -1,12 +1,14 @@
 enum ButtonSize {
   medium,
   large,
+  expand,
 }
 
 enum ButtonVariant {
   primary,
   tonal,
   signal,
+  light,
 }
 
 enum ToggleButtonVariant {
@@ -21,4 +23,9 @@ enum ButtonState {
   focus,
   disabled,
   loading,
+}
+
+enum IconPosition {
+  left,
+  right,
 }

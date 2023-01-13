@@ -57,7 +57,7 @@ void main() {
     );
 
     final List<Color?> colors = contexts
-        .map((context) => Ambiance.of(context)?.color)
+        .map((context) => Ambiance.of(context).color)
         .toList(growable: false);
 
     for (var i = 0; i <= colors.length - 1; i++) {

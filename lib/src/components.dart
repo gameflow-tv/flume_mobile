@@ -1,12 +1,20 @@
 library components;
 
 export 'components/lists/cell.dart';
+export 'components/lists/extensions.dart';
+
 export 'components/icons.dart';
+
+export 'components/spacing/gap.dart';
 
 export 'components/buttons/button.dart';
 export 'components/buttons/icon_button.dart';
 export 'components/buttons/toggle_button.dart';
 export 'components/buttons/ghost_button.dart';
 export 'components/buttons/shared.dart';
+export 'components/buttons/flat_button.dart';
 
 export 'components/material/top_bar.dart';
+
+export 'components/input/input_field.dart';
+export 'components/input/validation_message.dart';

@@ -2,6 +2,7 @@ import 'package:flume/flume.dart';
 import 'package:flutter/widgets.dart';
 
 class AmbianceState {
+  final AmbiancePalette palette;
   final Color color;
   final int elevation;
   final Color source;
@@ -10,6 +11,7 @@ class AmbianceState {
   final Color Function(int) at;
 
   AmbianceState({
+    required this.palette,
     required this.color,
     required this.elevation,
     required this.source,
@@ -35,23 +37,40 @@ class Ambiance extends StatelessWidget {
     this.source,
   }) : assert(child != null || builder != null);
 
-  static AmbianceState? of(BuildContext context) {
-    return context
-        .dependOnInheritedWidgetOfExactType<AmbianceProvider>()
-        ?.state;
+  static AmbianceState of(BuildContext context) {
+    final instance =
+        context.dependOnInheritedWidgetOfExactType<AmbianceProvider>();
+
+    if (instance == null) {
+      throw Exception('No AmbianceProvider found in the widget tree.');
+    }
+
+    return instance.state;
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Flume.of(context);
-    final parent = of(context);
-    final computedElevation =
-        elevation ?? (parent != null ? parent.elevation + 1 : 0);
-    final computedColor = getColorFromElevation(
-        color ?? parent?.source ?? theme.colors.secondary, computedElevation);
-    final source = color ?? parent?.source ?? theme.colors.secondary;
+    int computedElevation;
+    Color computedColor;
+    Color source;
+
+    try {
+      final parent = of(context);
+
+      computedElevation = elevation ?? parent.elevation + 1;
+      computedColor =
+          getColorFromElevation(color ?? parent.source, computedElevation);
+      source = color ?? parent.source;
+    } catch (e) {
+      computedElevation = elevation ?? 0;
+      computedColor = getColorFromElevation(
+          color ?? theme.colors.secondary, computedElevation);
+      source = color ?? theme.colors.secondary;
+    }
 
     final state = AmbianceState(
+      palette: getPaletteFromColor(source),
       color: computedColor,
       elevation: computedElevation,
       source: source,
@@ -64,11 +83,7 @@ class Ambiance extends StatelessWidget {
       state: state,
       child: Proxy(
         builder: (ctx) {
-          return child ??
-              builder!(
-                ctx,
-                state,
-              );
+          return child ?? builder!(ctx, state);
         },
       ),
     );
@@ -86,6 +101,14 @@ class Proxy extends StatelessWidget {
 }
 
 Map<Color, AmbiancePalette> _computedPalettes = {};
+
+AmbiancePalette getPaletteFromColor(Color color) {
+  if (_computedPalettes.containsKey(color)) {
+    return _computedPalettes[color]!;
+  } else {
+    return AmbiancePalette.fromColor(color);
+  }
+}
 
 Color getColorFromElevation(Color color, int elevation) {
   AmbiancePalette palette;

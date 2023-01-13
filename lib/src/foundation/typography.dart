@@ -182,13 +182,13 @@ class FlumeTypography {
         ),
         button: FlumeTypographyData(
           fontSize: 14,
-          fontWeight: FontWeight.w600,
-          lineHeight: 1.2,
+          fontWeight: FontWeight.w700,
+          lineHeight: 1.142,
           fontFamily: 'Montserrat',
         ),
         link: FlumeTypographyData(
-          fontSize: 10,
-          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
           lineHeight: 1.2,
           fontFamily: 'Montserrat',
         ),
