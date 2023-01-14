@@ -39,4 +39,4 @@ jobs:
           EOF
       - name: Publish package
         continue-on-error: false
-        run: pub publish -f
+        run: flutter pub publish -f
