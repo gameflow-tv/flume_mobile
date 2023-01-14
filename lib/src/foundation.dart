@@ -11,5 +11,3 @@ export 'package:flume/src/foundation/spacing.dart';
 export 'package:flume/src/foundation/typography.dart';
 export 'package:flume/src/foundation/theme.dart';
 export 'package:flume/src/foundation/flume.dart';
-
-export 'package:flume/src/foundation/utils/extensions.dart';

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 /// {@category Components}
 /// An empty spacing widget used to create padding or space.
+/// Requires a [Provider] of [Axis] to determine the direction.
 class Gap extends StatelessWidget {
   final double? vertical;
   final double? horizontal;

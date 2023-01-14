@@ -13,7 +13,7 @@ enum InputState {
 
 /// {@category Components}
 /// {@subCategory Input}
-/// An input field from the Eufemia design system.
+/// An input field from the Flume design system.
 class InputField extends StatefulWidget {
   /// If the surrounding borders should be hidden.
   final bool hideBorders;
@@ -51,7 +51,7 @@ class InputField extends StatefulWidget {
   /// The text to display on validation errors.
   final String? errorText;
 
-  /// {@template eufemia.components.input.hintText}
+  /// {@template flume.components.input.hintText}
   /// The hint text to display before the field is modified. Disappears once
   /// text is entered in the field.
   /// {@endtemplate}
@@ -76,15 +76,15 @@ class InputField extends StatefulWidget {
   /// The optional [TextStyle] applied to [label].
   final TextStyle? labelStyle;
 
-  /// {@template eufemia.gestures.onEditingComplete}
+  /// {@template flume.gestures.onEditingComplete}
   /// The callback function that is called when the field has been edited.
   /// {@endtemplate}
   final VoidCallback? onEditingComplete;
 
-  /// {@macro eufemia.gestures.onTap}
+  /// {@macro flume.gestures.onTap}
   final VoidCallback? onTap;
 
-  /// {@template eufemia.components.input.controller}
+  /// {@template flume.components.input.controller}
   /// The [TextEditingController] used control and modify this field.
   /// {@endtemplate}
   final TextEditingController? controller;
@@ -99,10 +99,10 @@ class InputField extends StatefulWidget {
   /// the error text to display.
   final String? Function(String?)? validator;
 
-  /// {@macro eufemia.gestures.onChanged}
+  /// {@macro flume.gestures.onChanged}
   final Function(String)? onChanged;
 
-  /// {@template eufemia.gestures.onFieldSubmitted}
+  /// {@template flume.gestures.onFieldSubmitted}
   /// The callback function that is called when the field has been submitted by
   /// the user pressing the keyboard's action button.
   /// {@endtemplate}
