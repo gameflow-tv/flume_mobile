@@ -1,3 +1,14 @@
+## 0.0.3+1
+
+* Formatted files
+* Updated package description
+* Updated package homepage
+
+## 0.0.3
+
+* Added opacity animation on Cell when pressed
+* Exposed `prefixIcon` for InputField component
+
 ## 0.0.2
 
 * Implemented ScrollableList
