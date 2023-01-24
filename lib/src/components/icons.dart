@@ -44,7 +44,8 @@ class FlumeIcons {
   static const caret_up = _FlumeIconsData(0xf118, 'caret_up');
   static const chat_filled = _FlumeIconsData(0xf119, 'chat_filled');
   static const chat = _FlumeIconsData(0xf11a, 'chat');
-  static const check_circle_filled = _FlumeIconsData(0xf11b, 'check_circle_filled');
+  static const check_circle_filled =
+      _FlumeIconsData(0xf11b, 'check_circle_filled');
   static const check_circle = _FlumeIconsData(0xf11c, 'check_circle');
   static const check = _FlumeIconsData(0xf11d, 'check');
   static const checklist = _FlumeIconsData(0xf11e, 'checklist');
@@ -86,7 +87,8 @@ class FlumeIcons {
   static const google = _FlumeIconsData(0xf142, 'google');
   static const hardware_mobile = _FlumeIconsData(0xf143, 'hardware_mobile');
   static const heart_broken = _FlumeIconsData(0xf144, 'heart_broken');
-  static const heart_circle_filled = _FlumeIconsData(0xf145, 'heart_circle_filled');
+  static const heart_circle_filled =
+      _FlumeIconsData(0xf145, 'heart_circle_filled');
   static const heart_filled = _FlumeIconsData(0xf146, 'heart_filled');
   static const heart = _FlumeIconsData(0xf147, 'heart');
   static const help = _FlumeIconsData(0xf148, 'help');
