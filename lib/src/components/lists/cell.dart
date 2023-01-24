@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 /// {@category Components}
 /// {@subCategory List}
 /// A list cell from the Flume design system.
-class Cell extends StatelessWidget {
+class Cell extends StatefulWidget {
   /// A widget on the left-hand side of this [Cell]'s title.
   final Widget? leading;
 
@@ -47,13 +47,42 @@ class Cell extends StatelessWidget {
   });
 
   @override
+  State<Cell> createState() => _CellState();
+}
+
+class _CellState extends State<Cell> {
+  late bool _pressed;
+
+  @override
+  void initState() {
+    super.initState();
+    _pressed = false;
+  }
+
+  void handleTapDown([TapDownDetails? details]) {
+    setState(() {
+      _pressed = true;
+    });
+  }
+
+  void handleTapUp([TapUpDetails? details]) {
+    setState(() {
+      _pressed = false;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final theme = Flume.of(context);
 
-    return Opacity(
-      opacity: disabled ? 0.6 : 1,
+    return AnimatedOpacity(
+      duration: context.theme.motion.short,
+      opacity: (widget.disabled || _pressed) ? 0.6 : 1,
       child: GestureDetector(
-        onTap: onTap,
+        onTap: widget.onTap,
+        onTapDown: handleTapDown,
+        onTapUp: handleTapUp,
+        onTapCancel: handleTapUp,
         child: Container(
           padding: EdgeInsets.symmetric(
             vertical: context.theme.spacing.sm,
@@ -69,25 +98,26 @@ class Cell extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    if (leading != null) ...{
-                      leading!,
+                    if (widget.leading != null) ...{
+                      widget.leading!,
                     },
                     Flexible(
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          title,
-                          if (subtitle != null) ...{
-                            subtitle!,
+                          widget.title,
+                          if (widget.subtitle != null) ...{
+                            widget.subtitle!,
                           }
-                        ],
+                        ].spaced(context.theme.spacing.xxs),
                       ),
                     ),
                   ].spaced(context.theme.spacing.sm),
                 ),
               ),
-              if (trailing != null) ...{
-                trailing!
-              } else if (onTap != null && implyNavigation) ...{
+              if (widget.trailing != null) ...{
+                widget.trailing!
+              } else if (widget.onTap != null && widget.implyNavigation) ...{
                 const Icon(
                   FlumeIcons.chevron_right,
                   size: 14,
