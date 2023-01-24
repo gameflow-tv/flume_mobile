@@ -130,6 +130,8 @@ class InputField extends StatefulWidget {
   /// A widget to prefix the input.
   final Widget? prefix;
 
+  final Widget? prefixIcon;
+
   const InputField({
     Key? key,
     this.controller,
@@ -166,6 +168,7 @@ class InputField extends StatefulWidget {
     this.prefix,
     this.suffix,
     this.suffixIcon,
+    this.prefixIcon,
   }) : super(key: key);
 
   @override
@@ -260,6 +263,15 @@ class _InputFieldState extends State<InputField> {
                     ),
                     child: _buildSuffixIcon(theme),
                   ),
+                  prefixIcon: Theme(
+                    data: ThemeData(
+                      iconTheme: IconThemeData(
+                        color: theme.colors.inactive,
+                        size: 20,
+                      ),
+                    ),
+                    child: _buildPrefixIcon(theme),
+                  ),
                   fillColor: ambiance.color,
                   filled: true,
                 ),
@@ -269,6 +281,14 @@ class _InputFieldState extends State<InputField> {
         );
       },
     );
+  }
+
+  Widget _buildPrefixIcon(FlumeTheme theme) {
+    if (widget.prefixIcon != null) {
+      return widget.prefixIcon!;
+    }
+
+    return const SizedBox.shrink();
   }
 
   Widget _buildSuffixIcon(FlumeTheme theme) {
