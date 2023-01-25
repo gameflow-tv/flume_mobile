@@ -263,15 +263,7 @@ class _InputFieldState extends State<InputField> {
                     ),
                     child: _buildSuffixIcon(theme),
                   ),
-                  prefixIcon: Theme(
-                    data: ThemeData(
-                      iconTheme: IconThemeData(
-                        color: theme.colors.inactive,
-                        size: 20,
-                      ),
-                    ),
-                    child: _buildPrefixIcon(theme),
-                  ),
+                  prefixIcon: _buildPrefixIcon(theme),
                   fillColor: ambiance.color,
                   filled: true,
                 ),
@@ -283,12 +275,20 @@ class _InputFieldState extends State<InputField> {
     );
   }
 
-  Widget _buildPrefixIcon(FlumeTheme theme) {
+  Widget? _buildPrefixIcon(FlumeTheme theme) {
     if (widget.prefixIcon != null) {
-      return widget.prefixIcon!;
+      return Theme(
+        data: ThemeData(
+          iconTheme: IconThemeData(
+            color: theme.colors.inactive,
+            size: 20,
+          ),
+        ),
+        child: widget.prefixIcon!,
+      );
     }
 
-    return const SizedBox.shrink();
+    return null;
   }
 
   Widget _buildSuffixIcon(FlumeTheme theme) {

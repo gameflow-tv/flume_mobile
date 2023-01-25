@@ -137,13 +137,24 @@ class ScrollableList extends StatelessWidget {
                   ),
                 ),
               );
+            } else if (divided) {
+              return FlumeColumn(
+                spaceBetween: spaceBetween,
+                children: [
+                  ...children.divided(
+                    1,
+                    context.theme.colors.highlight10,
+                  ),
+                  Divider(
+                    thickness: 1,
+                    color: context.theme.colors.highlight10,
+                  )
+                ],
+              );
             } else {
               return FlumeColumn(
                 spaceBetween: spaceBetween,
-                children: children.divided(
-                  1,
-                  context.theme.colors.highlight10,
-                ),
+                children: children,
               );
             }
           },

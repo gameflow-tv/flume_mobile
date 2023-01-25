@@ -120,7 +120,7 @@ class _CellState extends State<Cell> {
               } else if (widget.onTap != null && widget.implyNavigation) ...{
                 const Icon(
                   FlumeIcons.chevron_right,
-                  size: 14,
+                  size: 24,
                 ),
               }
             ],

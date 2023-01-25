@@ -17,6 +17,7 @@ class TopBar<T> extends StatelessWidget implements PreferredSizeWidget {
     this.usePlatformNavigation = false,
     this.result,
     this.backgroundColor,
+    this.leadingLabel,
   }) : preferredSize = Size.fromHeight(
           bottom?.preferredSize.height ?? 0.0 + kToolbarHeight,
         );
@@ -148,12 +149,12 @@ class TopBar<T> extends StatelessWidget implements PreferredSizeWidget {
   /// The color to use for the app bar's [Material].
   final Color? backgroundColor;
 
+  /// The label to use for the app bar's leading back-button.
+  final String? leadingLabel;
+
   @override
   Widget build(BuildContext context) {
     final theme = Flume.of(context);
-    final parentRoute = ModalRoute.of(context);
-
-    final canPop = usePlatformNavigation || (parentRoute?.canPop ?? false);
 
     final style = getPlatformDefaultStyle(context).copyWith(
       color: theme.colors.header,
@@ -162,10 +163,22 @@ class TopBar<T> extends StatelessWidget implements PreferredSizeWidget {
     var icon = leading;
 
     if (icon == null) {
-      if (automaticallyImplyLeading && canPop) {
+      if (automaticallyImplyLeading) {
         icon = GestureDetector(
           behavior: HitTestBehavior.opaque,
-          child: const Icon(FlumeIcons.chevron_left, size: 24.0),
+          child: Row(
+            children: [
+              const Icon(FlumeIcons.chevron_left, size: 24.0),
+              if (leadingLabel != null)
+                Text(
+                  leadingLabel!,
+                  style: context.theme.typography.header4
+                      .toTextStyle()
+                      .copyWith(color: context.theme.colors.body),
+                  overflow: TextOverflow.ellipsis,
+                ),
+            ],
+          ),
           onTap: () => usePlatformNavigation
               ? SystemNavigator.pop()
               : Navigator.of(context).pop(result),
@@ -175,6 +188,13 @@ class TopBar<T> extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
       backgroundColor: backgroundColor,
+      leadingWidth: MediaQuery.of(context).size.width / 3,
+      shape: Border(
+        bottom: BorderSide(
+          color: context.theme.colors.highlight10,
+          width: 0.5,
+        ),
+      ),
       title: DefaultTextStyle(
         style: style,
         child: AnimatedSwitcher(
@@ -189,7 +209,7 @@ class TopBar<T> extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         if (actions?.isNotEmpty ?? false) ...{
           Padding(
-            padding: EdgeInsets.only(left: theme.spacing.md),
+            padding: EdgeInsets.symmetric(horizontal: theme.spacing.md),
             child: Row(children: actions!),
           ),
         },
