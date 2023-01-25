@@ -1,3 +1,9 @@
+## 0.0.4
+
+* Added `leadingLabel` to TopBar
+* Fixed divider issuer in ScrollableList
+* Refactored InputField suffix/prefix icons
+
 ## 0.0.3+1
 
 * Formatted files
