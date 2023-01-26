@@ -8,6 +8,7 @@ export 'components/material/top_bar.dart';
 
 export 'components/input/input_field.dart';
 export 'components/input/validation_message.dart';
+export 'components/input/tonal_switch.dart';
 
 export 'components/icons.dart';
 export 'components/shimmer.dart';
