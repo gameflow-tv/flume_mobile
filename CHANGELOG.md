@@ -1,3 +1,12 @@
+## 0.0.7
+
+* Implemented TonalSwitch component
+* Added `dense` property on Cell
+
+## 0.0.6
+
+* Added opacity for enabled state on InputField
+
 ## 0.0.5
 
 * Added `enabled` property on InputField
