@@ -1,3 +1,7 @@
+## 0.0.5
+
+* Added `enabled` property on InputField
+
 ## 0.0.4
 
 * Added `leadingLabel` to TopBar

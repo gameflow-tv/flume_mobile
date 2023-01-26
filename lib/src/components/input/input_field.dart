@@ -130,7 +130,11 @@ class InputField extends StatefulWidget {
   /// A widget to prefix the input.
   final Widget? prefix;
 
+  /// A widget to prefix the input.
   final Widget? prefixIcon;
+
+  /// Whether or not this input is enabled.
+  final bool enabled;
 
   const InputField({
     Key? key,
@@ -169,6 +173,7 @@ class InputField extends StatefulWidget {
     this.suffix,
     this.suffixIcon,
     this.prefixIcon,
+    this.enabled = true,
   }) : super(key: key);
 
   @override
@@ -218,6 +223,7 @@ class _InputFieldState extends State<InputField> {
             ClipRRect(
               borderRadius: BorderRadius.circular(theme.shapes.sm),
               child: TextFormField(
+                enabled: widget.enabled,
                 key: _fieldKey,
                 onEditingComplete: widget.onEditingComplete,
                 cursorColor: ambiance.palette.light,
