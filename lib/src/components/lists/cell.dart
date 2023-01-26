@@ -33,6 +33,9 @@ class Cell extends StatefulWidget {
   /// If this [Cell] should be disabled.
   final bool disabled;
 
+  /// If this [Cell] should be dense (less padding).
+  final bool dense;
+
   const Cell({
     super.key,
     required this.title,
@@ -44,6 +47,7 @@ class Cell extends StatefulWidget {
     this.focusNode,
     this.implyNavigation = false,
     this.disabled = false,
+    this.dense = false,
   });
 
   @override
@@ -85,7 +89,9 @@ class _CellState extends State<Cell> {
         onTapCancel: handleTapUp,
         child: Container(
           padding: EdgeInsets.symmetric(
-            vertical: context.theme.spacing.sm,
+            vertical: widget.dense
+                ? context.theme.spacing.xxs
+                : context.theme.spacing.sm,
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(theme.shapes.md),
@@ -107,7 +113,14 @@ class _CellState extends State<Cell> {
                         children: [
                           widget.title,
                           if (widget.subtitle != null) ...{
-                            widget.subtitle!,
+                            DefaultTextStyle(
+                              style: context.theme.typography.body2
+                                  .toTextStyle()
+                                  .copyWith(
+                                    color: context.theme.colors.subtitle,
+                                  ),
+                              child: widget.subtitle!,
+                            ),
                           }
                         ].spaced(context.theme.spacing.xxs),
                       ),
