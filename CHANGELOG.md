@@ -1,3 +1,7 @@
+## 0.0.8
+
+* Added padding to leading widget in TopBar
+
 ## 0.0.7
 
 * Implemented TonalSwitch component

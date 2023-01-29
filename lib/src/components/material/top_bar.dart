@@ -166,18 +166,21 @@ class TopBar<T> extends StatelessWidget implements PreferredSizeWidget {
       if (automaticallyImplyLeading) {
         icon = GestureDetector(
           behavior: HitTestBehavior.opaque,
-          child: Row(
-            children: [
-              const Icon(FlumeIcons.chevron_left, size: 24.0),
-              if (leadingLabel != null)
-                Text(
-                  leadingLabel!,
-                  style: context.theme.typography.header4
-                      .toTextStyle()
-                      .copyWith(color: context.theme.colors.body),
-                  overflow: TextOverflow.ellipsis,
-                ),
-            ],
+          child: Padding(
+            padding: EdgeInsets.only(left: context.theme.spacing.xs),
+            child: Row(
+              children: [
+                const Icon(FlumeIcons.chevron_left, size: 24.0),
+                if (leadingLabel != null)
+                  Text(
+                    leadingLabel!,
+                    style: context.theme.typography.header4
+                        .toTextStyle()
+                        .copyWith(color: context.theme.colors.body),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+              ],
+            ),
           ),
           onTap: () => usePlatformNavigation
               ? SystemNavigator.pop()
