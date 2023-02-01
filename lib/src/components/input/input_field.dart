@@ -136,6 +136,8 @@ class InputField extends StatefulWidget {
   /// Whether or not this input is enabled.
   final bool enabled;
 
+  final void Function(PointerDownEvent)? onTapOutside;
+
   const InputField({
     Key? key,
     this.controller,
@@ -174,6 +176,7 @@ class InputField extends StatefulWidget {
     this.suffixIcon,
     this.prefixIcon,
     this.enabled = true,
+    this.onTapOutside,
   }) : super(key: key);
 
   @override
@@ -199,6 +202,7 @@ class _InputFieldState extends State<InputField> {
   @override
   void dispose() {
     _fieldKey.currentState?.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
@@ -246,6 +250,7 @@ class _InputFieldState extends State<InputField> {
                   focusNode: widget.focusNode,
                   enableSuggestions: widget.enableSuggestions,
                   onTap: widget.onTap,
+                  onTapOutside: widget.onTapOutside,
                   textInputAction: widget.textInputAction,
                   onFieldSubmitted: widget.onFieldSubmitted,
                   inputFormatters: widget.inputFormatters,
