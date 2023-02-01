@@ -254,6 +254,7 @@ class _InputFieldState extends State<InputField> {
                   textInputAction: widget.textInputAction,
                   onFieldSubmitted: widget.onFieldSubmitted,
                   inputFormatters: widget.inputFormatters,
+                  textAlignVertical: TextAlignVertical.center,
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: widget.hintText,
