@@ -145,10 +145,12 @@ class ScrollableList extends StatelessWidget {
                     1,
                     context.theme.colors.highlight10,
                   ),
-                  Divider(
-                    thickness: 1,
-                    color: context.theme.colors.highlight10,
-                  )
+                  if (children.isNotEmpty) ...{
+                    Divider(
+                      thickness: 1,
+                      color: context.theme.colors.highlight10,
+                    )
+                  }
                 ],
               );
             } else {
