@@ -99,20 +99,17 @@ class ScrollableList extends StatelessWidget {
       padding: padding,
       children: [
         if (title != null) ...{
-          SafeArea(
-            bottom: false,
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: EdgeInsets.only(
-                  bottom: context.theme.spacing.xs,
-                ),
-                child: DefaultTextStyle(
-                  style: context.theme.typography.label2
-                      .toTextStyle()
-                      .copyWith(color: context.theme.colors.subtitle),
-                  child: title!,
-                ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: EdgeInsets.only(
+                bottom: context.theme.spacing.xs,
+              ),
+              child: DefaultTextStyle(
+                style: context.theme.typography.label2
+                    .toTextStyle()
+                    .copyWith(color: context.theme.colors.subtitle),
+                child: title!,
               ),
             ),
           ),
