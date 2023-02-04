@@ -147,9 +147,9 @@ class _ButtonState extends State<Button> {
                           children: <Widget>[
                             if (widget.iconPosition == IconPosition.right) ...[
                               widget.child,
-                              getIcon(),
+                              if (getIcon() != null) getIcon()!,
                             ] else ...[
-                              getIcon(),
+                              if (getIcon() != null) getIcon()!,
                               widget.child,
                             ],
                           ].spaced(theme.spacing.xs),
@@ -166,9 +166,9 @@ class _ButtonState extends State<Button> {
     );
   }
 
-  Widget getIcon() {
+  Widget? getIcon() {
     if (widget.icon == null && state != ButtonState.loading) {
-      return const SizedBox.shrink();
+      return null;
     }
 
     return Theme(
