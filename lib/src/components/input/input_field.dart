@@ -209,7 +209,7 @@ class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     final theme = Flume.of(context);
-    final style = widget.style ?? theme.typography.body1.toTextStyle();
+    final style = widget.style ?? theme.typography.body1;
 
     return Ambiance(
       builder: (context, ambiance) {
@@ -219,8 +219,7 @@ class _InputFieldState extends State<InputField> {
             if (widget.label != null) ...[
               Text(
                 widget.label!,
-                style:
-                    widget.labelStyle ?? theme.typography.header4.toTextStyle(),
+                style: widget.labelStyle ?? theme.typography.header4,
               ),
               SizedBox(height: theme.spacing.xs),
             ],
@@ -265,7 +264,6 @@ class _InputFieldState extends State<InputField> {
                     suffixStyle: widget.suffixStyle,
                     errorText: widget.errorText,
                     errorStyle: theme.typography.label1
-                        .toTextStyle()
                         .copyWith(color: theme.colors.error),
                     suffix: widget.suffix,
                     prefix: widget.prefix,
@@ -362,9 +360,10 @@ class _InputFieldState extends State<InputField> {
         alignment: widget.counterAlignment,
         child: Text(
           '$currentLength/$maxLength',
-          style: theme.typography.label3.toTextStyle().copyWith(
-                color: theme.colors.inactive,
-              ),
+          style: theme.typography.label3
+            ..copyWith(
+              color: theme.colors.inactive,
+            ),
         ),
       );
     }

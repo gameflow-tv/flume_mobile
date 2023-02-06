@@ -93,9 +93,10 @@ class _FlatButtonState extends State<FlatButton> {
                       horizontal: theme.spacing.xxs,
                     ),
                     child: DefaultTextStyle(
-                      style: theme.typography.link.toTextStyle().copyWith(
-                            color: foregroundColor,
-                          ),
+                      style: theme.typography.link
+                        ..copyWith(
+                          color: foregroundColor,
+                        ),
                       child: IconTheme(
                         data: IconThemeData(
                           color: foregroundColor,

@@ -114,11 +114,9 @@ class _CellState extends State<Cell> {
                           widget.title,
                           if (widget.subtitle != null) ...{
                             DefaultTextStyle(
-                              style: context.theme.typography.body2
-                                  .toTextStyle()
-                                  .copyWith(
-                                    color: context.theme.colors.subtitle,
-                                  ),
+                              style: context.theme.typography.body2.copyWith(
+                                color: context.theme.colors.subtitle,
+                              ),
                               child: widget.subtitle!,
                             ),
                           }

@@ -16,7 +16,7 @@ class ButtonsPage extends StatelessWidget {
           ),
           backgroundColor: ambiance.color,
           body: DefaultTextStyle(
-            style: theme.typography.header2.toTextStyle(),
+            style: theme.typography.header2,
             child: ListView(
               children: [
                 // Primary medium
@@ -24,7 +24,7 @@ class ButtonsPage extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: theme.spacing.xs),
                   child: Text(
                     'Button',
-                    style: theme.typography.header1.toTextStyle(),
+                    style: theme.typography.header1,
                   ),
                 ),
                 Column(
@@ -419,7 +419,7 @@ class ButtonsPage extends StatelessWidget {
                   ),
                   child: Text(
                     'IconButton',
-                    style: theme.typography.header1.toTextStyle(),
+                    style: theme.typography.header1,
                   ),
                 ),
                 Column(
@@ -864,7 +864,7 @@ class ButtonsPage extends StatelessWidget {
                   ),
                   child: Text(
                     'ToggleButton',
-                    style: theme.typography.header1.toTextStyle(),
+                    style: theme.typography.header1,
                   ),
                 ),
                 Column(
@@ -1113,7 +1113,7 @@ class ButtonsPage extends StatelessWidget {
                   ),
                   child: Text(
                     'GhostButton',
-                    style: theme.typography.header1.toTextStyle(),
+                    style: theme.typography.header1,
                   ),
                 ),
                 // Ghost buttons

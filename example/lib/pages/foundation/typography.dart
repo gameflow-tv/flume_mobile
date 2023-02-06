@@ -21,55 +21,55 @@ class TypographyPage extends StatelessWidget {
               children: [
                 Text(
                   'header1',
-                  style: typography.header1.toTextStyle(),
+                  style: typography.header1,
                 ),
                 Text(
                   'header2',
-                  style: typography.header2.toTextStyle(),
+                  style: typography.header2,
                 ),
                 Text(
                   'header3',
-                  style: typography.header3.toTextStyle(),
+                  style: typography.header3,
                 ),
                 Text(
                   'header4',
-                  style: typography.header4.toTextStyle(),
+                  style: typography.header4,
                 ),
                 Text(
                   'header5',
-                  style: typography.header5.toTextStyle(),
+                  style: typography.header5,
                 ),
                 Text(
                   'body1',
-                  style: typography.body1.toTextStyle(),
+                  style: typography.body1,
                 ),
                 Text(
                   'body2',
-                  style: typography.body2.toTextStyle(),
+                  style: typography.body2,
                 ),
                 Text(
                   'body3',
-                  style: typography.body3.toTextStyle(),
+                  style: typography.body3,
                 ),
                 Text(
                   'button',
-                  style: typography.button.toTextStyle(),
+                  style: typography.button,
                 ),
                 Text(
                   'link',
-                  style: typography.link.toTextStyle(),
+                  style: typography.link,
                 ),
                 Text(
                   'label1',
-                  style: typography.label1.toTextStyle(),
+                  style: typography.label1,
                 ),
                 Text(
                   'label2',
-                  style: typography.label2.toTextStyle(),
+                  style: typography.label2,
                 ),
                 Text(
                   'label3',
-                  style: typography.label3.toTextStyle(),
+                  style: typography.label3,
                 ),
               ]
                   .map(

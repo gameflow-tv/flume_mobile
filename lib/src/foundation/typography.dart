@@ -48,85 +48,142 @@ class FlumeTypographyData {
 /// Typography defined by Flume.
 class FlumeTypography {
   const FlumeTypography({
-    required this.header1,
-    required this.header2,
-    required this.header3,
-    required this.header4,
-    required this.header5,
-    required this.body1,
-    required this.body2,
-    required this.body3,
-    required this.button,
-    required this.link,
-    required this.label1,
-    required this.label2,
-    required this.label3,
-  });
+    required FlumeTypographyData header1,
+    required FlumeTypographyData header2,
+    required FlumeTypographyData header3,
+    required FlumeTypographyData header4,
+    required FlumeTypographyData header5,
+    required FlumeTypographyData body1,
+    required FlumeTypographyData body2,
+    required FlumeTypographyData body3,
+    required FlumeTypographyData button,
+    required FlumeTypographyData link,
+    required FlumeTypographyData label1,
+    required FlumeTypographyData label2,
+    required FlumeTypographyData label3,
+  })  : _header1 = header1,
+        _header2 = header2,
+        _header3 = header3,
+        _header4 = header4,
+        _header5 = header5,
+        _body1 = body1,
+        _body2 = body2,
+        _body3 = body3,
+        _button = button,
+        _link = link,
+        _label1 = label1,
+        _label2 = label2,
+        _label3 = label3;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
-  /// Header 1 typography data.
-  final FlumeTypographyData header1;
+  /// Header 1 text style.
+  TextStyle get header1 => _header1.toTextStyle();
+
+  final FlumeTypographyData _header1;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
-  /// Header 2 typography data.
-  final FlumeTypographyData header2;
+  /// Header 2 text style.
+  TextStyle get header2 => _header2.toTextStyle();
+
+  final FlumeTypographyData _header2;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
-  /// Header 3 typography data.
-  final FlumeTypographyData header3;
+  /// Header 3 text style.
+  TextStyle get header3 => _header3.toTextStyle();
+
+  final FlumeTypographyData _header3;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
-  /// Header 4 typography data.
-  final FlumeTypographyData header4;
+  /// Header 4 text style.
+  TextStyle get header4 => _header4.toTextStyle();
+
+  final FlumeTypographyData _header4;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
-  /// Header 5 typography data.
-  final FlumeTypographyData header5;
+  /// Header 5 text style.
+  TextStyle get header5 => _header5.toTextStyle();
+
+  final FlumeTypographyData _header5;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
-  /// Body 1 typography data.
-  final FlumeTypographyData body1;
+  /// Body 1 text style.
+  TextStyle get body1 => _body1.toTextStyle();
+
+  final FlumeTypographyData _body1;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
-  /// Body 2 typography data.
-  final FlumeTypographyData body2;
+  /// Body 2 text style.
+  TextStyle get body2 => _body2.toTextStyle();
+
+  final FlumeTypographyData _body2;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
-  /// Body 3 typography data.
-  final FlumeTypographyData body3;
+  /// Body 3 text style.
+  TextStyle get body3 => _body3.toTextStyle();
+
+  final FlumeTypographyData _body3;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
-  /// Button typography data.
-  final FlumeTypographyData button;
+  /// Button text style.
+  TextStyle get button => _button.toTextStyle();
+
+  final FlumeTypographyData _button;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
-  /// Link typography data.
-  final FlumeTypographyData link;
+  /// Link text style.
+  TextStyle get link => _link.toTextStyle();
+
+  final FlumeTypographyData _link;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
-  /// Label 1 typography data.
-  final FlumeTypographyData label1;
+  /// Label 1 text style.
+  TextStyle get label1 => _label1.toTextStyle();
+
+  final FlumeTypographyData _label1;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
-  /// Label 2 typography data.
-  final FlumeTypographyData label2;
+  /// Label 2 text style.
+  TextStyle get label2 => _label2.toTextStyle();
+
+  final FlumeTypographyData _label2;
 
   /// {@category Foundation}
   /// {@subCategory Typography}
-  /// Label 3 typography data.
-  final FlumeTypographyData label3;
+  /// Label 3 text style.
+  TextStyle get label3 => _label3.toTextStyle();
+
+  final FlumeTypographyData _label3;
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Returns the raw [FlumeRawTypography] data.
+  FlumeRawTypography get raw => FlumeRawTypography(
+        header1: _header1,
+        header2: _header2,
+        header3: _header3,
+        header4: _header4,
+        header5: _header5,
+        body1: _body1,
+        body2: _body2,
+        body3: _body3,
+        button: _button,
+        link: _link,
+        label1: _label1,
+        label2: _label2,
+        label3: _label3,
+      );
 
   /// {@category Foundation}
   /// {@subCategory Typography}
@@ -211,4 +268,87 @@ class FlumeTypography {
           fontFamily: 'Montserrat',
         ),
       );
+}
+
+class FlumeRawTypography {
+  const FlumeRawTypography({
+    required this.header1,
+    required this.header2,
+    required this.header3,
+    required this.header4,
+    required this.header5,
+    required this.body1,
+    required this.body2,
+    required this.body3,
+    required this.button,
+    required this.link,
+    required this.label1,
+    required this.label2,
+    required this.label3,
+  });
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Header 1 typography data.
+  final FlumeTypographyData header1;
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Header 2 typography data.
+  final FlumeTypographyData header2;
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Header 3 typography data.
+  final FlumeTypographyData header3;
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Header 4 typography data.
+  final FlumeTypographyData header4;
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Header 5 typography data.
+  final FlumeTypographyData header5;
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Body 1 typography data.
+  final FlumeTypographyData body1;
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Body 2 typography data.
+  final FlumeTypographyData body2;
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Body 3 typography data.
+  final FlumeTypographyData body3;
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Button typography data.
+  final FlumeTypographyData button;
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Link typography data.
+  final FlumeTypographyData link;
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Label 1 typography data.
+  final FlumeTypographyData label1;
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Label 2 typography data.
+  final FlumeTypographyData label2;
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Label 3 typography data.
+  final FlumeTypographyData label3;
 }

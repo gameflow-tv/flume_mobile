@@ -175,7 +175,6 @@ class TopBar<T> extends StatelessWidget implements PreferredSizeWidget {
                   Text(
                     leadingLabel!,
                     style: context.theme.typography.header4
-                        .toTextStyle()
                         .copyWith(color: context.theme.colors.body),
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -233,9 +232,9 @@ class TopBar<T> extends StatelessWidget implements PreferredSizeWidget {
     switch (Theme.of(context).platform) {
       case TargetPlatform.iOS:
       case TargetPlatform.macOS:
-        return theme.typography.header3.toTextStyle();
+        return theme.typography.header3;
       default:
-        return theme.typography.header3.toTextStyle();
+        return theme.typography.header3;
     }
   }
 }

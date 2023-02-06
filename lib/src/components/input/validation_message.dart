@@ -43,9 +43,7 @@ class ValidationMessage extends StatelessWidget {
             color: foregroundColor,
           ),
           DefaultTextStyle(
-            style: theme.typography.body2
-                .toTextStyle()
-                .copyWith(color: foregroundColor),
+            style: theme.typography.body2.copyWith(color: foregroundColor),
             child: child,
           ),
         ].spaced(theme.spacing.xxs),

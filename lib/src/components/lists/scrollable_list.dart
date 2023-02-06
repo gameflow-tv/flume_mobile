@@ -107,7 +107,6 @@ class ScrollableList extends StatelessWidget {
               ),
               child: DefaultTextStyle(
                 style: context.theme.typography.label2
-                    .toTextStyle()
                     .copyWith(color: context.theme.colors.subtitle),
                 child: title!,
               ),

@@ -137,7 +137,6 @@ class _ButtonState extends State<Button> {
                     decoration: getBoxDecoration(theme),
                     child: DefaultTextStyle(
                       style: theme.typography.button
-                          .toTextStyle()
                           .copyWith(color: foregroundColor),
                       child: Padding(
                         padding: getPadding(context),
