@@ -39,7 +39,7 @@ class ScrollableList extends StatelessWidget {
   final double gridChildAspectRatio;
 
   /// {@macro flutter.rendering.EdgeInsets}
-  final EdgeInsets? padding;
+  final EdgeInsets padding;
 
   /// {@macro flutter.rendering.Axis}
   final Axis scrollDirection;
@@ -58,7 +58,7 @@ class ScrollableList extends StatelessWidget {
     this.adaptive = false,
     this.crossAxisCount = 2,
     this.gridChildAspectRatio = 1.0,
-    this.padding,
+    this.padding = EdgeInsets.zero,
     this.scrollDirection = Axis.vertical,
     this.divided = true,
   });
@@ -72,7 +72,7 @@ class ScrollableList extends StatelessWidget {
     bool adaptive = false,
     int crossAxisCount = 2,
     double gridChildAspectRatio = 1.0,
-    EdgeInsets? padding,
+    EdgeInsets padding = EdgeInsets.zero,
     Axis scrollDirection = Axis.vertical,
     bool divided = true,
   }) {
@@ -122,7 +122,7 @@ class ScrollableList extends StatelessWidget {
       physics: physics,
       shrinkWrap: shrinkWrap,
       scrollDirection: scrollDirection,
-      padding: padding ?? EdgeInsets.zero,
+      padding: padding,
       children: [
         if (title != null) ...{
           Align(
