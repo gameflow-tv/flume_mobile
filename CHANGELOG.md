@@ -1,3 +1,8 @@
+## 0.1.2
+
+* Changed ScrollableList to set default `padding` value in constructor instead of inside `build`
+* Added `hintText` param to SearchBar
+
 ## 0.1.1
 
 * **BREAKING**: Removed `spaceBetween` due to conflict with divided and use of `.spaced`extension in ScrollableList
