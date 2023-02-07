@@ -69,7 +69,6 @@ class SpacingPage extends StatelessWidget {
 
 class _SpacingContainer extends StatelessWidget {
   const _SpacingContainer({
-    super.key,
     required this.child,
     required this.spacing,
   });
