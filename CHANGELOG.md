@@ -1,3 +1,32 @@
+## 0.1.1
+
+* **BREAKING**: Removed `spaceBetween` due to conflict with divided and use of `.spaced`extension in ScrollableList
+* **BREAKING**: Changed InputField's `maxLines` behaviour to depend on the `expands` property. If non-expandable, `maxLines` defaults to 1 as always, but if `expands` is `true`, `maxLines` is set to `null`. These are mutually exclusive.
+* Changed Cell to wrap its children inside a `SafeArea` to avoid overlapping with physical borders.
+* Added ScrollableList.static factory for non-scrollable, shrink-wrapped use
+* Added FormGroup widget
+* Added SearchBar widget
+
+## 0.1.0
+
+* **BREAKING**: Changed FlumeTypography getter types to return `TextStyle`
+
+## 0.0.12
+
+* Changed Button to only render icon if one is passed
+
+## 0.0.11
+
+* Changed InputField text alignment to be centered
+
+## 0.0.10
+
+* Removed divider for empty children in ScrollableList
+
+## 0.0.9
+
+* Added `onTapOutside` property to InputField
+
 ## 0.0.8
 
 * Added padding to leading widget in TopBar
