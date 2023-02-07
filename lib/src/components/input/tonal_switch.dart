@@ -4,6 +4,10 @@ import 'package:flume/flume.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// {@category Components}
+/// {@subCategory Input}
+/// A widget that displays a switch that adapts to the current platform, and
+/// uses the current [Ambiance] to determine its colors.
 class TonalSwitch extends StatelessWidget {
   const TonalSwitch({super.key, required this.value, required this.onChanged});
 

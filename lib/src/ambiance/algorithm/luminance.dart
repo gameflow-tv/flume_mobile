@@ -5,7 +5,7 @@ const maxIter = 20;
 
 // In-memory cache of luminance values to avoid
 // expensive re-compute.
-final lumCache = <Color, Color>{};
+final _lumCache = <Color, Color>{};
 
 /// {@category Ambiance}
 /// Extension on [Color] to get luminance values.
@@ -42,7 +42,7 @@ extension LuminanceExtension on Color {
     final result = rgb.withOpacity(opacity);
 
     // Cache the result.
-    lumCache[this] = result;
+    _lumCache[this] = result;
 
     return result;
   }

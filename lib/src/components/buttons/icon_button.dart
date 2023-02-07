@@ -3,6 +3,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 // TODO: Rename. "SymbolButton" is just a placeholder name to avoid conflicts with Material's "IconButton".
+
+/// {@category Components}
+/// {@subCategory Buttons}
+/// A button that displays an icon.
 class SymbolButton extends StatefulWidget {
   /// The size of the button.
   final ButtonSize size;

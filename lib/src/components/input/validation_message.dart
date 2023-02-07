@@ -1,12 +1,18 @@
 import 'package:flume/flume.dart';
 import 'package:flutter/material.dart';
 
+/// {@category Components}
+/// {@subCategory Input}
+/// The state of a validation message.
 enum ValidationState {
   success,
   warning,
   error,
 }
 
+/// {@category Components}
+/// {@subCategory Input}
+/// A widget that displays a validation message.
 class ValidationMessage extends StatelessWidget {
   final ValidationState state;
   final Widget child;

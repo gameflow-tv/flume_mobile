@@ -14,7 +14,9 @@ class Shimmer extends StatelessWidget {
   /// The [BoxShape] of the Shimmer
   final BoxShape shape;
 
-  /// {@macro flutter.widgets.child}
+  /// {@template flutter.widgets.child}
+  /// The widget below this widget in the tree.
+  /// {@endtemplate}
   final Widget? child;
 
   const Shimmer({

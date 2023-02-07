@@ -1,6 +1,9 @@
 import 'package:flume/flume.dart';
 import 'package:flutter/material.dart';
 
+/// {@category Components}
+/// {@subCategory Input}
+/// A widget that groups a [label] and [child] together.
 class FormGroup extends StatelessWidget {
   const FormGroup({
     super.key,

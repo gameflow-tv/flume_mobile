@@ -1,6 +1,9 @@
 import 'package:flume/flume.dart';
 import 'package:flutter/material.dart';
 
+/// {@category Components}
+/// {@subCategory Input}
+/// A widget that displays a search bar.
 class SearchBar extends StatefulWidget {
   const SearchBar({
     super.key,

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-/// {@category Spacing}
+/// {@category Components}
+/// {@subCategory Spacing}
 /// A supercharged [Wrap] with Flume-specific properties.
 class FlumeWrap extends StatelessWidget {
   /// {@template flutter.widgets.children}

@@ -2,7 +2,7 @@ import 'package:flume/flume.dart';
 import 'package:flutter/material.dart';
 
 /// {@category Components}
-/// {@subCategory List}
+/// {@subCategory Lists}
 /// A list cell from the Flume design system.
 class Tile extends StatelessWidget {
   /// A widget on the left-hand side of this [Tile]'s title.

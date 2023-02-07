@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-/// {@category Spacing}
-/// {@macro flume.extension}
+/// {@category Components}
+/// {@subCategory Spacing}
 extension WidgetIterableExtension on Iterable<Widget> {
   List<Widget> spaced(double? space) {
     if (isEmpty) {

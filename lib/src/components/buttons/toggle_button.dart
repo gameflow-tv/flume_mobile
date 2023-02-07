@@ -2,6 +2,9 @@ import 'package:flume/flume.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+/// {@category Components}
+/// {@subCategory Buttons}
+/// A button that can be toggled on and off.
 class ToggleButton extends StatefulWidget {
   /// The variant of the button.
   final ToggleButtonVariant variant;

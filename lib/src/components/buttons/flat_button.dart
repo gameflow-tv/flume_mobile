@@ -2,6 +2,10 @@ import 'package:flume/flume.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+/// {@category Components}
+/// {@subCategory Buttons}
+/// A flat button is a button that has a "flat" appearance, meaning it looks
+/// like regular text, but has some button states and capabilities.
 class FlatButton extends StatefulWidget {
   /// Optional state to override the default initial state.
   final ButtonState? state;

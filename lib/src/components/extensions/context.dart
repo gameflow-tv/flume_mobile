@@ -2,7 +2,7 @@ import 'package:flume/flume.dart';
 import 'package:flutter/material.dart';
 
 /// {@category Components}
-/// {@subCategory extensions}
+/// {@subCategory Extensions}
 /// Quality-of-life extensions on [BuildContext].
 extension FlumeContextExtension on BuildContext {
   /// If the current context brightness is [Brightness.light].
