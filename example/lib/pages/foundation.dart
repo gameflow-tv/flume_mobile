@@ -15,7 +15,7 @@ class FoundationPage extends StatelessWidget {
           appBar: TopBar(
             title: const Text('Foundation'),
           ),
-          body: ListView(
+          body: ScrollableList(
             children: [
               Cell(
                 title: const Text('Breakpoints'),
@@ -38,6 +38,11 @@ class FoundationPage extends StatelessWidget {
               Cell(
                 title: const Text('Shapes'),
                 onTap: () => Navigator.pushNamed(context, '/foundation/shapes'),
+              ),
+              Cell(
+                title: const Text('Spacing'),
+                onTap: () =>
+                    Navigator.pushNamed(context, '/foundation/spacing'),
               ),
               Cell(
                 title: const Text('Typography'),

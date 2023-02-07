@@ -16,7 +16,7 @@ class BreakpointsPage extends StatelessWidget {
             title: const Text('Breakpoints'),
           ),
           backgroundColor: ambiance.color,
-          body: ListView(
+          body: ScrollableList(
             children: [
               Cell(
                 title: Text('xxl:  >=${breakpoints.xxl}'),

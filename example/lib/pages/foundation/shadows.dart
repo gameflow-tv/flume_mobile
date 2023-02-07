@@ -1,4 +1,5 @@
 import 'package:flume/flume.dart';
+import 'package:flume_example/widgets/blueprint.dart';
 import 'package:flutter/material.dart';
 
 extension PrettyShadow on BoxShadow {
@@ -11,8 +12,7 @@ class ShadowsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Flume.of(context);
-    final shadows = theme.shadows;
+    final shadows = context.theme.shadows;
 
     return Ambiance(
       builder: (context, ambiance) {
@@ -21,40 +21,90 @@ class ShadowsPage extends StatelessWidget {
             title: const Text('Shadows'),
           ),
           backgroundColor: ambiance.color,
-          body: ListView(
-            children: [
-              Cell(
-                title: Text('xs: ${shadows.xs.pretty}'),
-              ),
-              Cell(
-                title: Text('sm: ${shadows.sm.pretty}'),
-              ),
-              Cell(
-                title: Text('md: ${shadows.md.pretty}'),
-              ),
-              Cell(
-                title: Text('lg: ${shadows.lg.pretty}'),
-              ),
-              Cell(
-                title: Text('text: ${shadows.text.pretty}'),
-              ),
-              Cell(
-                title: Text('focus: ${shadows.focus.pretty}'),
-              ),
-            ]
-                .map(
-                  (e) => Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: theme.spacing.xs,
-                      vertical: theme.spacing.xxs,
-                    ),
-                    child: e,
+          body: Blueprint(
+            child: Ambiance(
+              child: SafeArea(
+                bottom: false,
+                child: GridView(
+                  padding: EdgeInsets.all(context.theme.spacing.md),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: context.theme.spacing.md,
+                    crossAxisSpacing: context.theme.spacing.md,
                   ),
-                )
-                .toList(),
+                  children: [
+                    _ShadowBox(
+                      shadow: shadows.xs,
+                      child: const Text('xs'),
+                    ),
+                    _ShadowBox(
+                      shadow: shadows.sm,
+                      child: const Text('sm'),
+                    ),
+                    _ShadowBox(
+                      shadow: shadows.md,
+                      child: const Text('md'),
+                    ),
+                    _ShadowBox(
+                      shadow: shadows.lg,
+                      child: const Text('lg'),
+                    ),
+                    _ShadowBox(
+                      shadow: shadows.text,
+                      child: Text(
+                        'text',
+                        style: TextStyle(
+                          shadows: [shadows.text],
+                        ),
+                      ),
+                    ),
+                    _ShadowBox(
+                      shadow: shadows.focus,
+                      child: const Text('focus'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         );
       },
+    );
+  }
+}
+
+class _ShadowBox extends StatelessWidget {
+  const _ShadowBox({
+    required this.shadow,
+    required this.child,
+  });
+
+  final BoxShadow shadow;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(context.theme.spacing.md),
+      decoration: BoxDecoration(
+        color: context.ambiance.color,
+        borderRadius: BorderRadius.circular(context.theme.shapes.sm),
+        boxShadow: [shadow],
+      ),
+      child: Column(
+        children: [
+          Expanded(
+            child: Center(
+              child: child,
+            ),
+          ),
+          Text(
+            shadow.pretty,
+            textAlign: TextAlign.center,
+            style: context.theme.typography.body3,
+          ),
+        ],
+      ),
     );
   }
 }

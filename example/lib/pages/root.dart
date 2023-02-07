@@ -1,39 +1,35 @@
 import 'package:flume/flume.dart';
 import 'package:flutter/material.dart';
 
-class ComponentsPage extends StatelessWidget {
-  const ComponentsPage({super.key});
+class RootPage extends StatelessWidget {
+  const RootPage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final theme = Flume.of(context);
-
     return Ambiance(
       builder: (context, ambiance) {
+        final theme = Flume.of(context);
         return Scaffold(
           backgroundColor: ambiance.color,
           appBar: TopBar(
-            title: const Text('Components'),
+            title: const Text('Flume'),
+            automaticallyImplyLeading: false,
           ),
           body: ScrollableList(
-            padding: EdgeInsets.only(top: context.theme.spacing.xs),
             children: [
               Cell(
-                title: const Text('Buttons'),
-                onTap: () =>
-                    Navigator.pushNamed(context, '/components/buttons'),
+                title: const Text('Ambiance'),
+                onTap: () => Navigator.pushNamed(context, '/ambiance'),
               ),
               Cell(
-                title: const Text('Input'),
-                onTap: () => Navigator.pushNamed(context, '/components/input'),
+                title: const Text('Foundation'),
+                onTap: () => Navigator.pushNamed(context, '/foundation'),
               ),
               Cell(
-                title: const Text('Lists'),
-                onTap: () => Navigator.pushNamed(context, '/components/lists'),
-              ),
-              Cell(
-                title: const Text('Icons'),
-                onTap: () => Navigator.pushNamed(context, '/components/icons'),
+                title: const Text('Components'),
+                onTap: () => Navigator.pushNamed(context, '/components'),
               ),
             ]
                 .map(

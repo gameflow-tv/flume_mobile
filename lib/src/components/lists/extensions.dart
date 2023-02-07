@@ -12,7 +12,6 @@ extension WidgetIterableExtension on Iterable<Widget> {
       first,
       ...skip(1).expand((child) {
         return <Widget>[
-          // TODO: Gap(space),
           SizedBox(width: space, height: space),
           child,
         ];

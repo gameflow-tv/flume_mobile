@@ -38,9 +38,6 @@ class ScrollableList extends StatelessWidget {
   /// If adaptive is true, this controls the aspect ratio of the grid's children.
   final double gridChildAspectRatio;
 
-  /// [double] to insert between each child.
-  final double? spaceBetween;
-
   /// {@macro flutter.rendering.EdgeInsets}
   final EdgeInsets? padding;
 
@@ -61,11 +58,40 @@ class ScrollableList extends StatelessWidget {
     this.adaptive = false,
     this.crossAxisCount = 2,
     this.gridChildAspectRatio = 1.0,
-    this.spaceBetween,
     this.padding,
     this.scrollDirection = Axis.vertical,
     this.divided = true,
   });
+
+  factory ScrollableList.static({
+    required List<Widget> children,
+    bool showBorders = false,
+    bool addBottomBorder = true,
+    Widget? title,
+    ScrollController? controller,
+    bool adaptive = false,
+    int crossAxisCount = 2,
+    double gridChildAspectRatio = 1.0,
+    EdgeInsets? padding,
+    Axis scrollDirection = Axis.vertical,
+    bool divided = true,
+  }) {
+    return ScrollableList(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      showBorders: showBorders,
+      addBottomBorder: addBottomBorder,
+      title: title,
+      controller: controller,
+      adaptive: adaptive,
+      crossAxisCount: crossAxisCount,
+      gridChildAspectRatio: gridChildAspectRatio,
+      padding: padding,
+      scrollDirection: scrollDirection,
+      divided: divided,
+      children: children,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +122,7 @@ class ScrollableList extends StatelessWidget {
       physics: physics,
       shrinkWrap: shrinkWrap,
       scrollDirection: scrollDirection,
-      padding: padding,
+      padding: padding ?? EdgeInsets.zero,
       children: [
         if (title != null) ...{
           Align(
@@ -126,7 +152,6 @@ class ScrollableList extends StatelessWidget {
                   ),
                 ),
                 child: FlumeColumn(
-                  spaceBetween: spaceBetween,
                   children: children.divided(
                     1,
                     context.theme.colors.highlight10,
@@ -135,7 +160,6 @@ class ScrollableList extends StatelessWidget {
               );
             } else if (divided) {
               return FlumeColumn(
-                spaceBetween: spaceBetween,
                 children: [
                   ...children.divided(
                     1,
@@ -151,7 +175,6 @@ class ScrollableList extends StatelessWidget {
               );
             } else {
               return FlumeColumn(
-                spaceBetween: spaceBetween,
                 children: children,
               );
             }

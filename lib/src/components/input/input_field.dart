@@ -19,7 +19,7 @@ class InputField extends StatefulWidget {
   final bool hideBorders;
 
   /// The max amount of lines available.
-  final int maxLines;
+  final int? maxLines;
 
   /// The max length of the input string.
   final int? maxLength;
@@ -136,12 +136,16 @@ class InputField extends StatefulWidget {
   /// Whether or not this input is enabled.
   final bool enabled;
 
+  /// The callback function that is called when the user taps outside of the input.
   final void Function(PointerDownEvent)? onTapOutside;
+
+  /// The minimum number of lines to display when [expands] is true.
+  final int? minLines;
 
   const InputField({
     Key? key,
     this.controller,
-    this.maxLines = 1,
+    this.maxLines,
     this.maxLength,
     this.validator,
     this.onChanged,
@@ -177,6 +181,7 @@ class InputField extends StatefulWidget {
     this.prefixIcon,
     this.enabled = true,
     this.onTapOutside,
+    this.minLines,
   }) : super(key: key);
 
   @override
@@ -202,7 +207,12 @@ class _InputFieldState extends State<InputField> {
   @override
   void dispose() {
     _fieldKey.currentState?.dispose();
-    _controller.dispose();
+
+    // Dispose of the controller if it was created by this widget.
+    if (widget.controller == null) {
+      _controller.dispose();
+    }
+
     super.dispose();
   }
 
@@ -215,6 +225,7 @@ class _InputFieldState extends State<InputField> {
       builder: (context, ambiance) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             if (widget.label != null) ...[
               Text(
@@ -223,62 +234,67 @@ class _InputFieldState extends State<InputField> {
               ),
               SizedBox(height: theme.spacing.xs),
             ],
-            ClipRRect(
-              borderRadius: BorderRadius.circular(theme.shapes.sm),
-              child: AnimatedOpacity(
-                opacity: widget.enabled ? 1 : 0.6,
-                duration: context.theme.motion.short,
-                child: TextFormField(
-                  enabled: widget.enabled,
-                  key: _fieldKey,
-                  onEditingComplete: widget.onEditingComplete,
-                  cursorColor: ambiance.palette.light,
-                  controller: _controller,
-                  validator: widget.validator,
-                  maxLength: widget.maxLength,
-                  maxLines: widget.maxLines,
-                  onChanged: widget.onChanged,
-                  expands: widget.expands,
-                  autocorrect: widget.autocorrect,
-                  readOnly: widget.readOnly,
-                  autofocus: widget.autofocus,
-                  style: style,
-                  obscureText: _obscureText,
-                  keyboardType: widget.keyboardType ?? defaultKeyboard,
-                  buildCounter: _buildCounter,
-                  focusNode: widget.focusNode,
-                  enableSuggestions: widget.enableSuggestions,
-                  onTap: widget.onTap,
-                  onTapOutside: widget.onTapOutside,
-                  textInputAction: widget.textInputAction,
-                  onFieldSubmitted: widget.onFieldSubmitted,
-                  inputFormatters: widget.inputFormatters,
-                  textAlignVertical: TextAlignVertical.center,
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: widget.hintText,
-                    hintStyle: style.copyWith(color: theme.colors.inactive),
-                    prefixText: widget.prefixText,
-                    prefixStyle: widget.prefixStyle,
-                    suffixText: widget.suffixText,
-                    suffixStyle: widget.suffixStyle,
-                    errorText: widget.errorText,
-                    errorStyle: theme.typography.label1
-                        .copyWith(color: theme.colors.error),
-                    suffix: widget.suffix,
-                    prefix: widget.prefix,
-                    suffixIcon: Theme(
-                      data: ThemeData(
-                        iconTheme: IconThemeData(
-                          color: theme.colors.inactive,
-                          size: 20,
+            Flexible(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(theme.shapes.sm),
+                child: AnimatedOpacity(
+                  opacity: widget.enabled ? 1 : 0.6,
+                  duration: context.theme.motion.short,
+                  child: TextFormField(
+                    enabled: widget.enabled,
+                    key: _fieldKey,
+                    onEditingComplete: widget.onEditingComplete,
+                    cursorColor: ambiance.palette.light,
+                    controller: _controller,
+                    validator: widget.validator,
+                    maxLength: widget.maxLength,
+                    maxLines: widget.maxLines ?? (widget.expands ? null : 1),
+                    minLines: widget.minLines,
+                    onChanged: widget.onChanged,
+                    expands: widget.expands,
+                    autocorrect: widget.autocorrect,
+                    readOnly: widget.readOnly,
+                    autofocus: widget.autofocus,
+                    style: style,
+                    obscureText: _obscureText,
+                    keyboardType: widget.keyboardType ?? defaultKeyboard,
+                    buildCounter: _buildCounter,
+                    focusNode: widget.focusNode,
+                    enableSuggestions: widget.enableSuggestions,
+                    onTap: widget.onTap,
+                    onTapOutside: widget.onTapOutside,
+                    textInputAction: widget.textInputAction,
+                    onFieldSubmitted: widget.onFieldSubmitted,
+                    inputFormatters: widget.inputFormatters,
+                    textAlignVertical: widget.expands
+                        ? TextAlignVertical.top
+                        : TextAlignVertical.center,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: widget.hintText,
+                      hintStyle: style.copyWith(color: theme.colors.inactive),
+                      prefixText: widget.prefixText,
+                      prefixStyle: widget.prefixStyle,
+                      suffixText: widget.suffixText,
+                      suffixStyle: widget.suffixStyle,
+                      errorText: widget.errorText,
+                      errorStyle: theme.typography.label1
+                          .copyWith(color: theme.colors.error),
+                      suffix: widget.suffix,
+                      prefix: widget.prefix,
+                      suffixIcon: Theme(
+                        data: ThemeData(
+                          iconTheme: IconThemeData(
+                            color: theme.colors.inactive,
+                            size: 20,
+                          ),
                         ),
+                        child: _buildSuffixIcon(theme),
                       ),
-                      child: _buildSuffixIcon(theme),
+                      prefixIcon: _buildPrefixIcon(theme),
+                      fillColor: ambiance.color,
+                      filled: true,
                     ),
-                    prefixIcon: _buildPrefixIcon(theme),
-                    fillColor: ambiance.color,
-                    filled: true,
                   ),
                 ),
               ),

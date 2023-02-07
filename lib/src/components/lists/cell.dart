@@ -96,45 +96,52 @@ class _CellState extends State<Cell> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(theme.shapes.md),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Flexible(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    if (widget.leading != null) ...{
-                      widget.leading!,
-                    },
-                    Flexible(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          widget.title,
-                          if (widget.subtitle != null) ...{
+          child: SafeArea(
+            top: false,
+            bottom: false,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Flexible(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      if (widget.leading != null) ...{
+                        widget.leading!,
+                      },
+                      Flexible(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
                             DefaultTextStyle(
-                              style: context.theme.typography.body2.copyWith(
-                                color: context.theme.colors.subtitle,
-                              ),
-                              child: widget.subtitle!,
+                              style: context.theme.typography.header5,
+                              child: widget.title,
                             ),
-                          }
-                        ].spaced(context.theme.spacing.xxs),
+                            if (widget.subtitle != null) ...{
+                              DefaultTextStyle(
+                                style: context.theme.typography.body2.copyWith(
+                                  color: context.theme.colors.subtitle,
+                                ),
+                                child: widget.subtitle!,
+                              ),
+                            }
+                          ].spaced(context.theme.spacing.xxs),
+                        ),
                       ),
-                    ),
-                  ].spaced(context.theme.spacing.sm),
+                    ].spaced(context.theme.spacing.sm),
+                  ),
                 ),
-              ),
-              if (widget.trailing != null) ...{
-                widget.trailing!
-              } else if (widget.implyNavigation) ...{
-                const Icon(
-                  FlumeIcons.chevron_right,
-                  size: 24,
-                ),
-              }
-            ],
+                if (widget.trailing != null) ...{
+                  widget.trailing!
+                } else if (widget.implyNavigation) ...{
+                  const Icon(
+                    FlumeIcons.chevron_right,
+                    size: 24,
+                  ),
+                }
+              ],
+            ),
           ),
         ),
       ),
