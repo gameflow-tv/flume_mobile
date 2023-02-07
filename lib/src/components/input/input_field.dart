@@ -81,7 +81,9 @@ class InputField extends StatefulWidget {
   /// {@endtemplate}
   final VoidCallback? onEditingComplete;
 
-  /// {@macro flume.gestures.onTap}
+  /// {@template flume.gestures.onTap}
+  /// Callback function invoked when the widget has received a tap gesture.
+  /// {@endtemplate}
   final VoidCallback? onTap;
 
   /// {@template flume.components.input.controller}
@@ -99,7 +101,10 @@ class InputField extends StatefulWidget {
   /// the error text to display.
   final String? Function(String?)? validator;
 
-  /// {@macro flume.gestures.onChanged}
+  /// {@template flume.gestures.onChanged}
+  /// Callback function that is called when the [controller] text changes. Passes the
+  /// updated value as a parameter.
+  /// {@endtemplate}
   final Function(String)? onChanged;
 
   /// {@template flume.gestures.onFieldSubmitted}

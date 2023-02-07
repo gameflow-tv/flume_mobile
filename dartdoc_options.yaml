@@ -7,16 +7,19 @@ dartdoc:
   warnings:
     - tool-error
   categories:
-    Flume:
-      markdown: doc/flume.md
-      name: Flume
     Foundation:
       markdown: doc/foundation.md
       name: Foundation
     Components:
       markdown: doc/components.md
       name: Components
-  categoryOrder: [Flume, Foundation, Components]
+    Ambiance:
+      markdown: doc/ambiance.md
+      name: Ambiance
+    Tools:
+      markdown: doc/tools.md
+      name: Tools
+  categoryOrder: [Foundation, Components, Ambiance, Tools]
   examplePathPrefix: example/
   showUndocumentedCategories: true
   favicon: assets/docs/favicon.ico

@@ -2,7 +2,8 @@ import 'package:flume/flume.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
-/// {@category Spacing}
+/// {@category Components}
+/// {@subCategory Spacing}
 /// A supercharged [Flex] widget with Flume-specific properties like padding
 /// and children spacing.
 class FlumeFlex extends StatelessWidget {
@@ -94,7 +95,8 @@ class FlumeFlex extends StatelessWidget {
   }
 }
 
-/// {@category Spacing}
+/// {@category Components}
+/// {@subCategory Spacing}
 /// A subclass of [FlumeFlex] that lays its children out on the vertical axis.
 class FlumeColumn extends FlumeFlex {
   const FlumeColumn({
@@ -122,7 +124,8 @@ class FlumeColumn extends FlumeFlex {
         );
 }
 
-/// {@category Spacing}
+/// {@category Components}
+/// {@subCategory Spacing}
 /// A subclass of [FlumeFlex] that lays its children out on the horizontal axis.
 class FlumeRow extends FlumeFlex {
   const FlumeRow({

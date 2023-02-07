@@ -14,6 +14,8 @@ class _FlumeIconsData extends IconData {
   final String name;
 }
 
+/// {@category Components}
+/// {@subCategory Icons}
 @immutable
 class FlumeIcons {
   const FlumeIcons._();

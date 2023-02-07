@@ -2,15 +2,26 @@ import 'package:flume/src/components/spacing/flex.dart';
 import 'package:flutter/material.dart';
 import 'package:flume/flume.dart';
 
-// TODO (@arnemolland): Refactor to a more simplistic API
 /// {@category Components}
-/// {@subCategory List}
+/// {@subCategory Lists}
 /// A wrapper around [ListView] with Flume-specific customizations.
 class ScrollableList extends StatelessWidget {
   /// A label to display above the list.
   final Widget? title;
 
-  /// {@macro flutter.widgets.children}
+  /// {@template flutter.widgets.children}
+  /// The widgets below this widget in the tree.
+  ///
+  /// If this list is going to be mutated, it is usually wise to put a [Key] on
+  /// each of the child widgets, so that the framework can match old
+  /// configurations to new configurations and maintain the underlying render
+  /// objects.
+  ///
+  /// Also, a [Widget] in Flutter is immutable, so directly modifying the
+  /// [children] such as `someMultiChildRenderObjectWidget.children.add(...)` or
+  /// as the example code below will result in incorrect behaviors. Whenever the
+  /// children list is modified, a new list object should be provided.
+  /// {@endtemplate}
   final List<Widget> children;
 
   /// If the [ListView] should be shrink-wrapped and not expand.
@@ -38,10 +49,17 @@ class ScrollableList extends StatelessWidget {
   /// If adaptive is true, this controls the aspect ratio of the grid's children.
   final double gridChildAspectRatio;
 
-  /// {@macro flutter.rendering.EdgeInsets}
+  /// {@template flutter.rendering.EdgeInsets}
+  /// Empty space to inscribe inside. The [child], if any, is placed
+  /// inside this padding.
+  /// {@endtemplate}
   final EdgeInsets padding;
 
-  /// {@macro flutter.rendering.Axis}
+  /// {@template flutter.rendering.Axis}
+  /// The two cardinal directions in two dimensions. The axis is always relative to the current coordinate space.
+  /// This means, for example, that a horizontal axis might actually be diagonally from top right to bottom left,
+  /// due to some local Transform applied to the scene.
+  /// {@endtemplate}
   final Axis scrollDirection;
 
   final bool divided;

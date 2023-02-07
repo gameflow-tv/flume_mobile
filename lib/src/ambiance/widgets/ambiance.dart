@@ -1,6 +1,9 @@
 import 'package:flume/flume.dart';
 import 'package:flutter/widgets.dart';
 
+/// {@category Ambiance}
+/// {@subCategory Widgets}
+/// A data class that holds the current [Ambiance] state.
 class AmbianceState {
   final AmbiancePalette palette;
   final Color color;
@@ -21,6 +24,9 @@ class AmbianceState {
   });
 }
 
+/// {@category Ambiance}
+/// {@subCategory Widgets}
+/// A widget that provides the current [AmbianceState] to its descendants.
 class Ambiance extends StatelessWidget {
   final Color? source;
   final Color? color;
@@ -81,7 +87,7 @@ class Ambiance extends StatelessWidget {
 
     return AmbianceProvider(
       state: state,
-      child: Proxy(
+      child: _Proxy(
         builder: (ctx) {
           return child ?? builder!(ctx, state);
         },
@@ -90,9 +96,9 @@ class Ambiance extends StatelessWidget {
   }
 }
 
-class Proxy extends StatelessWidget {
+class _Proxy extends StatelessWidget {
   final Widget Function(BuildContext) builder;
-  const Proxy({super.key, required this.builder});
+  const _Proxy({required this.builder});
 
   @override
   Widget build(BuildContext context) {
@@ -102,6 +108,9 @@ class Proxy extends StatelessWidget {
 
 Map<Color, AmbiancePalette> _computedPalettes = {};
 
+/// {@category Ambiance}
+/// {@subCategory Functions}
+/// A function that returns an [AmbiancePalette] from a given [Color].
 AmbiancePalette getPaletteFromColor(Color color) {
   if (_computedPalettes.containsKey(color)) {
     return _computedPalettes[color]!;
@@ -110,6 +119,10 @@ AmbiancePalette getPaletteFromColor(Color color) {
   }
 }
 
+/// {@category Ambiance}
+/// {@subCategory Functions}
+/// A function that returns a [Color] from the given [color]'s ambiance palette
+/// given the [elevation].
 Color getColorFromElevation(Color color, int elevation) {
   AmbiancePalette palette;
 

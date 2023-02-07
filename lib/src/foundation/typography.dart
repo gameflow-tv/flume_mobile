@@ -270,6 +270,9 @@ class FlumeTypography {
       );
 }
 
+/// {@category Foundation}
+/// {@subCategory Typography}
+/// Raw typography data.
 class FlumeRawTypography {
   const FlumeRawTypography({
     required this.header1,
