@@ -7,11 +7,13 @@ class SearchBar extends StatefulWidget {
     this.controller,
     this.focusNode,
     required this.cancelText,
+    this.hintText,
   });
 
   final TextEditingController? controller;
   final FocusNode? focusNode;
   final String cancelText;
+  final String? hintText;
 
   @override
   State<SearchBar> createState() => _SearchBarState();
@@ -83,6 +85,7 @@ class _SearchBarState extends State<SearchBar> {
                         suffixIcon: _suffix,
                         prefixIcon: _prefix,
                         focusNode: _focusNode,
+                        hintText: widget.hintText,
                       ),
                     ),
                     Expanded(
