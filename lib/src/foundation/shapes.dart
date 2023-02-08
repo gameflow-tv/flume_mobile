@@ -11,22 +11,27 @@ class FlumeShapes {
 
   /// {@category Foundation}
   /// {@subCategory Shapes}
-  /// Extra small border radius.
+  /// Use an xs shape on elements that are short in height. Used primarily on
+  /// slim shapes (less than 32px height), like labels and smaller tags.
   final double xs;
 
   /// {@category Foundation}
   /// {@subCategory Shapes}
-  /// Small border radius.
+  /// Standard shape for buttons. Use a [sm] border radius on elements that
+  /// don’t take up much space in the UI. Used primarily on buttons, tiles and
+  /// cards.
   final double sm;
 
   /// {@category Foundation}
   /// {@subCategory Shapes}
-  /// Medium border radius.
+  /// The standard border radius size. Commonly used for larger elements in the
+  /// UI, such as containers, modals, images and large boxes.
   final double md;
 
   /// {@category Foundation}
   /// {@subCategory Shapes}
-  /// Large border radius.
+  /// Used to round off the top corners of a modal sheet, creating a softer
+  /// appearance of an element that takes up the full viewport width.
   final double lg;
 
   /// {@category Foundation}
