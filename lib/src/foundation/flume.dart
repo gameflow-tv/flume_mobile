@@ -89,7 +89,7 @@ class _MediaQueryFromWindowState extends State<_MediaQueryFromWindow>
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
-      data: MediaQueryData.fromWindow(WidgetsBinding.instance.window),
+      data: MediaQueryData.fromView(WidgetsBinding.instance.window),
       child: widget.child,
     );
   }
