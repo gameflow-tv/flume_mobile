@@ -1,3 +1,9 @@
+## 0.1.3
+
+* Added README
+* Changed docs to include more details
+* Changed required SDK version to >=3.0.0-204.0.dev for compatibility reasons
+
 ## 0.1.2
 
 * Changed ScrollableList to set default `padding` value in constructor instead of inside `build`
