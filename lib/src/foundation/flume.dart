@@ -89,7 +89,9 @@ class _MediaQueryFromWindowState extends State<_MediaQueryFromWindow>
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
-      data: MediaQueryData.fromView(WidgetsBinding.instance.window),
+      // TODO(arnemolland): Migrate deprecated method and remove todo, #22
+      // ignore: deprecated_member_use
+      data: MediaQueryData.fromWindow(WidgetsBinding.instance.window),
       child: widget.child,
     );
   }

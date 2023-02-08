@@ -36,13 +36,5 @@ jobs:
       - run: flutter pub get
         working-directory: example
 
-      - if: matrix.target == 'ios --no-codesign'
-        run: cd ios && pod install
-        working-directory: example
-
-      - if: matrix.target == 'macos'
-        run: cd macos && pod install
-        working-directory: example
-
       - run: flutter build ${{ matrix.target }} ${{ steps.build-args.outputs.args }}
         working-directory: example
