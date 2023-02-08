@@ -1,3 +1,7 @@
+## 0.1.4
+
+* Loosened Dart version constraints
+
 ## 0.1.3
 
 * Added README
