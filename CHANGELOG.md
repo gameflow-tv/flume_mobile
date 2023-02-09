@@ -1,3 +1,9 @@
+## 0.1.5
+
+* Changed repository visibility to public
+* Removed revoked, hard-coded Figma access token
+* Changed `tools/icons.dart` to _require_ `--token` option
+
 ## 0.1.4
 
 * Loosened Dart version constraints
