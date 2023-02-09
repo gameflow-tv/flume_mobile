@@ -35,4 +35,13 @@ jobs:
 
       - run: flutter pub get
 
-      - run: cd example && flutter build ${{ matrix.target }}
+      - if: matrix.target == 'ios --no-codesign'
+        run: flutter precache --ios && pod install
+        working-directory: example/ios
+
+      - if: matrix.target == 'macos'
+        run: flutter precache --macos && pod install
+        working-directory: example/macos
+
+      - run: flutter build ${{ matrix.target }}
+        working-directory: example
