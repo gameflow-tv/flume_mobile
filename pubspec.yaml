@@ -1,7 +1,7 @@
 name: flume
 description: Implementation of the Flume design system and components for Flutter.
 version: 0.0.0
-homepage: https://gameflow.tv
+homepage: https://github.com/gameflow-tv/flume_mobile
 
 environment:
   sdk: ">=2.18.0 <4.0.0"
