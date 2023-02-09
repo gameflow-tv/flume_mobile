@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 /// {@category Components}
 /// {@subCategory Buttons}
+/// A regular button, with a variety of sizes and variants.
 class Button extends StatefulWidget {
   /// The size of the button.
   final ButtonSize size;
