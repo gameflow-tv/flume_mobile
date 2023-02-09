@@ -5,4 +5,4 @@ on:
 jobs:
   publish:
     # Docs found at https://dart.dev/tools/pub/automated-publishing
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml
+    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
