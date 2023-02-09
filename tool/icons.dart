@@ -233,7 +233,7 @@ Future<void> main(List<String> args) async {
     'token',
     abbr: 't',
     help: 'Figma access token',
-    defaultsTo: 'figd_WHj1ryknfvPbkmyJ4kFR00I7OM0_sn7KZ58QaEKR',
+    mandatory: true,
   );
 
   parser.addOption(

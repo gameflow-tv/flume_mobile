@@ -10,6 +10,7 @@
 .svn/
 .cache/
 migrate_working_dir/
+.envrc
 
 # IntelliJ related
 *.iml
