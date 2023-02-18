@@ -20,7 +20,7 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^2.0.1
-  figma: ^3.6.0
+  figma: ^5.0.3
   progress_bar: ^1.0.0
   http: ^0.13.5
   test: ^1.21.4
