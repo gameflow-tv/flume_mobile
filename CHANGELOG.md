@@ -1,3 +1,11 @@
+## 0.1.7
+
+* Added TabButton component
+
+## 0.1.6
+
+* Changed back to old release workflow
+
 ## 0.1.5
 
 * Changed repository visibility to public
