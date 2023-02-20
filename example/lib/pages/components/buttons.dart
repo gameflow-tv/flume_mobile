@@ -1051,7 +1051,177 @@ class ButtonsPage extends StatelessWidget {
                             .toList(),
                       ),
                     ],
-                  )
+                  ),
+                  ScrollableList.static(
+                    title: const Text('TabButton selected'),
+                    divided: false,
+                    children: [
+                      Wrap(
+                        children: [
+                          TabButton(
+                            selected: true,
+                            state: ButtonState.normal,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text('Tab'),
+                                Icon(FlumeIcons.eye_filled),
+                              ].spaced(context.theme.spacing.xs),
+                            ),
+                          ),
+                          TabButton(
+                            selected: true,
+                            state: ButtonState.hover,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text('Tab'),
+                                Icon(FlumeIcons.eye_filled),
+                              ].spaced(context.theme.spacing.xs),
+                            ),
+                          ),
+                          TabButton(
+                            selected: true,
+                            state: ButtonState.pressed,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text('Tab'),
+                                Icon(FlumeIcons.eye_filled),
+                              ].spaced(context.theme.spacing.xs),
+                            ),
+                          ),
+                          TabButton(
+                            selected: true,
+                            state: ButtonState.focus,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text('Tab'),
+                                Icon(FlumeIcons.eye_filled),
+                              ].spaced(context.theme.spacing.xs),
+                            ),
+                          ),
+                          TabButton(
+                            selected: true,
+                            state: ButtonState.disabled,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text('Tab'),
+                                Icon(FlumeIcons.eye_filled),
+                              ].spaced(context.theme.spacing.xs),
+                            ),
+                          ),
+                          TabButton(
+                            selected: true,
+                            state: ButtonState.loading,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text('Tab'),
+                                Icon(FlumeIcons.eye_filled),
+                              ].spaced(context.theme.spacing.xs),
+                            ),
+                          ),
+                        ]
+                            .map(
+                              (e) => Padding(
+                                padding: EdgeInsets.all(
+                                  theme.spacing.xxs,
+                                ),
+                                child: e,
+                              ),
+                            )
+                            .toList(),
+                      ),
+                    ],
+                  ),
+                  ScrollableList.static(
+                    title: const Text('TabButton unselected'),
+                    divided: false,
+                    children: [
+                      Wrap(
+                        children: [
+                          TabButton(
+                            selected: false,
+                            state: ButtonState.normal,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text('Tab'),
+                                Icon(FlumeIcons.eye),
+                              ].spaced(context.theme.spacing.xs),
+                            ),
+                          ),
+                          TabButton(
+                            selected: false,
+                            state: ButtonState.hover,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text('Tab'),
+                                Icon(FlumeIcons.eye),
+                              ].spaced(context.theme.spacing.xs),
+                            ),
+                          ),
+                          TabButton(
+                            selected: false,
+                            state: ButtonState.pressed,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text('Tab'),
+                                Icon(FlumeIcons.eye),
+                              ].spaced(context.theme.spacing.xs),
+                            ),
+                          ),
+                          TabButton(
+                            selected: false,
+                            state: ButtonState.focus,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text('Tab'),
+                                Icon(FlumeIcons.eye),
+                              ].spaced(context.theme.spacing.xs),
+                            ),
+                          ),
+                          TabButton(
+                            selected: false,
+                            state: ButtonState.disabled,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text('Tab'),
+                                Icon(FlumeIcons.eye),
+                              ].spaced(context.theme.spacing.xs),
+                            ),
+                          ),
+                          TabButton(
+                            selected: false,
+                            state: ButtonState.loading,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text('Tab'),
+                                Icon(FlumeIcons.eye),
+                              ].spaced(context.theme.spacing.xs),
+                            ),
+                          ),
+                        ]
+                            .map(
+                              (e) => Padding(
+                                padding: EdgeInsets.all(
+                                  theme.spacing.xxs,
+                                ),
+                                child: e,
+                              ),
+                            )
+                            .toList(),
+                      ),
+                    ],
+                  ),
                 ]
                     .map(
                       (e) => Padding(

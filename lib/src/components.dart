@@ -25,3 +25,4 @@ export 'components/buttons/toggle_button.dart';
 export 'components/buttons/ghost_button.dart';
 export 'components/buttons/shared.dart';
 export 'components/buttons/flat_button.dart';
+export 'components/buttons/tab_button.dart';
