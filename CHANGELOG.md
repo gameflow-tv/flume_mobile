@@ -1,3 +1,9 @@
+## 0.2.0
+
+* Added Checkbox component
+* Renamed SymbolButton to IconButton, but kept backwards-compatible SymbolButton
+* Added re-export of `package:flutter/material.dart` with pre-hidden conflicting symbols. Use `package:flume/material.dart` to avoid conflict imports.
+
 ## 0.1.7
 
 * Added TabButton component
