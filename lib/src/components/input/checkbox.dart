@@ -139,7 +139,7 @@ class _CheckboxState extends State<Checkbox> {
                 ? Center(
                     child: Icon(
                       Icons.check,
-                      size: 12,
+                      size: 16,
                       color: context.theme.colors.onPrimary,
                     ),
                   )
