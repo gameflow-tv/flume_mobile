@@ -14,7 +14,7 @@ import 'package:flume_example/pages/foundation/spacing.dart';
 import 'package:flume_example/pages/foundation/typography.dart';
 import 'package:flume_example/pages/root.dart';
 
-import 'package:flutter/material.dart';
+import 'package:flume/material.dart';
 import 'package:flume/flume.dart';
 
 void main() {

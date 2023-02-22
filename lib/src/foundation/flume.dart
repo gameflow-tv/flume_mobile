@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flume/material.dart';
 import 'package:flume/flume.dart';
 
 import 'adapter.dart';
