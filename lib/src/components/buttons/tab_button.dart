@@ -13,7 +13,7 @@ class TabButton extends StatefulWidget {
   final ButtonState? state;
 
   /// Optional callback to be called when the button is pressed.
-  final ValueChanged<bool>? onChange;
+  final ValueChanged<bool>? onChanged;
 
   /// The child widget to render.
   final Widget child;
@@ -23,7 +23,7 @@ class TabButton extends StatefulWidget {
     required this.selected,
     required this.child,
     this.state,
-    this.onChange,
+    this.onChanged,
   });
 
   @override
@@ -91,7 +91,7 @@ class _TabButtonState extends State<TabButton> {
                   onTapDown: handleTapDown,
                   onTapUp: handleTapUp,
                   onTapCancel: handleTapUp,
-                  onTap: () => widget.onChange?.call(!widget.selected),
+                  onTap: () => widget.onChanged?.call(!widget.selected),
                   child: AnimatedContainer(
                     padding: EdgeInsets.symmetric(
                       vertical: context.theme.spacing.xs,

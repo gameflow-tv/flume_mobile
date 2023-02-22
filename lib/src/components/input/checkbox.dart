@@ -29,16 +29,16 @@ enum CheckboxState {
 class Checkbox extends StatefulWidget {
   const Checkbox({
     Key? key,
-    required this.checked,
-    required this.onChange,
+    required this.value,
+    required this.onChanged,
     this.state,
   }) : super(key: key);
 
   /// Checked state of the checkbox.
-  final bool checked;
+  final bool value;
 
   /// Called when the checkbox is tapped.
-  final ValueChanged<bool> onChange;
+  final ValueChanged<bool> onChanged;
 
   /// Override default initial state.
   final CheckboxState? state;
@@ -117,7 +117,7 @@ class _CheckboxState extends State<Checkbox> {
           onTapDown: handleTapDown,
           onTapUp: handleTapUp,
           onTapCancel: handleTapUp,
-          onTap: () => widget.onChange.call(!widget.checked),
+          onTap: () => widget.onChanged.call(!widget.value),
           child: AnimatedContainer(
             duration: context.theme.motion.short,
             width: 24,
@@ -126,7 +126,7 @@ class _CheckboxState extends State<Checkbox> {
               context.theme.spacing.xxxs,
             ),
             decoration: BoxDecoration(
-              color: widget.checked ? context.theme.colors.primary : null,
+              color: widget.value ? context.theme.colors.primary : null,
               borderRadius: BorderRadius.circular(
                 context.theme.shapes.sm,
               ),
@@ -135,7 +135,7 @@ class _CheckboxState extends State<Checkbox> {
                 width: 1,
               ),
             ),
-            child: widget.checked
+            child: widget.value
                 ? Center(
                     child: Icon(
                       Icons.check,
@@ -151,7 +151,7 @@ class _CheckboxState extends State<Checkbox> {
   }
 
   Color getBorderColor() {
-    if (widget.checked) {
+    if (widget.value) {
       switch (state) {
         case CheckboxState.normal:
           return context.theme.colors.overlay30;
