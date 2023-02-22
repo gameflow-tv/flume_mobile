@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flume/material.dart';
 
 /// {@category Foundation}
 /// Splash factory that disables all ripple effects

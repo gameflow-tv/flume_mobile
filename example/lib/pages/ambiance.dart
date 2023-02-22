@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flume/flume.dart';
-import 'package:flutter/material.dart';
+import 'package:flume/material.dart';
 
 class AmbianceBox extends StatelessWidget {
   final Color? color;

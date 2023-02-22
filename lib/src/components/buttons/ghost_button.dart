@@ -1,6 +1,6 @@
 import 'package:flume/flume.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:flume/material.dart';
 
 class GhostButton extends StatefulWidget {
   /// Optional state to override the default initial state.

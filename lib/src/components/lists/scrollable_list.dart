@@ -1,5 +1,5 @@
 import 'package:flume/src/components/spacing/flex.dart';
-import 'package:flutter/material.dart';
+import 'package:flume/material.dart';
 import 'package:flume/flume.dart';
 
 /// {@category Components}

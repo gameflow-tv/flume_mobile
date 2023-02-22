@@ -1,6 +1,6 @@
 import 'package:flume/flume.dart';
 import 'package:flume_example/widgets/blueprint.dart';
-import 'package:flutter/material.dart';
+import 'package:flume/material.dart';
 
 extension PrettyShadow on BoxShadow {
   String get pretty =>

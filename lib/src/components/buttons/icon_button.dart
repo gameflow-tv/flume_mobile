@@ -1,13 +1,11 @@
 import 'package:flume/flume.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-
-// TODO: Rename. "SymbolButton" is just a placeholder name to avoid conflicts with Material's "IconButton".
+import 'package:flume/material.dart';
 
 /// {@category Components}
 /// {@subCategory Buttons}
 /// A button that displays an icon.
-class SymbolButton extends StatefulWidget {
+class IconButton extends StatefulWidget {
   /// The size of the button.
   final ButtonSize size;
 
@@ -23,7 +21,7 @@ class SymbolButton extends StatefulWidget {
   /// Optional callback to be called when the button is pressed.
   final VoidCallback? onPressed;
 
-  const SymbolButton({
+  const IconButton({
     super.key,
     required this.size,
     required this.variant,
@@ -33,10 +31,10 @@ class SymbolButton extends StatefulWidget {
   });
 
   @override
-  State<SymbolButton> createState() => _SymbolButtonState();
+  State<IconButton> createState() => _IconButtonState();
 }
 
-class _SymbolButtonState extends State<SymbolButton> {
+class _IconButtonState extends State<IconButton> {
   late ButtonState state;
   late Color backgroundColor;
   late Color foregroundColor;
@@ -250,4 +248,16 @@ class _SymbolButtonState extends State<SymbolButton> {
 
     return base;
   }
+}
+
+/// Backwards-compatible alias for [IconButton].
+class SymbolButton extends IconButton {
+  const SymbolButton({
+    super.key,
+    required super.child,
+    required super.size,
+    required super.variant,
+    super.state,
+    super.onPressed,
+  });
 }

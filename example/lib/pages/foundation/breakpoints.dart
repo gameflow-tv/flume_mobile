@@ -1,5 +1,5 @@
 import 'package:flume/flume.dart';
-import 'package:flutter/material.dart';
+import 'package:flume/material.dart';
 
 class BreakpointsPage extends StatelessWidget {
   const BreakpointsPage({Key? key}) : super(key: key);
