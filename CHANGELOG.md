@@ -1,3 +1,9 @@
+## 0.2.1
+
+* **BREAKING:** Renamed `onChange` params to `onChanged` to align with the familiar Material API
+* **BREAKING:** Renamed `checked` to `value` for Checkbox
+* Increased Checkbox icon size
+
 ## 0.2.0
 
 * Added Checkbox component
