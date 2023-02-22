@@ -16,7 +16,7 @@ class ToggleButton extends StatefulWidget {
   final ButtonState? state;
 
   /// Optional callback to be called when the button is pressed.
-  final ValueChanged<bool>? onChange;
+  final ValueChanged<bool>? onChanged;
 
   /// The child widget to render.
   final Widget child;
@@ -27,7 +27,7 @@ class ToggleButton extends StatefulWidget {
     required this.selected,
     required this.child,
     this.state,
-    this.onChange,
+    this.onChanged,
   });
 
   @override
@@ -95,7 +95,7 @@ class _ToggleButtonState extends State<ToggleButton> {
                   onTapDown: handleTapDown,
                   onTapUp: handleTapUp,
                   onTapCancel: handleTapUp,
-                  onTap: () => widget.onChange?.call(!widget.selected),
+                  onTap: () => widget.onChanged?.call(!widget.selected),
                   child: AnimatedContainer(
                     width: 40.0,
                     height: 40.0,

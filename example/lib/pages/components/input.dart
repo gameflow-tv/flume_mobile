@@ -136,8 +136,8 @@ class _InputPageState extends State<InputPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Checkbox(
-                        checked: _checkboxValue,
-                        onChange: (value) {
+                        value: _checkboxValue,
+                        onChanged: (value) {
                           setState(() {
                             _checkboxValue = value;
                           });
