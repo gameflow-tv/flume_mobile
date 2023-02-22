@@ -1,6 +1,6 @@
 import 'package:flume/flume.dart';
 import 'package:flume_example/widgets/blueprint.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Checkbox;
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -11,6 +11,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   late bool _switchValue;
+  late bool _checkboxValue;
   late TextEditingController _validationController;
 
   String? validate(String? value) {
@@ -26,6 +27,7 @@ class _InputPageState extends State<InputPage> {
     super.initState();
 
     _switchValue = true;
+    _checkboxValue = true;
     _validationController = TextEditingController();
   }
 
@@ -121,6 +123,23 @@ class _InputPageState extends State<InputPage> {
                         onChanged: (value) {
                           setState(() {
                             _switchValue = value;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                FormGroup(
+                  label: const Text('Checkbox'),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Checkbox(
+                        checked: _checkboxValue,
+                        onChange: (value) {
+                          setState(() {
+                            _checkboxValue = value;
                           });
                         },
                       ),
