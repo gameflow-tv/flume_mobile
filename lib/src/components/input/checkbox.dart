@@ -126,7 +126,7 @@ class _CheckboxState extends State<Checkbox> {
               context.theme.spacing.xxxs,
             ),
             decoration: BoxDecoration(
-              color: widget.value ? context.theme.colors.primary : null,
+              color: widget.value ? context.ambiance.palette.light : null,
               borderRadius: BorderRadius.circular(
                 context.theme.shapes.sm,
               ),
@@ -140,7 +140,7 @@ class _CheckboxState extends State<Checkbox> {
                     child: Icon(
                       Icons.check,
                       size: 16,
-                      color: context.theme.colors.onPrimary,
+                      color: context.ambiance.palette.dark,
                     ),
                   )
                 : null,
@@ -160,7 +160,7 @@ class _CheckboxState extends State<Checkbox> {
         case CheckboxState.error:
           return context.theme.colors.error;
         case CheckboxState.focus:
-          return context.theme.colors.icon;
+          return context.theme.colors.primary;
         case CheckboxState.pressed:
         case CheckboxState.hover:
           return context.theme.colors.overlay70;
