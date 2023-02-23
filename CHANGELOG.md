@@ -1,3 +1,7 @@
+## 0.2.2
+
+* Changed Checkbox to use tonal colors
+
 ## 0.2.1
 
 * **BREAKING:** Renamed `onChange` params to `onChanged` to align with the familiar Material API
