@@ -1,6 +1,7 @@
 import 'package:flume/flume.dart';
 import 'package:flume_example/widgets/blueprint.dart';
 import 'package:flume/material.dart';
+import 'package:flume_example/widgets/top_bar.dart';
 
 class ShapesPage extends StatelessWidget {
   const ShapesPage({Key? key}) : super(key: key);

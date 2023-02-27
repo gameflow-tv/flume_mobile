@@ -2,8 +2,6 @@ import 'package:flume/flume.dart';
 import 'package:flume/material.dart';
 import 'package:flutter/services.dart';
 
-/// {@category Components}
-/// {@subCategory Bars}
 /// A header or navigation bar from the Flume design system.
 class TopBar<T> extends StatelessWidget implements PreferredSizeWidget {
   TopBar({

@@ -1,5 +1,6 @@
 import 'package:flume/flume.dart';
 import 'package:flume/material.dart';
+import 'package:flume_example/widgets/top_bar.dart';
 
 class RootPage extends StatelessWidget {
   const RootPage({
