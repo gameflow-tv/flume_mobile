@@ -1,3 +1,7 @@
+## 0.2.5
+
+* Added multiline support to ValidationMessage
+
 ## 0.2.4
 
 * Disabled `onPressed` and `onSelected` callbacks for buttons in disabled state
