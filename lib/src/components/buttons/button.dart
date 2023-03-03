@@ -123,7 +123,8 @@ class _ButtonState extends State<Button> {
                   onTapDown: handleTapDown,
                   onTapUp: handleTapUp,
                   onTapCancel: handleTapUp,
-                  onTap: widget.onPressed,
+                  onTap:
+                      state == ButtonState.disabled ? null : widget.onPressed,
                   child: AnimatedContainer(
                     width: widget.size == ButtonSize.expand
                         ? double.infinity

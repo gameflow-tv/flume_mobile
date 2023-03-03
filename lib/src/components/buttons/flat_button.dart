@@ -88,7 +88,8 @@ class _FlatButtonState extends State<FlatButton> {
                   onTapDown: handleTapDown,
                   onTapUp: handleTapUp,
                   onTapCancel: handleTapUp,
-                  onTap: widget.onPressed,
+                  onTap:
+                      state == ButtonState.disabled ? null : widget.onPressed,
                   child: AnimatedContainer(
                     duration: theme.motion.short,
                     decoration: getBoxDecoration(theme),

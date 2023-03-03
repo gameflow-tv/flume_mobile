@@ -95,7 +95,8 @@ class _IconButtonState extends State<IconButton> {
                   onTapDown: handleTapDown,
                   onTapUp: handleTapUp,
                   onTapCancel: handleTapUp,
-                  onTap: widget.onPressed,
+                  onTap:
+                      state == ButtonState.disabled ? null : widget.onPressed,
                   child: AnimatedContainer(
                     width: widget.size == ButtonSize.large ? 48.0 : 40.0,
                     height: widget.size == ButtonSize.large ? 48.0 : 40.0,

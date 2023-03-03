@@ -84,7 +84,8 @@ class _GhostButtonState extends State<GhostButton> {
                   onTapDown: handleTapDown,
                   onTapUp: handleTapUp,
                   onTapCancel: handleTapUp,
-                  onTap: widget.onPressed,
+                  onTap:
+                      state == ButtonState.disabled ? null : widget.onPressed,
                   child: AnimatedContainer(
                     width: 32.0,
                     height: 32.0,

@@ -95,7 +95,9 @@ class _ToggleButtonState extends State<ToggleButton> {
                   onTapDown: handleTapDown,
                   onTapUp: handleTapUp,
                   onTapCancel: handleTapUp,
-                  onTap: () => widget.onChanged?.call(!widget.selected),
+                  onTap: state == ButtonState.disabled
+                      ? null
+                      : () => widget.onChanged?.call(!widget.selected),
                   child: AnimatedContainer(
                     width: 40.0,
                     height: 40.0,

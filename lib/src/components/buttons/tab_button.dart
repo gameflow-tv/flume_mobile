@@ -91,7 +91,9 @@ class _TabButtonState extends State<TabButton> {
                   onTapDown: handleTapDown,
                   onTapUp: handleTapUp,
                   onTapCancel: handleTapUp,
-                  onTap: () => widget.onChanged?.call(!widget.selected),
+                  onTap: state == ButtonState.disabled
+                      ? null
+                      : () => widget.onChanged?.call(!widget.selected),
                   child: AnimatedContainer(
                     padding: EdgeInsets.symmetric(
                       vertical: context.theme.spacing.xs,
