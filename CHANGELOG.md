@@ -1,3 +1,7 @@
+## 0.2.4
+
+* Disabled `onPressed` and `onSelected` callbacks for buttons in disabled state
+
 ## 0.2.3
 
 * Removed TopBar component, as it's too much to abstract away (e.g. different routing, navigators etc.)
