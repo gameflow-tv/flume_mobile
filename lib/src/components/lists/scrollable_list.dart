@@ -62,7 +62,11 @@ class ScrollableList extends StatelessWidget {
   /// {@endtemplate}
   final Axis scrollDirection;
 
+  /// If true, the children will be divided by a separator.
   final bool divided;
+
+  /// If true, every child will be wrapped in a [SafeArea].
+  final bool wrapWithSafeArea;
 
   const ScrollableList({
     super.key,
@@ -79,6 +83,7 @@ class ScrollableList extends StatelessWidget {
     this.padding = EdgeInsets.zero,
     this.scrollDirection = Axis.vertical,
     this.divided = true,
+    this.wrapWithSafeArea = true,
   });
 
   factory ScrollableList.static({
@@ -93,6 +98,7 @@ class ScrollableList extends StatelessWidget {
     EdgeInsets padding = EdgeInsets.zero,
     Axis scrollDirection = Axis.vertical,
     bool divided = true,
+    bool wrapWithSafeArea = true,
   }) {
     return ScrollableList(
       shrinkWrap: true,
@@ -107,6 +113,7 @@ class ScrollableList extends StatelessWidget {
       padding: padding,
       scrollDirection: scrollDirection,
       divided: divided,
+      wrapWithSafeArea: wrapWithSafeArea,
       children: children,
     );
   }
@@ -120,6 +127,17 @@ class ScrollableList extends StatelessWidget {
     );
   }
 
+  Widget withWrapper(Widget child) {
+    if (wrapWithSafeArea) {
+      return SafeArea(
+        top: false,
+        bottom: false,
+        child: child,
+      );
+    }
+    return child;
+  }
+
   Widget buildGridView(BuildContext context) {
     return GridView(
       padding: padding,
@@ -130,7 +148,7 @@ class ScrollableList extends StatelessWidget {
         mainAxisSpacing: 8.0,
       ),
       scrollDirection: scrollDirection,
-      children: children,
+      children: children.map(withWrapper).toList(),
     );
   }
 
@@ -170,10 +188,13 @@ class ScrollableList extends StatelessWidget {
                   ),
                 ),
                 child: FlumeColumn(
-                  children: children.divided(
-                    1,
-                    context.theme.colors.highlight10,
-                  ),
+                  children: children
+                      .divided(
+                        1,
+                        context.theme.colors.highlight10,
+                      )
+                      .map(withWrapper)
+                      .toList(),
                 ),
               );
             } else if (divided) {
@@ -189,11 +210,11 @@ class ScrollableList extends StatelessWidget {
                       color: context.theme.colors.highlight10,
                     )
                   }
-                ],
+                ].map(withWrapper).toList(),
               );
             } else {
               return FlumeColumn(
-                children: children,
+                children: children.map(withWrapper).toList(),
               );
             }
           },
