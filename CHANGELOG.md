@@ -1,3 +1,7 @@
+## 0.2.6
+
+* Changed ScrollableList to wrap children in SafeArea by default, can be disabled with the `wrapWithSafeArea` parameter
+
 ## 0.2.5
 
 * Added multiline support to ValidationMessage
