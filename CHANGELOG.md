@@ -1,10 +1,14 @@
+## 0.2.7
+
+* **BREAKING:** Renamed `Shimmer` to `Skeleton`
+
 ## 0.2.6
 
 * Changed ScrollableList to wrap children in SafeArea by default, can be disabled with the `wrapWithSafeArea` parameter
 
 ## 0.2.5
 
-* Added multiline support to ValidationMessage
+* Added multiline support to `ValidationMessage`
 
 ## 0.2.4
 
@@ -12,27 +16,27 @@
 
 ## 0.2.3
 
-* Removed TopBar component, as it's too much to abstract away (e.g. different routing, navigators etc.)
+* Removed `TopBar` component, as it's too much to abstract away (e.g. different routing, navigators etc.)
 
 ## 0.2.2
 
-* Changed Checkbox to use tonal colors
+* Changed `Checkbox` to use tonal colors
 
 ## 0.2.1
 
 * **BREAKING:** Renamed `onChange` params to `onChanged` to align with the familiar Material API
 * **BREAKING:** Renamed `checked` to `value` for Checkbox
-* Increased Checkbox icon size
+* Increased `Checkbox` icon size
 
 ## 0.2.0
 
-* Added Checkbox component
-* Renamed SymbolButton to IconButton, but kept backwards-compatible SymbolButton
+* Added `Checkbox` component
+* Renamed `SymbolButton` to `IconButton`, but kept backwards-compatible SymbolButton
 * Added re-export of `package:flutter/material.dart` with pre-hidden conflicting symbols. Use `package:flume/material.dart` to avoid conflict imports.
 
 ## 0.1.7
 
-* Added TabButton component
+* Added `TabButton` component
 
 ## 0.1.6
 
@@ -56,60 +60,60 @@
 
 ## 0.1.2
 
-* Changed ScrollableList to set default `padding` value in constructor instead of inside `build`
+* Changed `ScrollableList` to set default `padding` value in constructor instead of inside `build`
 * Added `hintText` param to SearchBar
 
 ## 0.1.1
 
 * **BREAKING**: Removed `spaceBetween` due to conflict with divided and use of `.spaced`extension in ScrollableList
-* **BREAKING**: Changed InputField's `maxLines` behaviour to depend on the `expands` property. If non-expandable, `maxLines` defaults to 1 as always, but if `expands` is `true`, `maxLines` is set to `null`. These are mutually exclusive.
-* Changed Cell to wrap its children inside a `SafeArea` to avoid overlapping with physical borders.
-* Added ScrollableList.static factory for non-scrollable, shrink-wrapped use
-* Added FormGroup widget
-* Added SearchBar widget
+* **BREAKING**: Changed `InputField`'s `maxLines` behaviour to depend on the `expands` property. If non-expandable, `maxLines` defaults to 1 as always, but if `expands` is `true`, `maxLines` is set to `null`. These are mutually exclusive.
+* Changed `Cell` to wrap its children inside a `SafeArea` to avoid overlapping with physical borders.
+* Added `ScrollableList.static` factory for non-scrollable, shrink-wrapped use
+* Added `FormGroup` widget
+* Added `SearchBar` widget
 
 ## 0.1.0
 
-* **BREAKING**: Changed FlumeTypography getter types to return `TextStyle`
+* **BREAKING**: Changed `FlumeTypography` getter types to return `TextStyle`
 
 ## 0.0.12
 
-* Changed Button to only render icon if one is passed
+* Changed `Button` to only render icon if one is passed
 
 ## 0.0.11
 
-* Changed InputField text alignment to be centered
+* Changed `InputField` text alignment to be centered
 
 ## 0.0.10
 
-* Removed divider for empty children in ScrollableList
+* Removed divider for empty children in `ScrollableList`
 
 ## 0.0.9
 
-* Added `onTapOutside` property to InputField
+* Added `onTapOutside` property to `InputField`
 
 ## 0.0.8
 
-* Added padding to leading widget in TopBar
+* Added padding to leading widget in `TopBar`
 
 ## 0.0.7
 
-* Implemented TonalSwitch component
+* Implemented `TonalSwitch` component
 * Added `dense` property on Cell
 
 ## 0.0.6
 
-* Added opacity for enabled state on InputField
+* Added opacity for enabled state on `InputField`
 
 ## 0.0.5
 
-* Added `enabled` property on InputField
+* Added `enabled` property on `InputField`
 
 ## 0.0.4
 
-* Added `leadingLabel` to TopBar
-* Fixed divider issuer in ScrollableList
-* Refactored InputField suffix/prefix icons
+* Added `leadingLabel` to `TopBar`
+* Fixed divider issuer in `ScrollableList`
+* Refactored `InputField` suffix/prefix icons
 
 ## 0.0.3+1
 
@@ -119,18 +123,18 @@
 
 ## 0.0.3
 
-* Added opacity animation on Cell when pressed
-* Exposed `prefixIcon` for InputField component
+* Added opacity animation on `Cell` when pressed
+* Exposed `prefixIcon` for `InputField` component
 
 ## 0.0.2
 
-* Implemented ScrollableList
-* Implemented FlumeFlex, FlumeColumn, FlumeRow, FlumeWrap
-* Implemented Tile component for use with lists
-* Updated Cell implementation
-* Implemented Shimmer component
+* Implemented `ScrollableList`
+* Implemented `FlumeFlex`, `FlumeColumn`, `FlumeRow`, `FlumeWrap`
+* Implemented `Tile` component for use with lists
+* Updated `Cell` implementation
+* Implemented `Shimmer` component
 * Updated documentation and templates
-* Added new BuildContext extensions
+* Added new `BuildContext` extensions
 
 ## 0.0.1
 
