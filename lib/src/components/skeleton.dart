@@ -6,10 +6,10 @@ import 'package:shimmer/shimmer.dart';
 /// A shimmer/skeleton placeholder component from the Flume design system.
 class Skeleton extends StatelessWidget {
   /// Shimmer height.
-  final double height;
+  final double? height;
 
   /// Shimmer width.
-  final double width;
+  final double? width;
 
   /// The [BoxShape] of the Shimmer
   final BoxShape shape;
