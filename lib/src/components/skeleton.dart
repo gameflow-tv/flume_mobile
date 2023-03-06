@@ -23,8 +23,8 @@ class Skeleton extends StatelessWidget {
 
   const Skeleton({
     super.key,
-    this.height = 16 * 1.33,
-    this.width = 128.0,
+    this.height = double.infinity,
+    this.width = double.infinity,
     this.shape = BoxShape.rectangle,
     this.borderRadius,
     this.child,
