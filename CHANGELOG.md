@@ -1,3 +1,7 @@
+## 0.2.8
+
+* Set `Skeleton` `width` and `height` paremeters as nullable
+
 ## 0.2.7
 
 * **BREAKING:** Renamed `Shimmer` to `Skeleton`
