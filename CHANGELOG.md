@@ -1,3 +1,7 @@
+## 0.2.9
+
+* Changed `Skeleton` behaviour to expand (fill parent) by default
+
 ## 0.2.8
 
 * Set `Skeleton` `width` and `height` paremeters as nullable
