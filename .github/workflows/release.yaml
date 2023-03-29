@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: rlespinasse/github-slug-action@v4
+      - uses: rlespinasse/github-slug-action@v4.4.1
 
       - uses: subosito/flutter-action@v2
         with:
