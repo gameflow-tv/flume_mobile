@@ -63,7 +63,7 @@ class _MaterialSwitch extends StatelessWidget {
     return Switch(
       value: value,
       onChanged: onChanged,
-      activeColor: context.ambiance.palette.dark,
+      activeColor: context.ambiance.palette.mediumDark,
       activeTrackColor: context.ambiance.palette.light,
       inactiveThumbColor: context.ambiance.palette.light,
       inactiveTrackColor: context.ambiance.palette.mediumDark,

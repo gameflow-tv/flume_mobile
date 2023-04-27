@@ -1,3 +1,7 @@
+## 0.2.10
+
+* Brightened active thumb color of `TonalSwitch`
+
 ## 0.2.9
 
 * Changed `Skeleton` behaviour to expand (fill parent) by default
