@@ -1,6 +1,10 @@
-## 0.2.10
+## 0.2.11
 
 * Brightened active thumb color of `TonalSwitch`
+
+## 0.2.10
+
+* Hid `SearchBar` export from material
 
 ## 0.2.9
 
