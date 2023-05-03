@@ -1,3 +1,7 @@
+## 0.2.12
+
+* Added license generator for font licenses
+
 ## 0.2.11
 
 * Brightened active thumb color of `TonalSwitch`
