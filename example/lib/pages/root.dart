@@ -32,6 +32,10 @@ class RootPage extends StatelessWidget {
                 title: const Text('Components'),
                 onTap: () => Navigator.pushNamed(context, '/components'),
               ),
+              Cell(
+                title: const Text('Licenses'),
+                onTap: () => Navigator.pushNamed(context, '/licenses'),
+              ),
             ]
                 .map(
                   (e) => Padding(

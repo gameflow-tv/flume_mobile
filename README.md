@@ -164,3 +164,29 @@ All design tokens are gathered in a `FlumeTheme` class, and all design token cla
 The components library is a set of Flutter widgets that implements components from the Flume design system. This is a library that very likely will change a lot until the first stable release, and the API surface _is_ unstable.
 
 All components _require_ a `Flume` parent present in the tree, and most components also _require_  an `Ambiance` parent in the tree as well in order to use dynamic color palettes.
+
+## Licenses
+
+Both the [Mulish](https://fonts.google.com/specimen/Mulish/about) and [Montserrat](https://fonts.google.com/specimen/Montserrat/about) fonts are utilized by Flume. Since fonts aren't automatically added to the license registry, Flume bundles the required license entries. For example:
+
+```dart
+import 'package:flume/licenses.dart';
+
+void main() {
+  LicenseRegistry.addLicense(licenses);
+}
+```
+
+Or, alternatively, generate yourself:
+
+```dart
+void main() {
+  LicenseRegistry.addLicense(() async* {
+  final mulish = await rootBundle.loadString('packages/flume/lib/licenses/Mulish.txt');
+  final montserrat = await rootBundle.loadString('packages/flume/lib/licenses/Montserrat.txt');
+
+  yield LicenseEntryWithLineBreaks(<String>['Montserrat'], montserrat);
+  yield LicenseEntryWithLineBreaks(<String>['Mulish'], mulish);
+  })
+}
+```
