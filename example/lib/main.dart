@@ -1,3 +1,4 @@
+import 'package:flume/licenses.dart';
 import 'package:flume_example/pages/ambiance.dart';
 import 'package:flume_example/pages/components.dart';
 import 'package:flume_example/pages/components/buttons.dart';
@@ -12,12 +13,15 @@ import 'package:flume_example/pages/foundation/shadows.dart';
 import 'package:flume_example/pages/foundation/shapes.dart';
 import 'package:flume_example/pages/foundation/spacing.dart';
 import 'package:flume_example/pages/foundation/typography.dart';
+import 'package:flume_example/pages/license.dart';
 import 'package:flume_example/pages/root.dart';
 
-import 'package:flume/material.dart';
+import 'package:flume/material.dart' hide LicensePage;
 import 'package:flume/flume.dart';
+import 'package:flutter/foundation.dart';
 
 void main() {
+  LicenseRegistry.addLicense(licenses);
   runApp(const FlumeExample());
 }
 
@@ -49,6 +53,7 @@ class FlumeExample extends StatelessWidget {
             '/components/input': (context) => const InputPage(),
             '/components/lists': (context) => const ListsPage(),
             '/components/icons': (context) => const IconsPage(),
+            '/licenses': (context) => const LicensePage(),
           },
           initialRoute: '/',
         );
