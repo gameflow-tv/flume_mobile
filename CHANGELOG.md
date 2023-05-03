@@ -1,3 +1,7 @@
+## 0.2.13
+
+* Updated colors of tonal buttons to match specification
+
 ## 0.2.12
 
 * Added license generator for font licenses
