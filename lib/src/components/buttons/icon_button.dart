@@ -177,6 +177,10 @@ class _IconButtonState extends State<IconButton> {
         break;
       case ButtonVariant.tonal:
         base = ambiance.color;
+
+        if (state != ButtonState.hover) {
+          return base;
+        }
         break;
       case ButtonVariant.signal:
         base = theme.colors.signal;
@@ -191,6 +195,10 @@ class _IconButtonState extends State<IconButton> {
         break;
       case ButtonState.hover:
         base = base.withOpacity(0.8);
+
+        if (widget.variant == ButtonVariant.tonal) {
+          base = ambiance.down();
+        }
         break;
       case ButtonState.pressed:
         base = base.withOpacity(0.6);
@@ -220,7 +228,7 @@ class _IconButtonState extends State<IconButton> {
         base = theme.colors.onPrimary;
         break;
       case ButtonVariant.tonal:
-        base = ambiance.at(5);
+        base = theme.colors.body;
         break;
       case ButtonVariant.signal:
         base = theme.colors.onSignal;
@@ -234,6 +242,9 @@ class _IconButtonState extends State<IconButton> {
       case ButtonState.normal:
         break;
       case ButtonState.hover:
+        if (widget.variant == ButtonVariant.tonal) {
+          base = theme.colors.header;
+        }
         break;
       case ButtonState.pressed:
         break;

@@ -242,6 +242,11 @@ class _ButtonState extends State<Button> {
         break;
       case ButtonVariant.tonal:
         base = ambiance.color;
+
+        if (state != ButtonState.hover) {
+          return base;
+        }
+
         break;
       case ButtonVariant.signal:
         base = theme.colors.signal;
@@ -256,6 +261,10 @@ class _ButtonState extends State<Button> {
         break;
       case ButtonState.hover:
         base = base.withOpacity(0.8);
+
+        if (widget.variant == ButtonVariant.tonal) {
+          base = ambiance.down();
+        }
         break;
       case ButtonState.pressed:
         base = base.withOpacity(0.6);
@@ -285,7 +294,7 @@ class _ButtonState extends State<Button> {
         base = theme.colors.onPrimary;
         break;
       case ButtonVariant.tonal:
-        base = ambiance.at(5);
+        base = theme.colors.body;
         break;
       case ButtonVariant.signal:
         base = theme.colors.onSignal;
@@ -299,8 +308,12 @@ class _ButtonState extends State<Button> {
       case ButtonState.normal:
         break;
       case ButtonState.hover:
+        if (widget.variant == ButtonVariant.tonal) {
+          base = theme.colors.header;
+        }
         break;
       case ButtonState.pressed:
+        base = base.withOpacity(0.7);
         break;
       case ButtonState.focus:
         break;
