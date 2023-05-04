@@ -1,3 +1,7 @@
+## 0.2.14
+
+* Add `padding` property to `Cell` for overriding `dense` behavior.
+
 ## 0.2.13
 
 * Updated colors of tonal buttons to match specification
@@ -16,7 +20,7 @@
 
 ## 0.2.9
 
-* Changed `Skeleton` behaviour to expand (fill parent) by default
+* Changed `Skeleton` behaviur to expand (fill parent) by default
 
 ## 0.2.8
 
@@ -90,7 +94,7 @@
 ## 0.1.1
 
 * **BREAKING**: Removed `spaceBetween` due to conflict with divided and use of `.spaced`extension in ScrollableList
-* **BREAKING**: Changed `InputField`'s `maxLines` behaviour to depend on the `expands` property. If non-expandable, `maxLines` defaults to 1 as always, but if `expands` is `true`, `maxLines` is set to `null`. These are mutually exclusive.
+* **BREAKING**: Changed `InputField`'s `maxLines` behavior to depend on the `expands` property. If non-expandable, `maxLines` defaults to 1 as always, but if `expands` is `true`, `maxLines` is set to `null`. These are mutually exclusive.
 * Changed `Cell` to wrap its children inside a `SafeArea` to avoid overlapping with physical borders.
 * Added `ScrollableList.static` factory for non-scrollable, shrink-wrapped use
 * Added `FormGroup` widget

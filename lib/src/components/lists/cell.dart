@@ -33,8 +33,13 @@ class Cell extends StatefulWidget {
   /// If this [Cell] should be disabled.
   final bool disabled;
 
-  /// If this [Cell] should be dense (less padding).
+  /// If this [Cell] should be dense (less padding). Default padding for dense
+  /// cells is xxs (4px by default), and sm (12px by default) for non-dense
+  /// cells. Ignored if [padding] is provided.
   final bool dense;
+
+  /// The padding around the [Cell]. If provided, this will override [dense].
+  final EdgeInsets? padding;
 
   const Cell({
     super.key,
@@ -45,6 +50,7 @@ class Cell extends StatefulWidget {
     this.onTap,
     this.autofocus,
     this.focusNode,
+    this.padding,
     this.implyNavigation = false,
     this.disabled = false,
     this.dense = false,
@@ -88,11 +94,12 @@ class _CellState extends State<Cell> {
         onTapUp: handleTapUp,
         onTapCancel: handleTapUp,
         child: Container(
-          padding: EdgeInsets.symmetric(
-            vertical: widget.dense
-                ? context.theme.spacing.xxs
-                : context.theme.spacing.sm,
-          ),
+          padding: widget.padding ??
+              EdgeInsets.symmetric(
+                vertical: widget.dense
+                    ? context.theme.spacing.xxs
+                    : context.theme.spacing.sm,
+              ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(theme.shapes.md),
           ),
