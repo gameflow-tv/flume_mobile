@@ -28,7 +28,7 @@ extension WidgetIterableExtension on Iterable<Widget> {
       first,
       ...skip(1).expand((child) {
         return <Widget>[
-          Divider(thickness: thickness, color: color),
+          Divider(thickness: thickness, color: color, height: thickness),
           child,
         ];
       })
