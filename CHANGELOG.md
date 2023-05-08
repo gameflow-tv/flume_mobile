@@ -1,6 +1,10 @@
+## 0.2.15
+
+* Set `Divider` height to its thickness
+
 ## 0.2.14
 
-* Add `padding` property to `Cell` for overriding `dense` behavior.
+* Add `padding` property to `Cell` for overriding `dense` behavior
 
 ## 0.2.13
 
