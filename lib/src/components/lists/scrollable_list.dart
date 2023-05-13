@@ -119,8 +119,8 @@ class ScrollableList extends StatelessWidget {
       scrollDirection: scrollDirection,
       divided: divided,
       wrapWithSafeArea: wrapWithSafeArea,
-      children: children,
       titlePadding: titlePadding,
+      children: children,
     );
   }
 

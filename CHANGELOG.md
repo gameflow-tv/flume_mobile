@@ -1,3 +1,7 @@
+## 0.2.17
+
+* Fix analyzer issues
+
 ## 0.2.16
 
 * Add `titlePadding` to `ScrollableList`
