@@ -40,6 +40,7 @@ class FlumeTypographyData {
         fontFamily: fontFamily,
         height: lineHeight,
         package: 'flume',
+        overflow: TextOverflow.ellipsis,
       );
 }
 
