@@ -1,3 +1,8 @@
+## 0.2.16
+
+* Add `titlePadding` to `ScrollableList`
+* Set default `color` and `overflow` on typography data
+
 ## 0.2.15
 
 * Set `Divider` height to its thickness
