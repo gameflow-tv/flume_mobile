@@ -68,6 +68,9 @@ class ScrollableList extends StatelessWidget {
   /// If true, every child will be wrapped in a [SafeArea].
   final bool wrapWithSafeArea;
 
+  /// The padding around the title.
+  final EdgeInsets? titlePadding;
+
   const ScrollableList({
     super.key,
     required this.children,
@@ -84,6 +87,7 @@ class ScrollableList extends StatelessWidget {
     this.scrollDirection = Axis.vertical,
     this.divided = true,
     this.wrapWithSafeArea = true,
+    this.titlePadding,
   });
 
   factory ScrollableList.static({
@@ -99,6 +103,7 @@ class ScrollableList extends StatelessWidget {
     Axis scrollDirection = Axis.vertical,
     bool divided = true,
     bool wrapWithSafeArea = true,
+    EdgeInsets? titlePadding,
   }) {
     return ScrollableList(
       shrinkWrap: true,
@@ -115,6 +120,7 @@ class ScrollableList extends StatelessWidget {
       divided: divided,
       wrapWithSafeArea: wrapWithSafeArea,
       children: children,
+      titlePadding: titlePadding,
     );
   }
 
@@ -164,9 +170,10 @@ class ScrollableList extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: EdgeInsets.only(
-                bottom: context.theme.spacing.xs,
-              ),
+              padding: titlePadding ??
+                  EdgeInsets.only(
+                    bottom: context.theme.spacing.xs,
+                  ),
               child: DefaultTextStyle(
                 style: context.theme.typography.label2
                     .copyWith(color: context.theme.colors.subtitle),
