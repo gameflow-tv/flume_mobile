@@ -1,3 +1,7 @@
+## 0.2.18
+
+* Shrunk `Checkbox` size to 20x20 (was 24x24)
+
 ## 0.2.17
 
 * Fix analyzer issues
