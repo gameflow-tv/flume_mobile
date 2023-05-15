@@ -120,8 +120,8 @@ class _CheckboxState extends State<Checkbox> {
           onTap: () => widget.onChanged.call(!widget.value),
           child: AnimatedContainer(
             duration: context.theme.motion.short,
-            width: 24,
-            height: 24,
+            width: 20,
+            height: 20,
             padding: EdgeInsets.all(
               context.theme.spacing.xxxs,
             ),
@@ -139,7 +139,7 @@ class _CheckboxState extends State<Checkbox> {
                 ? Center(
                     child: Icon(
                       Icons.check,
-                      size: 16,
+                      size: 12,
                       color: context.ambiance.palette.dark,
                     ),
                   )
