@@ -1,3 +1,8 @@
+## 0.2.19
+
+* Added screenshots to `pubspec.yaml`
+* Migrated from `MediaQueryData.fromWindow` to `MediaQueryData.fromView`
+
 ## 0.2.18
 
 * Shrunk `Checkbox` size to 20x20 (was 24x24)
