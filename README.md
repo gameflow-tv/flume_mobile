@@ -1,8 +1,10 @@
-# <img src="https://github.com/gameflow-tv/flume_mobile/blob/main/assets/docs/cover.png?raw=true" style="width: 100%;"/>
+# <div style="display:flex;justify-content:center;align-items:center;"><img src="https://github.com/gameflow-tv/flume_mobile/blob/main/www/static/img/hero.svg?raw=true" style="width: 460px;"/></div>
 
 Implementation of the Flume design system written from scratch in Dart and UI Components built with Flutter.
 
 ## Getting started
+
+To get started, head over to [the docs](https://flume.gameflow.dev/docs/getting-started).
 
 Use the included Material adapter to get sensible defaults when utilizing Material widgets. This is not required but recommended.
 
