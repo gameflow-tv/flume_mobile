@@ -1,4 +1,5 @@
-import 'dart:io';
+import 'dart:io' show Platform;
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'package:flume/flume.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,7 +17,10 @@ class TonalSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (Platform.isMacOS || Platform.isIOS) {
+    // Needed branch to compile for web.
+    if (kIsWeb) {
+      return _MaterialSwitch(key: key, value: value, onChanged: onChanged);
+    } else if (Platform.isMacOS || Platform.isIOS) {
       return _CupertinoSwitch(key: key, value: value, onChanged: onChanged);
     } else {
       return _MaterialSwitch(key: key, value: value, onChanged: onChanged);
