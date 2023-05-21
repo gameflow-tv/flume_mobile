@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 16.x
           cache: npm
-          cache-dependency-path: docs/package-lock.json
+          cache-dependency-path: www/package-lock.json
 
       - run: npm ci --legacy-peer-deps
         working-directory: www
