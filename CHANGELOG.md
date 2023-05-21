@@ -1,3 +1,8 @@
+## 0.2.20
+
+* Migrated docs from README to [flume.gameflow.dev](https://flume.gameflow.dev)
+* Updated screenshots
+
 ## 0.2.19
 
 * Added screenshots to `pubspec.yaml`
