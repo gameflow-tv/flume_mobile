@@ -161,6 +161,31 @@ const config = {
         theme: darkCodeTheme,
       },
     }),
+  ssrTemplate: `
+    <!DOCTYPE html>
+    <html <%~ it.htmlAttributes %>>
+      <head>
+        <%~ it.headTags %>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <% it.metaAttributes.forEach((metaAttribute) => { %>
+          <%~ metaAttribute %>
+        <% }) %>
+        <% it.stylesheets.forEach((stylesheet) => { %>
+          <%~ stylesheet %>
+        <% }) %>
+      </head>
+      <body <%~ it.bodyAttributes %> class="dark">
+        <%~ it.preBodyTags %>
+        <div id="__docusaurus">
+          <%~ it.appHtml %>
+        </div>
+        <% it.scripts.forEach((script) => { %>
+          <%~ script %>
+        <% }) %>
+        <%~ it.postBodyTags %>
+      </body>
+    </html>
+  `,
 };
 
 module.exports = config;

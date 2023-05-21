@@ -55,13 +55,11 @@ function Feature({ title, Svg, description }: FeatureItem) {
 
 export default function HomepageFeatures(): JSX.Element {
   return (
-    <section className="xs:p-md md:p-lg lg:p-2xl">
-      <div className="container">
-        <div className="flex flex-row justify-between gap-xl">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
+    <section className="p-lg lg:p-2xl">
+      <div className="flex flex-col md:flex-row justify-between gap-xl">
+        {FeatureList.map((props, idx) => (
+          <Feature key={idx} {...props} />
+        ))}
       </div>
     </section>
   );
