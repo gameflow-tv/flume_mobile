@@ -1,3 +1,7 @@
+## 0.2.22
+
+* Migrated back from `MediaQueryData.fromView` to `MediaQueryData.fromWindow` for backwards compatibility
+
 ## 0.2.21
 
 * Branched out web condition to fully support web
