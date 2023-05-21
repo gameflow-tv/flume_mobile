@@ -1,0 +1,209 @@
+/** Montserrat Medium **/
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-style: normal;
+  src: url('/fonts/Montserrat-Medium.woff2') format('woff2');
+  font-display: swap;
+}
+
+/** Montserrat SemiBold **/
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-style: normal;
+  src: url('/fonts/Montserrat-SemiBold.woff2') format('woff2');
+  font-display: swap;
+}
+
+/** Montserrat Bold **/
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-style: normal;
+  src: url('/fonts/Montserrat-Bold.woff2') format('woff2');
+  font-display: swap;
+}
+
+/** Mulish Medium **/
+@font-face {
+  font-family: 'Mulish';
+  font-weight: 500;
+  font-style: normal;
+  src: url('/fonts/Mulish-Medium.woff2') format('woff2');
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply header-2;
+  }
+
+  h2 {
+    @apply header-3;
+  }
+
+  h3 {
+    @apply header-4;
+  }
+
+  h4 {
+    @apply header-5;
+  }
+
+  h5 {
+    @apply header-5;
+  }
+
+  p,
+  span,
+  ul,
+  li,
+  a,
+  br {
+    @apply body-1 !important;
+  }
+
+  @media screen(lg) {
+    h1 {
+      @apply header-1;
+    }
+
+    h2 {
+      @apply header-2;
+    }
+
+    h3 {
+      @apply header-3;
+    }
+
+    h4 {
+      @apply header-4;
+    }
+
+    h5 {
+      @apply header-5;
+    }
+
+    p {
+      @apply body-1;
+    }
+  }
+}
+
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: theme('colors.ambiance-dark');
+  --ifm-color-primary-dark: theme('colors.ambiance-medium');
+  --ifm-color-primary-darker: theme('colors.ambiance-medium-dark');
+  --ifm-color-primary-darkest: theme('colors.ambiance-dark');
+  --ifm-color-primary-light: theme('colors.ambiance-medium');
+  --ifm-color-primary-lighter: theme('colors.ambiance-medium-light');
+  --ifm-color-primary-lightest: theme('colors.ambiance-light');
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: theme('colors.overlay-30');
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: theme('colors.ambiance-dark');
+  --ifm-color-primary-dark: theme('colors.ambiance-medium');
+  --ifm-color-primary-darker: theme('colors.ambiance-medium-dark');
+  --ifm-color-primary-darkest: theme('colors.ambiance-dark');
+  --ifm-color-primary-light: theme('colors.ambiance-medium');
+  --ifm-color-primary-lighter: theme('colors.ambiance-medium-light');
+  --ifm-color-primary-lightest: theme('colors.ambiance-light');
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: theme('colors.overlay-30');
+}
+
+.navbar {
+  --ifm-navbar-item-padding-horizontal: 0.5rem;
+}
+
+.navbar__link,
+.navbar__title {
+  color: theme('colors.header');
+  font-family: theme('fontFamily.header');
+  font-size: theme('fontSize.header-5');
+  font-weight: theme('fontWeight.semibold');
+  transition: theme('transitionDuration.medium')
+    theme('transitionTimingFunction.default');
+}
+
+.navbar__link:hover {
+  color: theme('colors.ambiance-light');
+  text-decoration: underline;
+}
+
+.navbar-github-icon:hover {
+  opacity: 0.6;
+}
+
+.navbar-github-icon:before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+    no-repeat;
+}
+
+html[data-theme='dark'] .navbar-github-icon:before {
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+    no-repeat;
+}
+
+.navbar-gameflow-icon:hover {
+  opacity: 0.6;
+}
+
+.navbar-gameflow-icon:before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background: url('../../static/img/gameflow-dark.svg') no-repeat;
+  background-size: 24px;
+}
+
+html[data-theme='dark'] .navbar-gameflow-icon:before {
+  background: url('../../static/img/gameflow-light.svg') no-repeat;
+  background-size: 24px;
+}
+
+.video {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 720px;
+}
+
+.footer div {
+  color: theme('colors.header') !important;
+  font-family: theme('fontFamily.header') !important;
+  font-size: theme('fontSize.header-5') !important;
+  font-weight: theme('fontWeight.semibold') !important;
+}
+
+.pagination-nav__sublabel {
+  color: theme('colors.subtitle') !important;
+  font-family: theme('fontFamily.body') !important;
+  font-size: theme('fontSize.label-1') !important;
+}
+
+.pagination-nav__label {
+  color: theme('colors.header') !important;
+  font-family: theme('fontFamily.header') !important;
+  font-size: theme('fontSize.header-5') !important;
+  font-weight: theme('fontWeight.bold') !important;
+}
