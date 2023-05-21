@@ -165,14 +165,19 @@ const config = {
     <!DOCTYPE html>
     <html <%~ it.htmlAttributes %>>
       <head>
-        <%~ it.headTags %>
+        <meta charset="UTF-8">
+        <meta name="generator" content="Docusaurus v<%= it.version %>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <% it.metaAttributes.forEach((metaAttribute) => { %>
           <%~ metaAttribute %>
         <% }) %>
+        <%~ it.headTags %>
         <% it.stylesheets.forEach((stylesheet) => { %>
-          <%~ stylesheet %>
-        <% }) %>
+          <link rel="stylesheet" href="<%= it.baseUrl %><%= stylesheet %>" />
+        <% }); %>
+        <% it.scripts.forEach((script) => { %>
+          <link rel="preload" href="<%= it.baseUrl %><%= script %>" as="script">
+        <% }); %>
       </head>
       <body <%~ it.bodyAttributes %> class="dark">
         <%~ it.preBodyTags %>
@@ -180,8 +185,8 @@ const config = {
           <%~ it.appHtml %>
         </div>
         <% it.scripts.forEach((script) => { %>
-          <%~ script %>
-        <% }) %>
+          <script src="<%= it.baseUrl %><%= script %>"></script>
+        <% }); %>
         <%~ it.postBodyTags %>
       </body>
     </html>

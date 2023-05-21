@@ -1,8 +1,8 @@
-import React from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import { Ambiance } from '../components/Ambiance';
+import React from "react";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
+import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import { Ambiance } from "../components/Ambiance";
 
 function HomepageHeader() {
   return (
@@ -25,7 +25,11 @@ function HeroImage() {
           <picture>
             <source media="(max-width: 479px)" srcSet="img/spacing.svg" />
             <source media="(min-width: 480px)" srcSet="img/spacing.svg" />
-            <img src="img/spacing.svg" alt="Spacing illustration" width="728" />
+            <img
+              src="img/spacing.svg"
+              alt="Spacing illustration"
+              width="728px"
+            />
           </picture>
         </div>
         <div className="relative sm:pl-[128px] z-10 flex flex-col items-start justify-start w-[331px] sm:w-[768px]">
