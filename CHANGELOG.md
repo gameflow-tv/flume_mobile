@@ -1,3 +1,7 @@
+## 0.2.21
+
+* Branched out web condition to fully support web
+
 ## 0.2.20+1
 
 * Update broken README link
