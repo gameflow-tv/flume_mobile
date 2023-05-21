@@ -1,0 +1,32 @@
+name: docs
+
+on:
+  pull_request:
+    paths:
+        - ".github/workflows/docs.yaml"
+        - "docs/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: npm
+          cache-dependency-path: docs/package-lock.json
+
+      - run: npm ci --legacy-peer-deps
+        working-directory: www
+
+      - run: npm run typecheck
+        working-directory: www
+
+      - run: npm run format:check
+        working-directory: www
+
+      - run: npm run build
+        working-directory: www
+      
