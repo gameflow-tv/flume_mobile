@@ -2,6 +2,8 @@ name: flume
 description: Implementation of the Flume design system and components for Flutter.
 version: 0.0.0
 homepage: https://github.com/gameflow-tv/flume_mobile
+documentation: https://flume.gameflow.dev
+issue_tracker: https://github.com/gameflow-tv/flume_mobile/issues
 
 environment:
   sdk: ">=2.18.0 <4.0.0"
@@ -49,7 +51,7 @@ flutter:
 
 screenshots:
   - description: "Illustration of the Flume design system."
-    path: assets/pub/thumbnail.png
+    path: www/static/img/hero.png
 
   - description: "Illustration of the Ambiance system."
     path: assets/docs/elevation_example.png
