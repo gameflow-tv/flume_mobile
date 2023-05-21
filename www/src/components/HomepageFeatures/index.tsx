@@ -19,7 +19,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Dynamic color palettes',
-    Svg: require('@site/static/img/ambiance.svg').default,
+    Svg: require('@site/static/img/elevation.svg').default,
     description: (
       <>
         By using our built-in color system, you can easily create dynamic color

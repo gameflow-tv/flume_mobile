@@ -1,9 +1,9 @@
 ---
-title: Configuration
-sidebar_position: 3
+title: 🔧 Configuration
+sidebar_position: 4
 ---
 
-# Configuration
+# 🔧 Configuration
 
 The Flume theming system is configurable within its bounds. All UI components will adapt to any given theme instance. The following parts of the theme can be swapped out independently:
 

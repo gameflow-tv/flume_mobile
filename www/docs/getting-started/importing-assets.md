@@ -1,9 +1,9 @@
 ---
-title: Importing assets
-sidebar_position: 2
+title: 📦 Importing assets
+sidebar_position: 3
 ---
 
-# Importing assets
+# 📦 Importing assets
 
 Flume distributes both its default fonts and an icon font. In order to use Flume icons and/or built-in fonts, add the following to your `pubspec.yaml`:
 

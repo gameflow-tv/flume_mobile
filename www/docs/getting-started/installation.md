@@ -1,9 +1,9 @@
 ---
-title: Installation
+title: 🤹‍♀️ Installation
 sidebar_position: 1
 ---
 
-# Installation
+# 🤹‍♀️ Installation
 
 Flume for Flutter is distributed through [pub.dev](https://pub.dev/packages/flume). To add flume as a dependency, run the following command:
 
@@ -13,7 +13,22 @@ flutter pub add flume
 
 ## Adding Flume to your app
 
-In order to make use of Flume, wrap your `MaterialApp` with a `Flume` widget:
+All you need is a `Flume` widget;
+
+```dart title=app.dart
+return Flume(
+  theme: FlumeTheme.fallback(),
+  child: Ambiance(
+    child: Placeholder(),
+  ),
+);
+```
+
+As you might have noticed, we're also using the `Ambiance` widget. This provides a fallback ambiance provider used for generating dynamic color schemes. Most UI components need an `Ambiance` widget in the tree.
+
+### Using Flume with Material
+
+Use the included Material adapter to get sensible defaults when utilizing Material widgets. This is not required but recommended.
 
 ```dart title=app.dart
 return Flume(
@@ -28,8 +43,6 @@ return Flume(
   },
 );
 ```
-
-As you might have noticed, we're also wrapping our `MaterialApp` with the `Ambiance` widget. This provides a fallback ambiance provider. Most UI components need an `Ambiance` widget in the tree.
 
 :::info
 We're actively working to get rid of the `MaterialApp` glue. This approach will be deprecated in the future in favor of `FlumeApp`.

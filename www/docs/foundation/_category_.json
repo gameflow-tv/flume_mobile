@@ -1,0 +1,9 @@
+{
+  "label": "Foundation",
+  "position": 4,
+  "link": {
+    "title": "Foundation 🪨",
+    "type": "generated-index",
+    "description": "The data structures and algorithms that power the rest of the library."
+  }
+}
