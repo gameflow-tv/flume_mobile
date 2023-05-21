@@ -1,3 +1,7 @@
+## 0.2.23
+
+* Removed all dart:io imports
+
 ## 0.2.22
 
 * Migrated back from `MediaQueryData.fromView` to `MediaQueryData.fromWindow` for backwards compatibility
