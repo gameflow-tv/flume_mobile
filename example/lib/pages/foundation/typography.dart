@@ -22,6 +22,7 @@ class TypographyPage extends StatelessWidget {
             child: SizedBox(
               height: double.infinity,
               child: ScrollableList.static(
+                spacing: context.theme.spacing.md,
                 padding: EdgeInsets.all(
                   context.theme.spacing.md,
                 ),
@@ -79,7 +80,7 @@ class TypographyPage extends StatelessWidget {
                     'label3',
                     style: typography.label3,
                   ),
-                ].spaced(context.theme.spacing.md),
+                ],
               ),
             ),
           ),

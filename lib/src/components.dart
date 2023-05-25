@@ -10,6 +10,7 @@ export 'components/input/tonal_switch.dart';
 export 'components/input/form_group.dart';
 export 'components/input/search_bar.dart';
 export 'components/input/checkbox.dart';
+export 'components/input/date_picker.dart';
 
 export 'components/icons.dart';
 export 'components/skeleton.dart';

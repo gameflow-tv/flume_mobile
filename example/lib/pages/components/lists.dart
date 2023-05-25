@@ -17,6 +17,7 @@ class ListsPage extends StatelessWidget {
           ),
           body: Blueprint(
             child: ScrollableList(
+              spacing: context.theme.spacing.md,
               divided: false,
               padding: EdgeInsets.all(context.theme.spacing.md),
               children: [
@@ -76,7 +77,7 @@ class ListsPage extends StatelessWidget {
                     ),
                   ],
                 ),
-              ].spaced(context.theme.spacing.md),
+              ],
             ),
           ),
         );
