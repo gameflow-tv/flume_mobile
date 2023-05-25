@@ -14,6 +14,7 @@ class _InputPageState extends State<InputPage> {
   late bool _switchValue;
   late bool _checkboxValue;
   late TextEditingController _validationController;
+  late DateTime _date;
 
   String? validate(String? value) {
     if (value == null || value.isEmpty) {
@@ -30,6 +31,7 @@ class _InputPageState extends State<InputPage> {
     _switchValue = true;
     _checkboxValue = true;
     _validationController = TextEditingController();
+    _date = DateTime.now();
   }
 
   @override
@@ -49,6 +51,7 @@ class _InputPageState extends State<InputPage> {
           ),
           body: Blueprint(
             child: ScrollableList(
+              spacing: context.theme.spacing.md,
               padding: EdgeInsets.all(context.theme.spacing.md),
               children: [
                 const FormGroup(
@@ -145,6 +148,31 @@ class _InputPageState extends State<InputPage> {
                         },
                       ),
                     ],
+                  ),
+                ),
+                FormGroup(
+                  label: const Text('DatePicker'),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: context.ambiance.down(),
+                      borderRadius: BorderRadius.circular(
+                        context.theme.shapes.sm,
+                      ),
+                    ),
+                    child: DatePicker(
+                      date: _date,
+                      onDateSelected: (date) {
+                        setState(() {
+                          _date = date;
+                        });
+                      },
+                      datesOfInterest: [
+                        DateTime.now(),
+                        DateTime.now().add(
+                          const Duration(days: 1),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

@@ -21,6 +21,7 @@ class ButtonsPage extends StatelessWidget {
             child: DefaultTextStyle(
               style: theme.typography.header2,
               child: ScrollableList(
+                spacing: context.theme.spacing.md,
                 divided: true,
                 padding: EdgeInsets.all(theme.spacing.md),
                 children: [
