@@ -1,3 +1,9 @@
+## 0.3.0
+
+* **BREAKING:** Removed `showBorders` from ScrollableList
+* Added DatePicker component
+* Added `spacing` prop to ScrollableList
+
 ## 0.2.23
 
 * Removed all dart:io imports
