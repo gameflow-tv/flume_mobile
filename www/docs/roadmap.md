@@ -12,7 +12,7 @@ In the spirit of transparency, we're sharing out high-level goals and priorities
 ### 🧱 Components
 
 - [ ] Implement remaining Flume components
-  - [ ] `DatePicker`
+  - [x] `DatePicker`
   - [ ] `Tooltip`
   - [ ] `Select`
 
