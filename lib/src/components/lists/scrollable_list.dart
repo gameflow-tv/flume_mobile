@@ -27,9 +27,6 @@ class ScrollableList extends StatelessWidget {
   /// If the [ListView] should be shrink-wrapped and not expand.
   final bool shrinkWrap;
 
-  /// If the [children] should have borders between them.
-  final bool showBorders;
-
   /// If a bottom border should be added to the end of the list.
   final bool addBottomBorder;
 
@@ -71,11 +68,13 @@ class ScrollableList extends StatelessWidget {
   /// The padding around the title.
   final EdgeInsets? titlePadding;
 
+  /// Spacing between each child.
+  final double? spacing;
+
   const ScrollableList({
     super.key,
     required this.children,
     this.shrinkWrap = false,
-    this.showBorders = false,
     this.physics,
     this.addBottomBorder = true,
     this.title,
@@ -88,11 +87,11 @@ class ScrollableList extends StatelessWidget {
     this.divided = true,
     this.wrapWithSafeArea = true,
     this.titlePadding,
+    this.spacing,
   });
 
   factory ScrollableList.static({
     required List<Widget> children,
-    bool showBorders = false,
     bool addBottomBorder = true,
     Widget? title,
     ScrollController? controller,
@@ -104,11 +103,11 @@ class ScrollableList extends StatelessWidget {
     bool divided = true,
     bool wrapWithSafeArea = true,
     EdgeInsets? titlePadding,
+    double? spacing,
   }) {
     return ScrollableList(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      showBorders: showBorders,
       addBottomBorder: addBottomBorder,
       title: title,
       controller: controller,
@@ -120,6 +119,7 @@ class ScrollableList extends StatelessWidget {
       divided: divided,
       wrapWithSafeArea: wrapWithSafeArea,
       titlePadding: titlePadding,
+      spacing: spacing,
       children: children,
     );
   }
@@ -184,46 +184,30 @@ class ScrollableList extends StatelessWidget {
         },
         Builder(
           builder: (context) {
-            if (showBorders) {
-              return Container(
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      width: 0.5,
-                      color: context.theme.colors.highlight30,
-                    ),
-                  ),
+            var children = this.children;
+
+            if (divided) {
+              children = [
+                ...children.divided(
+                  1,
+                  context.theme.colors.highlight10,
                 ),
-                child: FlumeColumn(
-                  children: children
-                      .divided(
-                        1,
-                        context.theme.colors.highlight10,
-                      )
-                      .map(withWrapper)
-                      .toList(),
-                ),
-              );
-            } else if (divided) {
-              return FlumeColumn(
-                children: [
-                  ...children.divided(
-                    1,
-                    context.theme.colors.highlight10,
-                  ),
-                  if (children.isNotEmpty) ...{
-                    Divider(
-                      thickness: 1,
-                      color: context.theme.colors.highlight10,
-                    )
-                  }
-                ].map(withWrapper).toList(),
-              );
-            } else {
-              return FlumeColumn(
-                children: children.map(withWrapper).toList(),
-              );
+                if (children.isNotEmpty) ...{
+                  Divider(
+                    thickness: 1,
+                    color: context.theme.colors.highlight10,
+                  )
+                }
+              ];
             }
+
+            if (spacing != null) {
+              children = children.spaced(spacing!);
+            }
+
+            return FlumeColumn(
+              children: children.map(withWrapper).toList(),
+            );
           },
         ),
       ],
