@@ -8,6 +8,7 @@ import 'package:args/args.dart';
 import 'package:figma/figma.dart';
 import 'package:http/http.dart';
 import 'package:progress_bar/progress_bar.dart';
+import 'package:xml/xml.dart';
 
 /// {@category Tools}
 /// {@subCategory Figma}
@@ -47,10 +48,12 @@ Future<void> optimize(Directory dir) async {
 
   // Loop through SVG files and optimize them.
   for (final element in list.where(isSvgFile)) {
-    svgoFutures.add(
-      Process.run('svgo', ['-i', element.path, '-o', element.path])
-          .then((_) => bar.tick()),
-    );
+    svgoFutures
+        .add(Process.run('svgo', ['-i', element.path, '-o', element.path]).then(
+      (_) => stripDefs(element).then(
+        (_) => bar.tick(),
+      ),
+    ));
   }
 
   // Execute SVGO in parallel.
@@ -60,6 +63,41 @@ Future<void> optimize(Directory dir) async {
     // Clear progress bar.
     bar.terminate();
   });
+}
+
+Future<void> stripDefs(FileSystemEntity fe) async {
+  // Read file and parse with XmlDocument.
+  final file = File(fe.path);
+  final contents = await file.readAsString();
+  final doc = XmlDocument.parse(contents);
+
+  // Remove all <defs> elements along with their children.
+  for (final def in doc.findAllElements('defs')) {
+    def.remove();
+  }
+
+  // Remove all <g> elements but keep their children.
+  for (final g in doc.findAllElements('g')) {
+    // find parent of <g> element.
+    var parent = g.parent ?? doc;
+    final children = g.children;
+
+    // Remove <g> element.
+    g.remove();
+
+    // Add children to parent.
+    for (int i = 0; i < children.length; i++) {
+      final child = children[i];
+      if (child.hasParent) {
+        // Remove from parent
+        child.remove();
+      }
+      parent.children.add(child);
+    }
+  }
+
+  // Write optimized SVG back to file.
+  await file.writeAsString(doc.toXmlString(pretty: true));
 }
 
 /// {@category Tools}
