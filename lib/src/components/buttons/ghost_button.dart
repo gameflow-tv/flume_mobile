@@ -144,14 +144,14 @@ class _GhostButtonState extends State<GhostButton> {
 
   Color getBackgroundColor(BuildContext context) {
     final ambiance = Ambiance.of(context);
-    final base = ambiance.up();
+    final base = ambiance.darker();
 
     switch (state) {
       case ButtonState.normal:
       case ButtonState.focus:
         return base;
       case ButtonState.hover:
-        return ambiance.down();
+        return ambiance.lighter();
       case ButtonState.pressed:
         return base.darken(0.25);
       case ButtonState.disabled:

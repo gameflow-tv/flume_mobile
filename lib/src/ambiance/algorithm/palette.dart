@@ -55,6 +55,9 @@ class AmbiancePalette extends Equatable {
     );
   }
 
+  /// Returns a list of all colors in the palette, from darkest to lightest.
+  List<Color> get colors => [dark, mediumDark, medium, mediumLight, light];
+
   @override
   List<Object> get props => [dark, mediumDark, medium, mediumLight, light];
 }

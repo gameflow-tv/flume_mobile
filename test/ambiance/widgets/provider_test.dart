@@ -13,6 +13,8 @@ void main() {
         up: () => const Color(0xff00ff00),
         down: () => const Color(0xff00ff00),
         at: (p0) => const Color(0xff00ff00),
+        lighter: () => const Color(0xff00ff00),
+        darker: () => const Color(0xff00ff00),
       ),
       child: Container(),
     ));

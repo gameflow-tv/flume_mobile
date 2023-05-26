@@ -263,7 +263,7 @@ class _ButtonState extends State<Button> {
         base = base.withOpacity(0.8);
 
         if (widget.variant == ButtonVariant.tonal) {
-          base = ambiance.down();
+          base = ambiance.lighter();
         }
         break;
       case ButtonState.pressed:
