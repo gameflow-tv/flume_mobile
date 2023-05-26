@@ -197,7 +197,7 @@ class _IconButtonState extends State<IconButton> {
         base = base.withOpacity(0.8);
 
         if (widget.variant == ButtonVariant.tonal) {
-          base = ambiance.down();
+          base = ambiance.lighter();
         }
         break;
       case ButtonState.pressed:

@@ -156,7 +156,7 @@ class _ToggleButtonState extends State<ToggleButton> {
 
   Color getBackgroundColor(BuildContext context) {
     final ambiance = Ambiance.of(context);
-    final base = ambiance.up();
+    final base = ambiance.darker();
 
     switch (state) {
       case ButtonState.normal:

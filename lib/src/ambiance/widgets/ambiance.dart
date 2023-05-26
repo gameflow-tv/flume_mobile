@@ -9,7 +9,11 @@ class AmbianceState {
   final Color color;
   final int elevation;
   final Color source;
+  final Color Function() lighter;
+  final Color Function() darker;
+  @Deprecated('Use `lighter` instead')
   final Color Function() down;
+  @Deprecated('Use `darker` instead')
   final Color Function() up;
   final Color Function(int) at;
 
@@ -21,6 +25,8 @@ class AmbianceState {
     required this.down,
     required this.up,
     required this.at,
+    required this.lighter,
+    required this.darker,
   });
 }
 
@@ -81,7 +87,9 @@ class Ambiance extends StatelessWidget {
       elevation: computedElevation,
       source: source,
       down: () => getColorFromElevation(source, computedElevation + 1),
+      lighter: () => getColorFromElevation(source, computedElevation + 1),
       up: () => getColorFromElevation(source, computedElevation - 1),
+      darker: () => getColorFromElevation(source, computedElevation - 1),
       at: (elevation) => getColorFromElevation(source, elevation),
     );
 
