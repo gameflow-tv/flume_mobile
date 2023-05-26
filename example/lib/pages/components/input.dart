@@ -154,7 +154,7 @@ class _InputPageState extends State<InputPage> {
                   label: const Text('DatePicker'),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: context.ambiance.down(),
+                      color: context.ambiance.lighter(),
                       borderRadius: BorderRadius.circular(
                         context.theme.shapes.sm,
                       ),
