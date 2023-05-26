@@ -46,14 +46,14 @@ class AmbianceBox extends StatelessWidget {
   }
 }
 
-class AmbiancePage extends StatefulWidget {
-  const AmbiancePage({super.key});
+class AmbianceDemoPage extends StatefulWidget {
+  const AmbianceDemoPage({super.key});
 
   @override
-  State<AmbiancePage> createState() => _AmbiancePageState();
+  State<AmbianceDemoPage> createState() => _AmbianceDemoPageState();
 }
 
-class _AmbiancePageState extends State<AmbiancePage> {
+class _AmbianceDemoPageState extends State<AmbianceDemoPage> {
   Color? color;
 
   @override

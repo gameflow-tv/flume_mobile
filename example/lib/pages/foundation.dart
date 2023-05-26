@@ -1,67 +1,60 @@
-import 'package:flume/flume.dart';
 import 'package:flume/material.dart';
-import 'package:flume_example/widgets/top_bar.dart';
+import 'package:flume_example/widgets/category_card.dart';
+import 'package:flume_example/widgets/category_grid.dart';
+import 'package:flume_example/widgets/layout.dart';
 
 class FoundationPage extends StatelessWidget {
   const FoundationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final theme = Flume.of(context);
-
-    return Ambiance(
+    return Layout(
       builder: (context, ambiance) {
-        return Scaffold(
-          backgroundColor: ambiance.color,
-          appBar: TopBar(
-            title: const Text('Foundation'),
-          ),
-          body: ScrollableList(
-            children: [
-              Cell(
-                title: const Text('Breakpoints'),
-                onTap: () =>
-                    Navigator.pushNamed(context, '/foundation/breakpoints'),
-              ),
-              Cell(
-                title: const Text('Colors'),
-                onTap: () => Navigator.pushNamed(context, '/foundation/colors'),
-              ),
-              Cell(
-                title: const Text('Motion'),
-                onTap: () => Navigator.pushNamed(context, '/foundation/motion'),
-              ),
-              Cell(
-                title: const Text('Shadows'),
-                onTap: () =>
-                    Navigator.pushNamed(context, '/foundation/shadows'),
-              ),
-              Cell(
-                title: const Text('Shapes'),
-                onTap: () => Navigator.pushNamed(context, '/foundation/shapes'),
-              ),
-              Cell(
-                title: const Text('Spacing'),
-                onTap: () =>
-                    Navigator.pushNamed(context, '/foundation/spacing'),
-              ),
-              Cell(
-                title: const Text('Typography'),
-                onTap: () =>
-                    Navigator.pushNamed(context, '/foundation/typography'),
-              ),
-            ]
-                .map(
-                  (e) => Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: theme.spacing.xs,
-                      vertical: theme.spacing.xxs,
-                    ),
-                    child: e,
-                  ),
-                )
-                .toList(),
-          ),
+        return CategoryGrid(
+          children: [
+            CategoryCard(
+              title: 'Breakpoints',
+              path: '/foundation/breakpoints',
+              banner: Container(),
+              subtitle: 'Breakpoints for responsive design',
+            ),
+            CategoryCard(
+              title: 'Colors',
+              path: '/foundation/colors',
+              banner: Container(),
+              subtitle: 'Base colors used in Flume',
+            ),
+            CategoryCard(
+              title: 'Motion',
+              path: '/foundation/motion',
+              banner: Container(),
+              subtitle: 'Animation timings and curves',
+            ),
+            CategoryCard(
+              title: 'Shadows',
+              path: '/foundation/shadows',
+              banner: Container(),
+              subtitle: 'Shadow styles for enhanced depth',
+            ),
+            CategoryCard(
+              title: 'Shapes',
+              path: '/foundation/shapes',
+              banner: Container(),
+              subtitle: 'Components come in all shapes and sizes',
+            ),
+            CategoryCard(
+              title: 'Spacing',
+              path: '/foundation/spacing',
+              banner: Container(),
+              subtitle: 'Spacing scale for consistent margins',
+            ),
+            CategoryCard(
+              title: 'Typography',
+              path: '/foundation/typography',
+              banner: Container(),
+              subtitle: 'Typography styles for text',
+            ),
+          ],
         );
       },
     );

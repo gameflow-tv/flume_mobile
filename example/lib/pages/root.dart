@@ -1,6 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flume/flume.dart';
 import 'package:flume/material.dart';
-import 'package:flume_example/widgets/top_bar.dart';
+import 'package:flume_example/widgets/category_card.dart';
+import 'package:flume_example/widgets/category_grid.dart';
+import 'package:flume_example/widgets/layout.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class RootPage extends StatelessWidget {
   const RootPage({
@@ -9,47 +14,407 @@ class RootPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Ambiance(
+    return Layout(
       builder: (context, ambiance) {
-        final theme = Flume.of(context);
-        return Scaffold(
-          backgroundColor: ambiance.color,
-          appBar: TopBar(
-            title: const Text('Flume'),
-            automaticallyImplyLeading: false,
-          ),
-          body: ScrollableList(
-            children: [
-              Cell(
-                title: const Text('Ambiance'),
-                onTap: () => Navigator.pushNamed(context, '/ambiance'),
-              ),
-              Cell(
-                title: const Text('Foundation'),
-                onTap: () => Navigator.pushNamed(context, '/foundation'),
-              ),
-              Cell(
-                title: const Text('Components'),
-                onTap: () => Navigator.pushNamed(context, '/components'),
-              ),
-              Cell(
-                title: const Text('Licenses'),
-                onTap: () => Navigator.pushNamed(context, '/licenses'),
-              ),
-            ]
-                .map(
-                  (e) => Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: theme.spacing.xs,
-                      vertical: theme.spacing.xxs,
-                    ),
-                    child: e,
-                  ),
-                )
-                .toList(),
-          ),
+        return CategoryGrid(
+          children: const [
+            CategoryCard(
+              title: 'Ambiance',
+              subtitle: 'See how Flume\'s dynamic color system works',
+              path: '/ambiance',
+              banner: AmbianceBanner(),
+            ),
+            CategoryCard(
+              title: 'Components',
+              subtitle: 'All the UI components you need to build an app',
+              path: '/components',
+              banner: ComponentsBanner(),
+            ),
+            CategoryCard(
+              title: 'Foundation',
+              subtitle: 'All of Flume\'s design tokens',
+              path: '/foundation',
+              banner: FoundationBanner(),
+            ),
+            CategoryCard(
+              title: 'Licenses',
+              subtitle: 'See the licenses for all of Flume\'s dependencies',
+              path: '/licenses',
+              banner: LicensesBanner(),
+            ),
+          ],
         );
       },
+    );
+  }
+}
+
+class LicensesBanner extends StatefulWidget {
+  const LicensesBanner({
+    super.key,
+  });
+
+  @override
+  State<LicensesBanner> createState() => _LicensesBannerState();
+}
+
+class _LicensesBannerState extends State<LicensesBanner>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  late Animation<double> _opacity;
+  late Animation<double> _translate;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(
+        milliseconds: 500,
+      ),
+    );
+
+    _opacity = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeInOut,
+      ),
+    );
+
+    _translate = Tween<double>(
+      begin: 48,
+      end: 102,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeInOut,
+      ),
+    );
+
+    _controller
+      ..forward()
+      ..addListener(() {
+        setState(() {});
+      });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Positioned(
+            right: _translate.value,
+            child: Opacity(
+              opacity: _opacity.value,
+              child: Container(
+                width: 128,
+                height: 128,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: context.ambiance.palette.light.withOpacity(0.5),
+                  border: Border.all(
+                    color: context.ambiance.palette.light,
+                    width: 0.5,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: _translate.value,
+            child: Opacity(
+              opacity: _opacity.value,
+              child: Container(
+                width: 128,
+                height: 128,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: context.ambiance.palette.mediumLight.withOpacity(0.5),
+                  border: Border.all(
+                    color: context.ambiance.palette.light,
+                    width: 0.5,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class FoundationBanner extends StatelessWidget {
+  const FoundationBanner({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(context.theme.spacing.md),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: AnimationConfiguration.toStaggeredList(
+          duration: const Duration(milliseconds: 500),
+          childAnimationBuilder: (widget) {
+            return SlideAnimation(
+              horizontalOffset: 48,
+              child: FadeInAnimation(
+                child: widget,
+              ),
+            );
+          },
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Divider(
+                      color: context.ambiance.palette.light,
+                      thickness: 0.5,
+                    ),
+                  ),
+                ),
+                const Expanded(
+                  child: Text('Montserrat'),
+                ),
+                const Expanded(
+                  child: Text('Mulish'),
+                ),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'Typography',
+                        style: const TextStyle(
+                          fontSize: 8,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: ' / Hierarchy',
+                            style: TextStyle(
+                              color: context.theme.colors.header,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Aa',
+                        style: context.theme.typography.header1.copyWith(
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                        style: context.theme.typography.header5.copyWith(
+                          fontSize: 8,
+                        ),
+                      ),
+                      Text(
+                        'abcdefghijklmnopqrstuvwxyz',
+                        style: context.theme.typography.header5.copyWith(
+                          fontSize: 8,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Aa',
+                        style: context.theme.typography.body1.copyWith(
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                        style: context.theme.typography.body1.copyWith(
+                          fontSize: 8,
+                        ),
+                      ),
+                      Text(
+                        'abcdefghijklmnopqrstuvwxyz',
+                        style: context.theme.typography.body1.copyWith(
+                          fontSize: 8,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 4,
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Text('Weights'),
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    'Title',
+                    style: context.theme.typography.header1.copyWith(
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    'Lead',
+                    style: context.theme.typography.header2.copyWith(
+                      fontSize: 10,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    'Paragraph',
+                    style: context.theme.typography.body1.copyWith(
+                      fontSize: 8,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    'Button',
+                    style: context.theme.typography.button.copyWith(
+                      fontSize: 8,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    'Link',
+                    style: context.theme.typography.link.copyWith(
+                      fontSize: 6,
+                      color: context.ambiance.palette.light,
+                    ),
+                  ),
+                ),
+              ].spaced(context.theme.spacing.xs),
+            ),
+          ].spaced(context.theme.spacing.lg),
+        ),
+      ),
+    );
+  }
+}
+
+class ComponentsBanner extends StatelessWidget {
+  const ComponentsBanner({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: Transform.rotate(
+        angle: 0.45,
+        child: Transform.scale(
+          scale: 2,
+          child: GridView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: FlumeIcons.all.keys.length,
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 31,
+              mainAxisExtent: 31,
+              crossAxisSpacing: context.theme.spacing.xxxs,
+              mainAxisSpacing: context.theme.spacing.xxxs,
+            ),
+            itemBuilder: (context, i) {
+              return AnimationConfiguration.staggeredGrid(
+                duration: context.theme.motion.medium,
+                position: i,
+                columnCount: FlumeIcons.all.keys.length ~/ 5,
+                child: ScaleAnimation(
+                  child: FadeInAnimation(
+                    child: Icon(
+                      FlumeIcons.all.values.toList()[i],
+                      size: 12,
+                      color: context.ambiance.palette.light,
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class AmbianceBanner extends StatelessWidget {
+  const AmbianceBanner({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: AnimationConfiguration.toStaggeredList(
+        duration: const Duration(milliseconds: 500),
+        childAnimationBuilder: (child) => SlideAnimation(
+          horizontalOffset: 50,
+          child: FadeInAnimation(
+            child: child,
+          ),
+        ),
+        children: List.generate(5, (index) {
+          final color = context.ambiance.palette.colors[index];
+
+          return Container(
+            width: 32,
+            height: 32,
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(
+                context.theme.shapes.sm,
+              ),
+              border: Border.all(
+                color: context.theme.colors.highlight10,
+              ),
+            ),
+          );
+        }).spaced(context.theme.spacing.md),
+      ),
     );
   }
 }

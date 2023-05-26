@@ -1,53 +1,48 @@
-import 'package:flume/flume.dart';
 import 'package:flume/material.dart';
-import 'package:flume_example/widgets/top_bar.dart';
+import 'package:flume_example/widgets/category_card.dart';
+import 'package:flume_example/widgets/category_grid.dart';
+import 'package:flume_example/widgets/layout.dart';
 
 class ComponentsPage extends StatelessWidget {
   const ComponentsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final theme = Flume.of(context);
-
-    return Ambiance(
+    return Layout(
       builder: (context, ambiance) {
-        return Scaffold(
-          backgroundColor: ambiance.color,
-          appBar: TopBar(
-            title: const Text('Components'),
-          ),
-          body: ScrollableList(
-            padding: EdgeInsets.only(top: context.theme.spacing.xs),
-            children: [
-              Cell(
-                title: const Text('Buttons'),
-                onTap: () =>
-                    Navigator.pushNamed(context, '/components/buttons'),
-              ),
-              Cell(
-                title: const Text('Input'),
-                onTap: () => Navigator.pushNamed(context, '/components/input'),
-              ),
-              Cell(
-                title: const Text('Lists'),
-                onTap: () => Navigator.pushNamed(context, '/components/lists'),
-              ),
-              Cell(
-                title: const Text('Icons'),
-                onTap: () => Navigator.pushNamed(context, '/components/icons'),
-              ),
-            ]
-                .map(
-                  (e) => Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: theme.spacing.xs,
-                      vertical: theme.spacing.xxs,
-                    ),
-                    child: e,
-                  ),
-                )
-                .toList(),
-          ),
+        return CategoryGrid(
+          children: [
+            CategoryCard(
+              title: 'Buttons',
+              path: '/components/buttons',
+              banner: Container(),
+              subtitle: 'All different variations of buttons',
+            ),
+            CategoryCard(
+              title: 'Input',
+              path: '/components/input',
+              banner: Container(),
+              subtitle: 'User input components for forms',
+            ),
+            CategoryCard(
+              title: 'Controls',
+              path: '/components/controls',
+              banner: Container(),
+              subtitle: 'Controls used to e.g. navigate or select',
+            ),
+            CategoryCard(
+              title: 'Icons',
+              path: '/components/icons',
+              banner: Container(),
+              subtitle: 'All Flume icons',
+            ),
+            CategoryCard(
+              title: 'Layout',
+              path: '/components/layout',
+              banner: Container(),
+              subtitle: 'Layout widgets for building your UI',
+            ),
+          ],
         );
       },
     );
