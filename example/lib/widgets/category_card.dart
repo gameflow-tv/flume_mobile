@@ -8,11 +8,13 @@ class CategoryCard extends StatelessWidget {
     required this.banner,
     required this.subtitle,
     this.path,
+    this.navigationArguments,
   });
 
   final String title;
   final String subtitle;
   final String? path;
+  final Object? navigationArguments;
   final Widget banner;
 
   @override
@@ -20,7 +22,10 @@ class CategoryCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (path != null) {
-          Navigator.of(context).pushNamed(path!);
+          Navigator.of(context).pushNamed(
+            path!,
+            arguments: navigationArguments,
+          );
         }
       },
       child: Container(

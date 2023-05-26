@@ -88,6 +88,17 @@ class _FlumeExampleState extends State<FlumeExample> {
               '/components/icons': (context) => const IconsPage(),
               '/licenses': (context) => const LicensePage(),
             },
+            onGenerateRoute: (settings) {
+              if (settings.name == '/licenses/entry') {
+                return MaterialPageRoute(
+                  builder: (context) {
+                    return LicenseEntryPage(
+                      args: settings.arguments as LicenseEntryArgs,
+                    );
+                  },
+                );
+              }
+            },
             initialRoute: '/',
           ),
         );
