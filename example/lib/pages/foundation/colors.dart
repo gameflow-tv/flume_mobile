@@ -16,8 +16,8 @@ class ColorsPage extends StatelessWidget {
         return SafeArea(
           bottom: false,
           child: CardGrid(
-            children: theme.colors.all.keys.map((name) {
-              final color = theme.colors.all[name];
+            children: theme.colors.toMap().keys.map((name) {
+              final color = theme.colors.toMap()[name];
 
               if (color == null) {
                 return Container();

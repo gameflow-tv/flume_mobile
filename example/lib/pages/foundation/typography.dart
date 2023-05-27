@@ -1,7 +1,8 @@
 import 'package:flume/flume.dart';
-import 'package:flume_example/widgets/blueprint.dart';
 import 'package:flume/material.dart';
-import 'package:flume_example/widgets/top_bar.dart';
+import 'package:flume_example/widgets/card_grid.dart';
+import 'package:flume_example/widgets/component_card.dart';
+import 'package:flume_example/widgets/layout.dart';
 
 class TypographyPage extends StatelessWidget {
   const TypographyPage({Key? key}) : super(key: key);
@@ -11,81 +12,50 @@ class TypographyPage extends StatelessWidget {
     final theme = Flume.of(context);
     final typography = theme.typography;
 
-    return Ambiance(
+    return Layout(
       builder: (context, ambiance) {
-        return Scaffold(
-          appBar: TopBar(
-            title: const Text('Typography'),
-          ),
-          backgroundColor: ambiance.color,
-          body: Blueprint(
-            child: SizedBox(
-              height: double.infinity,
-              child: ScrollableList.static(
-                spacing: context.theme.spacing.md,
-                padding: EdgeInsets.all(
-                  context.theme.spacing.md,
-                ),
-                divided: false,
-                children: [
-                  Text(
-                    'header1',
-                    style: typography.header1,
-                  ),
-                  Text(
-                    'header2',
-                    style: typography.header2,
-                  ),
-                  Text(
-                    'header3',
-                    style: typography.header3,
-                  ),
-                  Text(
-                    'header4',
-                    style: typography.header4,
-                  ),
-                  Text(
-                    'header5',
-                    style: typography.header5,
-                  ),
-                  Text(
-                    'body1',
-                    style: typography.body1,
-                  ),
-                  Text(
-                    'body2',
-                    style: typography.body2,
-                  ),
-                  Text(
-                    'body3',
-                    style: typography.body3,
-                  ),
-                  Text(
-                    'button',
-                    style: typography.button,
-                  ),
-                  Text(
-                    'link',
-                    style: typography.link,
-                  ),
-                  Text(
-                    'label1',
-                    style: typography.label1,
-                  ),
-                  Text(
-                    'label2',
-                    style: typography.label2,
-                  ),
-                  Text(
-                    'label3',
-                    style: typography.label3,
-                  ),
-                ],
+        return CardGrid(
+          children: typography.toMap().entries.map((entry) {
+            final style = entry.value.copyWith(
+              color: entry.key.startsWith('header')
+                  ? context.theme.colors.header
+                  : entry.key.startsWith('body')
+                      ? context.theme.colors.body
+                      : context.theme.colors.subtitle,
+            );
+
+            return ComponentCard(
+              title: entry.key,
+              banner: Text(
+                'The quick brown fox jumps over the lazy dog',
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.visible,
+                style: style,
               ),
-            ),
-          ),
+              subtitle: style.toPrettyString(),
+            );
+          }).toList(),
         );
       },
     );
+  }
+}
+
+extension PrettyPrint on TextStyle {
+  String toPrettyString() {
+    final buffer = StringBuffer();
+    buffer.write(
+      'size: ${fontSize}px, ',
+    );
+    buffer.write(
+      'weight: ${fontWeight.toString().split('w').last}, ',
+    );
+    buffer.write(
+      'family: ${fontFamily.toString().split('/').last}, ',
+    );
+    buffer.write(
+      'color: #${color.toString().split('Color(0x').last.split(')').first}',
+    );
+    return buffer.toString();
   }
 }

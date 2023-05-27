@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:flume/flume.dart';
@@ -5,6 +6,7 @@ import 'package:flume/material.dart';
 import 'package:flume_example/widgets/category_card.dart';
 import 'package:flume_example/widgets/card_grid.dart';
 import 'package:flume_example/widgets/layout.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class AmbiancePage extends StatelessWidget {
@@ -14,29 +16,88 @@ class AmbiancePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Layout(
       builder: (context, ambiance) {
-        return const CardGrid(
+        return CardGrid(
           children: [
-            CategoryCard(
+            const CategoryCard(
               title: 'Algorithm',
-              path: '/ambiance/algorithm',
               banner: AlgorithmBanner(),
-              subtitle: 'See how Ambiance algorithm works',
+              subtitle: 'Color palettes are generated on the fly',
             ),
-            CategoryCard(
+            const CategoryCard(
               title: 'Elevation',
-              path: '/ambiance/elevation',
               banner: ElevationBanner(),
-              subtitle: 'How the elevation system brings depth to your UI',
+              subtitle:
+                  'Brings depth to your UI by leveraging contrast and color',
             ),
-            CategoryCard(
+            const CategoryCard(
               title: 'Dynamic schemes',
-              path: '/ambiance/dynamic',
               banner: DynamicSchemesBanner(),
-              subtitle: 'How to create dynamic color schemes',
+              subtitle: 'Seamlessly switch between color palettes',
             ),
+            if (kIsWeb || Platform.isAndroid || Platform.isIOS) ...{
+              const CategoryCard(
+                title: 'Try it out',
+                banner: PhoneBanner(),
+                subtitle: 'Shake your device to change the color scheme',
+              ),
+            }
           ],
         );
       },
+    );
+  }
+}
+
+class PhoneBanner extends StatefulWidget {
+  const PhoneBanner({
+    super.key,
+  });
+
+  @override
+  State<PhoneBanner> createState() => _PhoneBannerState();
+}
+
+class _PhoneBannerState extends State<PhoneBanner>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _angle;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    )..repeat(reverse: true);
+
+    _angle = Tween<double>(
+      begin: 0,
+      end: math.pi / 14,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeInOutCubic,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: RotationTransition(
+        turns: _angle,
+        child: Icon(
+          FlumeIcons.hardware_mobile,
+          size: 56,
+          color: context.ambiance.palette.light,
+        ),
+      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flume/flume.dart';
 import 'package:flume/material.dart';
+import 'package:flume_example/widgets/blueprint.dart';
 
 class Layout extends StatelessWidget {
   const Layout({
@@ -19,9 +20,11 @@ class Layout extends StatelessWidget {
     return Scaffold(
       backgroundColor: context.ambiance.color,
       body: SafeArea(
-        child: Ambiance(
-          builder: builder,
-          child: child,
+        child: Blueprint(
+          child: Ambiance(
+            builder: builder,
+            child: child,
+          ),
         ),
       ),
     );

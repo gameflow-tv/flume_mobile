@@ -1,5 +1,4 @@
 import 'package:flume/flume.dart';
-import 'package:flume_example/widgets/blueprint.dart';
 import 'package:flume/material.dart';
 import 'package:flume_example/widgets/card_grid.dart';
 import 'package:flume_example/widgets/component_card.dart';
@@ -12,82 +11,80 @@ class ButtonsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Layout(
       builder: (context, ambiance) {
-        return const Blueprint(
-          child: CardGrid(
-            children: [
-              ButtonCard(
-                variant: ButtonVariant.primary,
-                size: ButtonSize.medium,
-              ),
-              ButtonCard(
-                variant: ButtonVariant.primary,
-                size: ButtonSize.large,
-              ),
-              ButtonCard(
-                variant: ButtonVariant.tonal,
-                size: ButtonSize.medium,
-              ),
-              ButtonCard(
-                variant: ButtonVariant.tonal,
-                size: ButtonSize.large,
-              ),
-              ButtonCard(
-                variant: ButtonVariant.signal,
-                size: ButtonSize.medium,
-              ),
-              ButtonCard(
-                variant: ButtonVariant.signal,
-                size: ButtonSize.large,
-              ),
-              IconButtonCard(
-                variant: ButtonVariant.primary,
-                size: ButtonSize.medium,
-              ),
-              IconButtonCard(
-                variant: ButtonVariant.primary,
-                size: ButtonSize.large,
-              ),
-              IconButtonCard(
-                variant: ButtonVariant.tonal,
-                size: ButtonSize.medium,
-              ),
-              IconButtonCard(
-                variant: ButtonVariant.tonal,
-                size: ButtonSize.large,
-              ),
-              IconButtonCard(
-                variant: ButtonVariant.signal,
-                size: ButtonSize.medium,
-              ),
-              IconButtonCard(
-                variant: ButtonVariant.signal,
-                size: ButtonSize.large,
-              ),
-              ToggleButtonCard(
-                variant: ToggleButtonVariant.standard,
-                selected: false,
-              ),
-              ToggleButtonCard(
-                variant: ToggleButtonVariant.standard,
-                selected: true,
-              ),
-              ToggleButtonCard(
-                variant: ToggleButtonVariant.tonal,
-                selected: false,
-              ),
-              ToggleButtonCard(
-                variant: ToggleButtonVariant.tonal,
-                selected: true,
-              ),
-              GhostButtonCard(),
-              TabButtonCard(
-                selected: true,
-              ),
-              TabButtonCard(
-                selected: false,
-              ),
-            ],
-          ),
+        return const CardGrid(
+          children: [
+            ButtonCard(
+              variant: ButtonVariant.primary,
+              size: ButtonSize.medium,
+            ),
+            ButtonCard(
+              variant: ButtonVariant.primary,
+              size: ButtonSize.large,
+            ),
+            ButtonCard(
+              variant: ButtonVariant.tonal,
+              size: ButtonSize.medium,
+            ),
+            ButtonCard(
+              variant: ButtonVariant.tonal,
+              size: ButtonSize.large,
+            ),
+            ButtonCard(
+              variant: ButtonVariant.signal,
+              size: ButtonSize.medium,
+            ),
+            ButtonCard(
+              variant: ButtonVariant.signal,
+              size: ButtonSize.large,
+            ),
+            IconButtonCard(
+              variant: ButtonVariant.primary,
+              size: ButtonSize.medium,
+            ),
+            IconButtonCard(
+              variant: ButtonVariant.primary,
+              size: ButtonSize.large,
+            ),
+            IconButtonCard(
+              variant: ButtonVariant.tonal,
+              size: ButtonSize.medium,
+            ),
+            IconButtonCard(
+              variant: ButtonVariant.tonal,
+              size: ButtonSize.large,
+            ),
+            IconButtonCard(
+              variant: ButtonVariant.signal,
+              size: ButtonSize.medium,
+            ),
+            IconButtonCard(
+              variant: ButtonVariant.signal,
+              size: ButtonSize.large,
+            ),
+            ToggleButtonCard(
+              variant: ToggleButtonVariant.standard,
+              selected: false,
+            ),
+            ToggleButtonCard(
+              variant: ToggleButtonVariant.standard,
+              selected: true,
+            ),
+            ToggleButtonCard(
+              variant: ToggleButtonVariant.tonal,
+              selected: false,
+            ),
+            ToggleButtonCard(
+              variant: ToggleButtonVariant.tonal,
+              selected: true,
+            ),
+            GhostButtonCard(),
+            TabButtonCard(
+              selected: true,
+            ),
+            TabButtonCard(
+              selected: false,
+            ),
+          ],
         );
       },
     );

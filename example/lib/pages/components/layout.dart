@@ -1,5 +1,4 @@
 import 'package:flume/flume.dart';
-import 'package:flume_example/widgets/blueprint.dart';
 import 'package:flume/material.dart';
 import 'package:flume_example/widgets/card_grid.dart';
 import 'package:flume_example/widgets/component_card.dart';
@@ -12,79 +11,77 @@ class LayoutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Layout(
       builder: (context, ambiance) {
-        return Blueprint(
-          child: CardGrid(
-            children: [
-              ComponentCard(
-                title: 'ScrollableList',
-                subtitle: 'Divided',
-                banner: ScrollableList.static(
-                  children: List.generate(
-                    3,
-                    (index) => Cell(
-                      title: Text('Cell $index'),
-                    ),
+        return CardGrid(
+          children: [
+            ComponentCard(
+              title: 'ScrollableList',
+              subtitle: 'Divided',
+              banner: ScrollableList.static(
+                children: List.generate(
+                  3,
+                  (index) => Cell(
+                    title: Text('Cell $index'),
                   ),
                 ),
               ),
-              ComponentCard(
-                title: 'ScrollableList',
-                subtitle: 'Undivided',
-                banner: ScrollableList.static(
-                  divided: false,
-                  children: List.generate(
-                    3,
-                    (index) => Cell(
-                      title: Text('Cell $index'),
-                    ),
+            ),
+            ComponentCard(
+              title: 'ScrollableList',
+              subtitle: 'Undivided',
+              banner: ScrollableList.static(
+                divided: false,
+                children: List.generate(
+                  3,
+                  (index) => Cell(
+                    title: Text('Cell $index'),
                   ),
                 ),
               ),
-              ComponentCard(
-                title: 'Cell',
-                banner: PageView(
-                  controller: PageController(
-                    viewportFraction: 1.1,
-                  ),
-                  children: const [
-                    CellContainer(
-                      title: Text('Cell title'),
-                    ),
-                    CellContainer(
-                      title: Text('Cell title'),
-                      subtitle: Text('Cell subtitle'),
-                    ),
-                    CellContainer(
-                      leading: AmbianceBox(),
-                      title: Text('Cell title'),
-                    ),
-                    CellContainer(
-                      leading: AmbianceBox(),
-                      title: Text('Cell title'),
-                      trailing: AmbianceBox(),
-                    ),
-                    CellContainer(
-                      leading: AmbianceBox(),
-                      title: Text('Cell title'),
-                      subtitle: Text('Cell subtitle'),
-                    ),
-                    CellContainer(
-                      leading: AmbianceBox(),
-                      title: Text('Cell title'),
-                      subtitle: Text('Cell subtitle'),
-                      trailing: AmbianceBox(),
-                    ),
-                    CellContainer(
-                      leading: AmbianceBox(size: 48),
-                      title: Text('Cell title'),
-                      subtitle: Text('Cell subtitle'),
-                    ),
-                  ],
+            ),
+            ComponentCard(
+              title: 'Cell',
+              banner: PageView(
+                controller: PageController(
+                  viewportFraction: 1.1,
                 ),
-                subtitle: 'Swipe to see variants',
+                children: const [
+                  CellContainer(
+                    title: Text('Cell title'),
+                  ),
+                  CellContainer(
+                    title: Text('Cell title'),
+                    subtitle: Text('Cell subtitle'),
+                  ),
+                  CellContainer(
+                    leading: AmbianceBox(),
+                    title: Text('Cell title'),
+                  ),
+                  CellContainer(
+                    leading: AmbianceBox(),
+                    title: Text('Cell title'),
+                    trailing: AmbianceBox(),
+                  ),
+                  CellContainer(
+                    leading: AmbianceBox(),
+                    title: Text('Cell title'),
+                    subtitle: Text('Cell subtitle'),
+                  ),
+                  CellContainer(
+                    leading: AmbianceBox(),
+                    title: Text('Cell title'),
+                    subtitle: Text('Cell subtitle'),
+                    trailing: AmbianceBox(),
+                  ),
+                  CellContainer(
+                    leading: AmbianceBox(size: 48),
+                    title: Text('Cell title'),
+                    subtitle: Text('Cell subtitle'),
+                  ),
+                ],
               ),
-            ],
-          ),
+              subtitle: 'Swipe to see variants',
+            ),
+          ],
         );
       },
     );

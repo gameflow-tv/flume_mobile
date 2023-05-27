@@ -1,8 +1,7 @@
 import 'dart:math';
 
 import 'package:flume/licenses.dart';
-import 'package:flume_example/pages/ambiance/demo.dart';
-import 'package:flume_example/pages/ambiance/page.dart';
+import 'package:flume_example/pages/ambiance.dart';
 import 'package:flume_example/pages/components.dart';
 import 'package:flume_example/pages/components/buttons.dart';
 import 'package:flume_example/pages/components/controls.dart';
@@ -73,7 +72,6 @@ class _FlumeExampleState extends State<FlumeExample> {
             routes: {
               '/': (context) => const RootPage(),
               '/ambiance': (context) => const AmbiancePage(),
-              '/ambiance/demo': (context) => const AmbianceDemoPage(),
               '/foundation': (context) => const FoundationPage(),
               '/foundation/breakpoints': (context) => const BreakpointsPage(),
               '/foundation/colors': (context) => const ColorsPage(),
