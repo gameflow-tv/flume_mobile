@@ -160,7 +160,6 @@ class _ControlsBannerState extends State<ControlsBanner>
   late AnimationController _entryController;
   late AnimationController _stepController;
 
-  late Animation<Offset> _entrySlide;
   late Animation<double> _entryFade;
 
   late Animation<int> _stepAnimation;
@@ -177,16 +176,6 @@ class _ControlsBannerState extends State<ControlsBanner>
       vsync: this,
       duration: const Duration(seconds: 8),
     )..forward();
-
-    _entrySlide = Tween<Offset>(
-      begin: const Offset(0, 1),
-      end: const Offset(0, 0),
-    ).animate(
-      CurvedAnimation(
-        parent: _entryController,
-        curve: Curves.easeOut,
-      ),
-    );
 
     _entryFade = Tween<double>(
       begin: 0,

@@ -4,7 +4,6 @@ import 'package:flume/material.dart';
 import 'package:flume_example/widgets/card_grid.dart';
 import 'package:flume_example/widgets/component_card.dart';
 import 'package:flume_example/widgets/layout.dart';
-import 'package:flume_example/widgets/top_bar.dart';
 
 class LayoutPage extends StatelessWidget {
   const LayoutPage({super.key});

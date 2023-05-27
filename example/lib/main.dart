@@ -100,6 +100,8 @@ class _FlumeExampleState extends State<FlumeExample> {
                   },
                 );
               }
+
+              return null;
             },
             initialRoute: '/',
           ),
