@@ -52,4 +52,21 @@ class FlumeBreakpoints {
         xl: 1200,
         xxl: 1440,
       );
+
+  /// {@category Foundation}
+  /// {@subCategory Breakpoints}
+  /// Map from name to value.
+  Map<String, double> toMap() => {
+        'xs': xs,
+        'sm': sm,
+        'md': md,
+        'lg': lg,
+        'xl': xl,
+        'xxl': xxl,
+      };
+
+  /// {@category Foundation}
+  /// {@subCategory Breakpoints}
+  /// All breakpoints, sorted from smallest to largest.
+  List<double> get values => [xs, sm, md, lg, xl, xxl];
 }

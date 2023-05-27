@@ -204,34 +204,44 @@ class FlumeColors {
         shadow: FlumePalette.black,
       );
 
-  Map<String, Color> get all {
-    return {
-      'primary': primary,
-      'onPrimary': onPrimary,
-      'secondary': secondary,
-      'tertiary': tertiary,
-      'quaternary': quaternary,
-      'header': header,
-      'body': body,
-      'subtitle': subtitle,
-      'icon': icon,
-      'buttonFocus': buttonFocus,
-      'signal': signal,
-      'onSignal': onSignal,
-      'success': success,
-      'onSuccess': onSuccess,
-      'warning': warning,
-      'onWarning': onWarning,
-      'error': error,
-      'onError': onError,
-      'draw': draw,
-      'highlight10': highlight10,
-      'highlight30': highlight30,
-      'inactive': inactive,
-      'overlay30': overlay30,
-      'overlay50': overlay50,
-      'overlay70': overlay70,
-      'shadow': shadow,
-    };
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Map from all color names to colors.
+  Map<String, Color> toMap() => {
+        'primary': primary,
+        'onPrimary': onPrimary,
+        'secondary': secondary,
+        'tertiary': tertiary,
+        'quaternary': quaternary,
+        'header': header,
+        'body': body,
+        'subtitle': subtitle,
+        'icon': icon,
+        'buttonFocus': buttonFocus,
+        'signal': signal,
+        'onSignal': onSignal,
+        'success': success,
+        'onSuccess': onSuccess,
+        'warning': warning,
+        'onWarning': onWarning,
+        'error': error,
+        'onError': onError,
+        'draw': draw,
+        'highlight10': highlight10,
+        'highlight30': highlight30,
+        'inactive': inactive,
+        'overlay30': overlay30,
+        'overlay50': overlay50,
+        'overlay70': overlay70,
+        'shadow': shadow,
+      };
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// All colors, sorted by name.
+  List<Color> get values {
+    final map = toMap();
+    final sortedNames = map.keys.toList()..sort((a, b) => a.compareTo(b));
+    return sortedNames.map((name) => map[name]!).toList();
   }
 }

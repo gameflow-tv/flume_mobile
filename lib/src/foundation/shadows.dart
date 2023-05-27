@@ -79,4 +79,28 @@ class FlumeShadows {
           blurRadius: 4,
         ),
       );
+
+  /// {@category Foundation}
+  /// {@subCategory Shadows}
+  /// Map from shadow name to shadow value.
+  Map<String, BoxShadow> toMap() => {
+        'xs': xs,
+        'sm': sm,
+        'md': md,
+        'lg': lg,
+        'focus': focus,
+        'text': text,
+      };
+
+  /// {@category Foundation}
+  /// {@subCategory Shadows}
+  /// List of all shadows, ordered from smallest to largest.
+  List<BoxShadow> get values => [
+        xs,
+        sm,
+        md,
+        lg,
+        text,
+        focus,
+      ];
 }

@@ -43,4 +43,19 @@ class FlumeShapes {
         md: 6,
         lg: 12,
       );
+
+  /// {@category Foundation}
+  /// {@subCategory Shapes}
+  /// Map of shape names to shape values.
+  Map<String, double> toMap() => {
+        'xs': xs,
+        'sm': sm,
+        'md': md,
+        'lg': lg,
+      };
+
+  /// {@category Foundation}
+  /// {@subCategory Shapes}
+  /// List of all shapes defined by Flume, from lowest to highest.
+  List<double> get values => [xs, sm, md, lg];
 }

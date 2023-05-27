@@ -135,4 +135,58 @@ class FlumePalette {
   /// - Hex: #000000
   /// - Opacity: 0.3
   static const black30 = Color(0x4d000000);
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// Map from color name to color.
+  Map<String, Color> toMap() => {
+        'amberOrange': amberOrange,
+        'abbeyBlue': abbeyBlue,
+        'emperorGray': emperorGray,
+        'punchRed': punchRed,
+        'ufoGreen': ufoGreen,
+        'parsleyGreen': parsleyGreen,
+        'lightningYellow': lightningYellow,
+        'mustardYellow': mustardYellow,
+        'cinnabarRed': cinnabarRed,
+        'faluRed': faluRed,
+        'dustyGray': dustyGray,
+        'white': white,
+        'white85': white85,
+        'white75': white75,
+        'white50': white50,
+        'white30': white30,
+        'white10': white10,
+        'black': black,
+        'black70': black70,
+        'black50': black50,
+        'black30': black30,
+      };
+
+  /// {@category Foundation}
+  /// {@subCategory Colors}
+  /// All colors defined by Flume.
+  List<Color> get values => [
+        amberOrange,
+        abbeyBlue,
+        emperorGray,
+        punchRed,
+        ufoGreen,
+        parsleyGreen,
+        lightningYellow,
+        mustardYellow,
+        cinnabarRed,
+        faluRed,
+        dustyGray,
+        white,
+        white85,
+        white75,
+        white50,
+        white30,
+        white10,
+        black,
+        black70,
+        black50,
+        black30,
+      ];
 }

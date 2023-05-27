@@ -73,6 +73,25 @@ class FlumeSpacing {
   /// {@subCategory Spacing}
   /// EdgeInsets with the same spacing on all sides.
   EdgeInsetsData get insets => EdgeInsetsData(this);
+
+  /// {@category Foundation}
+  /// {@subCategory Spacing}
+  /// Map of spacing names to spacing values.
+  Map<String, double> toMap() => {
+        'xxxs': xxxs,
+        'xxs': xxs,
+        'xs': xs,
+        'sm': sm,
+        'md': md,
+        'lg': lg,
+        'xl': xl,
+        'xxl': xxl,
+      };
+
+  /// {@category Foundation}
+  /// {@subCategory Spacing}
+  /// List of all spacing values, from lowest to highest.
+  List<double> get values => [xxxs, xxs, xs, sm, md, lg, xl, xxl];
 }
 
 /// Utility class for using Flume spacing with Flutter's [EdgeInsets].
