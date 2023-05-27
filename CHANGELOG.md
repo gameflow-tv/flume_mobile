@@ -1,3 +1,13 @@
+## 0.3.1
+
+* Added extra step to `tool/icons.dart` for stripping <defs>/<g> nodes from SVGs
+* Introduced `lighter()` and `darker()` functions to `AmbianceState`
+* Marked `up()` and `down()` as deprecated, replaced by the above.
+* Added `toMap()` and `values` to all `FlumeTheme` subclasses
+* Fixed expanded `InputField` sizing issues
+* Wrapped `Button` children with `Flexible` to avoid clipping on overflow
+* Redesigned and overhauled example app
+
 ## 0.3.0
 
 * **BREAKING:** Removed `showBorders` from ScrollableList
