@@ -5,9 +5,10 @@ import 'package:flume_example/pages/ambiance/demo.dart';
 import 'package:flume_example/pages/ambiance/page.dart';
 import 'package:flume_example/pages/components.dart';
 import 'package:flume_example/pages/components/buttons.dart';
+import 'package:flume_example/pages/components/controls.dart';
 import 'package:flume_example/pages/components/icons.dart';
 import 'package:flume_example/pages/components/input.dart';
-import 'package:flume_example/pages/components/lists.dart';
+import 'package:flume_example/pages/components/layout.dart';
 import 'package:flume_example/pages/foundation.dart';
 import 'package:flume_example/pages/foundation/breakpoints.dart';
 import 'package:flume_example/pages/foundation/colors.dart';
@@ -84,7 +85,8 @@ class _FlumeExampleState extends State<FlumeExample> {
               '/components': (context) => const ComponentsPage(),
               '/components/buttons': (context) => const ButtonsPage(),
               '/components/input': (context) => const InputPage(),
-              '/components/layout': (context) => const ListsPage(),
+              '/components/controls': (context) => const ControlsPage(),
+              '/components/layout': (context) => const LayoutPage(),
               '/components/icons': (context) => const IconsPage(),
               '/licenses': (context) => const LicensePage(),
             },

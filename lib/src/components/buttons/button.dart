@@ -149,11 +149,15 @@ class _ButtonState extends State<Button> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             if (widget.iconPosition == IconPosition.right) ...[
-                              widget.child,
+                              Flexible(
+                                child: widget.child,
+                              ),
                               if (getIcon() != null) getIcon()!,
                             ] else ...[
                               if (getIcon() != null) getIcon()!,
-                              widget.child,
+                              Flexible(
+                                child: widget.child,
+                              ),
                             ],
                           ].spaced(theme.spacing.xs),
                         ),

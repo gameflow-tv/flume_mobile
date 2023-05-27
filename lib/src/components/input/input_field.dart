@@ -233,14 +233,16 @@ class _InputFieldState extends State<InputField> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             if (widget.label != null) ...[
-              Text(
-                widget.label!,
-                style: widget.labelStyle ?? theme.typography.header4,
+              Flexible(
+                child: Text(
+                  widget.label!,
+                  style: widget.labelStyle ?? theme.typography.header4,
+                ),
               ),
               SizedBox(height: theme.spacing.xs),
             ],
-            Flexible(
-              child: ClipRRect(
+            Builder(builder: (context) {
+              final input = ClipRRect(
                 borderRadius: BorderRadius.circular(theme.shapes.sm),
                 child: AnimatedOpacity(
                   opacity: widget.enabled ? 1 : 0.6,
@@ -302,8 +304,14 @@ class _InputFieldState extends State<InputField> {
                     ),
                   ),
                 ),
-              ),
-            ),
+              );
+
+              if (widget.expands) {
+                return Expanded(child: input);
+              }
+
+              return input;
+            }),
           ],
         );
       },

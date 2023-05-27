@@ -1,6 +1,6 @@
 import 'package:flume/flume.dart';
 import 'package:flume_example/widgets/category_card.dart';
-import 'package:flume_example/widgets/category_grid.dart';
+import 'package:flume_example/widgets/card_grid.dart';
 import 'package:flume_example/widgets/layout.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +25,7 @@ class LicensePage extends StatelessWidget {
           if (snapshot.hasData) {
             final _LicenseData licenseData = snapshot.data!;
 
-            return CategoryGrid(
+            return CardGrid(
               children: snapshot.data!.packageLicenseBindings.keys.map((entry) {
                 final package = licenseData.packages[licenseData
                     .packageLicenseBindings.keys
@@ -58,7 +58,7 @@ class LicensePage extends StatelessWidget {
               }).toList(),
             );
           } else {
-            return CategoryGrid(
+            return CardGrid(
               children: List.generate(
                 6,
                 (index) => const CategoryCard(

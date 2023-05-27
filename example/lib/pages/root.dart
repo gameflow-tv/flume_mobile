@@ -3,7 +3,7 @@
 import 'package:flume/flume.dart';
 import 'package:flume/material.dart';
 import 'package:flume_example/widgets/category_card.dart';
-import 'package:flume_example/widgets/category_grid.dart';
+import 'package:flume_example/widgets/card_grid.dart';
 import 'package:flume_example/widgets/layout.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
@@ -16,7 +16,7 @@ class RootPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Layout(
       builder: (context, ambiance) {
-        return CategoryGrid(
+        return CardGrid(
           children: const [
             CategoryCard(
               title: 'Ambiance',

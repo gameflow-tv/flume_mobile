@@ -1,8 +1,8 @@
 import 'package:flume/flume.dart';
 import 'package:flume/material.dart';
 
-class CategoryGrid extends StatelessWidget {
-  const CategoryGrid({
+class CardGrid extends StatelessWidget {
+  const CardGrid({
     super.key,
     required this.children,
   });

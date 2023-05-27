@@ -20,6 +20,7 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         if (path != null) {
           Navigator.of(context).pushNamed(
@@ -51,7 +52,9 @@ class CategoryCard extends StatelessWidget {
                   children: [
                     Container(
                       color: context.ambiance.lighter(),
-                      child: banner,
+                      child: IgnorePointer(
+                        child: banner,
+                      ),
                     ),
                   ],
                 ),

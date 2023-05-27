@@ -1,5 +1,8 @@
 import 'package:flume/flume.dart';
 import 'package:flume/material.dart';
+import 'package:flume_example/widgets/card_grid.dart';
+import 'package:flume_example/widgets/component_card.dart';
+import 'package:flume_example/widgets/layout.dart';
 import 'package:flume_example/widgets/top_bar.dart';
 
 class ColorsPage extends StatelessWidget {
@@ -9,47 +12,27 @@ class ColorsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Flume.of(context);
 
-    return Ambiance(
+    return Layout(
       builder: (context, ambiance) {
-        return Scaffold(
-          appBar: TopBar(
-            title: const Text('Colors'),
-          ),
-          backgroundColor: ambiance.color,
-          body: SafeArea(
-            bottom: false,
-            child: GridView(
-              scrollDirection: Axis.vertical,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-              ),
-              children: theme.colors.all.keys.map((name) {
-                final color = theme.colors.all[name];
+        return SafeArea(
+          bottom: false,
+          child: CardGrid(
+            children: theme.colors.all.keys.map((name) {
+              final color = theme.colors.all[name];
 
-                if (color == null) {
-                  return Container();
-                }
+              if (color == null) {
+                return Container();
+              }
 
-                return Ambiance(
-                    color: color,
-                    builder: (context, ambiance) {
-                      return Container(
-                        height: 100,
-                        color: color,
-                        child: Center(
-                          child: Text(
-                            name,
-                            style: TextStyle(
-                              color: color.computeLuminance() > 0.5
-                                  ? ambiance.at(0)
-                                  : ambiance.at(5),
-                            ),
-                          ),
-                        ),
-                      );
-                    });
-              }).toList(),
-            ),
+              return ComponentCard(
+                title: name,
+                subtitle: '#${color.value.toRadixString(16)}',
+                banner: Container(
+                  color: color,
+                ),
+                padding: EdgeInsets.zero,
+              );
+            }).toList(),
           ),
         );
       },
