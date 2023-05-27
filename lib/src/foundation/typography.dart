@@ -269,6 +269,44 @@ class FlumeTypography {
           fontFamily: 'Montserrat',
         ),
       );
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// Map between name and its [TextStyle].
+  Map<String, TextStyle> toMap() => {
+        'header1': header1,
+        'header2': header2,
+        'header3': header3,
+        'header4': header4,
+        'header5': header5,
+        'body1': body1,
+        'body2': body2,
+        'body3': body3,
+        'button': button,
+        'link': link,
+        'label1': label1,
+        'label2': label2,
+        'label3': label3,
+      };
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
+  /// List of all styles.
+  List<TextStyle> get values => [
+        header1,
+        header2,
+        header3,
+        header4,
+        header5,
+        body1,
+        body2,
+        body3,
+        button,
+        link,
+        label1,
+        label2,
+        label3,
+      ];
 }
 
 /// {@category Foundation}

@@ -42,11 +42,25 @@ class FlumeMotion {
   /// {@category Foundation}
   /// {@subCategory Motion}
   /// Returns a disabled motion instance.
-  /// Used for devices with reduced motion.
+  /// Used for e.g. devices with reduced motion.
   factory FlumeMotion.disabled() => const FlumeMotion(
         enabled: false,
         short: Duration(milliseconds: 0),
         medium: Duration(milliseconds: 0),
         long: Duration(milliseconds: 0),
       );
+
+  /// {@category Foundation}
+  /// {@subCategory Motion}
+  /// Map from motion names to durations.
+  Map<String, Duration> toMap() => {
+        'short': short,
+        'medium': medium,
+        'long': long,
+      };
+
+  /// {@category Foundation}
+  /// {@subCategory Motion}
+  /// All motion durations defined by Flume, sorted from shortest to longest.
+  List<Duration> get values => [short, medium, long];
 }

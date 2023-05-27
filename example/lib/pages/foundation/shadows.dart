@@ -1,10 +1,11 @@
 import 'package:flume/flume.dart';
-import 'package:flume_example/widgets/blueprint.dart';
 import 'package:flume/material.dart';
-import 'package:flume_example/widgets/top_bar.dart';
+import 'package:flume_example/widgets/card_grid.dart';
+import 'package:flume_example/widgets/component_card.dart';
+import 'package:flume_example/widgets/layout.dart';
 
 extension PrettyShadow on BoxShadow {
-  String get pretty =>
+  String toPrettyString() =>
       'color: ${color.toRGB().toHex()}, offset: (x: ${offset.dx}, y: ${offset.dy}), blurRadius: $blurRadius';
 }
 
@@ -15,97 +16,36 @@ class ShadowsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final shadows = context.theme.shadows;
 
-    return Ambiance(
+    return Layout(
       builder: (context, ambiance) {
-        return Scaffold(
-          appBar: TopBar(
-            title: const Text('Shadows'),
-          ),
-          backgroundColor: ambiance.color,
-          body: Blueprint(
-            child: Ambiance(
-              child: SafeArea(
-                bottom: false,
-                child: GridView(
-                  padding: EdgeInsets.all(context.theme.spacing.md),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: context.theme.spacing.md,
-                    crossAxisSpacing: context.theme.spacing.md,
-                  ),
-                  children: [
-                    _ShadowBox(
-                      shadow: shadows.xs,
-                      child: const Text('xs'),
-                    ),
-                    _ShadowBox(
-                      shadow: shadows.sm,
-                      child: const Text('sm'),
-                    ),
-                    _ShadowBox(
-                      shadow: shadows.md,
-                      child: const Text('md'),
-                    ),
-                    _ShadowBox(
-                      shadow: shadows.lg,
-                      child: const Text('lg'),
-                    ),
-                    _ShadowBox(
-                      shadow: shadows.text,
-                      child: Text(
-                        'text',
-                        style: TextStyle(
-                          shadows: [shadows.text],
-                        ),
+        return CardGrid(
+          children: shadows.toMap().entries.map((entry) {
+            return ComponentCard(
+              title: entry.key,
+              banner: Ambiance(builder: (context, ambiance) {
+                return Center(
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        context.theme.shapes.sm,
                       ),
+                      border: Border.all(
+                        color: context.theme.colors.highlight10,
+                        width: 0.5,
+                      ),
+                      color: ambiance.color,
+                      boxShadow: [entry.value],
                     ),
-                    _ShadowBox(
-                      shadow: shadows.focus,
-                      child: const Text('focus'),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+                  ),
+                );
+              }),
+              subtitle: entry.value.toPrettyString(),
+            );
+          }).toList(),
         );
       },
-    );
-  }
-}
-
-class _ShadowBox extends StatelessWidget {
-  const _ShadowBox({
-    required this.shadow,
-    required this.child,
-  });
-
-  final BoxShadow shadow;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(context.theme.spacing.md),
-      decoration: BoxDecoration(
-        color: context.ambiance.color,
-        borderRadius: BorderRadius.circular(context.theme.shapes.sm),
-        boxShadow: [shadow],
-      ),
-      child: Column(
-        children: [
-          Expanded(
-            child: Center(
-              child: child,
-            ),
-          ),
-          Text(
-            shadow.pretty,
-            textAlign: TextAlign.center,
-            style: context.theme.typography.body3,
-          ),
-        ],
-      ),
     );
   }
 }
