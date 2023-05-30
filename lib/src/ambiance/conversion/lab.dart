@@ -2,118 +2,74 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:equatable/equatable.dart';
-import 'package:flume/flume.dart';
+import 'package:flume/src/ambiance/conversion/xyz.dart';
 
 /// {@category Ambiance}
-/// Class representing the CIELAB colorspace.
+/// A color in the CIELAB color space.
 class CIELAB extends Equatable {
   /// Perceptual lightness value.
   final double l;
 
-  /// A value.
+  /// Red-green value.
   final double a;
 
-  /// B value.
+  /// Yellow-blue value.
   final double b;
 
   const CIELAB(this.l, this.a, this.b);
 
-  /// Converts [Color] to [CIELAB] color.
-  factory CIELAB.fromColor(Color color) {
-    return CIELAB.fromRGB(RGB.fromColor(color));
+  /// Converts from [CIEXYZ] to [CIELAB].
+  static CIELAB fromXYZ(CIEXYZ xyz) {
+    const double xn = 0.95047;
+    const double yn = 1.0;
+    const double zn = 1.08883;
+
+    num f(double t) {
+      return t > pow(6 / 29, 3)
+          ? pow(t, 1 / 3.0)
+          : t / (3 * pow(29 / 6, 2)) + 4 / 29;
+    }
+
+    double fx = f(xyz.x / xn).toDouble();
+    double fy = f(xyz.y / yn).toDouble();
+    double fz = f(xyz.z / zn).toDouble();
+
+    double l = 116 * fy - 16;
+    double a = 500 * (fx - fy);
+    double b = 200 * (fy - fz);
+
+    return CIELAB(l, a, b);
   }
 
-  /// Converts [RGB] to [CIELAB] color.
-  factory CIELAB.fromRGB(RGB color) {
-    final xyz = color.toCIEXYZ();
-    final double x = xyz.x.toDouble();
-    final double y = xyz.y.toDouble();
-    final double z = xyz.z.toDouble();
-
-    final double l = 116 * y - 16;
-
-    return CIELAB(l < 0 ? 0 : l, 500 * (x - y), 200 * (y - z));
+  /// Converts from [Color] to [CIELAB].
+  static CIELAB fromColor(Color color) {
+    return CIELAB.fromXYZ(CIEXYZ.fromColor(color));
   }
 
-  /// Converts [CIELAB] to [Color].
-  Color toColor() {
-    return toRGB().toColor();
-  }
-
-  /// Converts [CIELAB] to [RGB].
-  RGB toRGB() {
-    return toXYZ().toRGB();
-  }
-
-  /// Converts [CIELAB] to [CIEXYZ].
+  /// Converts from [CIELAB] to [XYZ].
   CIEXYZ toXYZ() {
-    var xyz = <String, num>{
-      'x': a / 500 + (l + 16) / 116,
-      'y': (l + 16) / 116,
-      'z': (l + 16) / 116 - b / 200
-    };
+    const double xn = 0.95047;
+    const double yn = 1.0;
+    const double zn = 1.08883;
 
-    xyz.forEach((key, value) {
-      var cube = pow(value, 3);
-      if (cube > 0.008856) {
-        xyz[key] = cube;
-      } else {
-        xyz[key] = (value - 16 / 116) / 7.787;
-      }
-      xyz[key] = xyz[key]! * CIEXYZ.referenceWhite.toMap()[key]!;
-    });
+    double fy = (l + 16) / 116;
+    double fx = fy + a / 500;
+    double fz = fy - b / 200;
 
-    return CIEXYZ(xyz['x']!, xyz['y']!, xyz['z']!);
+    double xr =
+        fx * fx * fx > 0.008856 ? fx * fx * fx : (116 * fx - 16) / 903.3;
+    double yr = l > 7.9996 ? fy * fy * fy : l / 903.3;
+    double zr =
+        fz * fz * fz > 0.008856 ? fz * fz * fz : (116 * fz - 16) / 903.3;
+
+    return CIEXYZ(xr * xn, yr * yn, zr * zn);
+  }
+
+  /// Converts from [CIELAB] to [Color].
+  Color toColor() {
+    return toXYZ().toColor();
   }
 
   @override
-  List<Object> get props => [l, a, b];
+  List<Object?> get props => [l, a, b];
 }
-
-/// {@category Ambiance}
-/// Extension that adds [CIELAB] conversion methods to [Color].
-extension CIELABExtension on Color {
-  /// Converts [Color] to [CIELAB] color.
-  CIELAB toCIELAB() {
-    return CIELAB.fromColor(this);
-  }
-
-  /// Converts [CIELAB] color to [Color].
-  static Color fromCIELAB(CIELAB color) {
-    return color.toColor();
-  }
-}
-
-// // Class representing the CIEXYZ coordinates.
-// class CIEXYZ extends Equatable {
-//   /// X value.
-//   final double x;
-
-//   /// Y value.
-//   final double y;
-
-//   /// Z value.
-//   final double z;
-
-//   const CIEXYZ(this.x, this.y, this.z);
-
-//   factory CIEXYZ.fromRGB(RGB color) {
-//     final double r = color.r / 255;
-//     final double g = color.g / 255;
-//     final double b = color.b / 255;
-
-//     final double x = r * 0.4124 + g * 0.3576 + b * 0.1805;
-//     final double y = r * 0.2126 + g * 0.7152 + b * 0.0722;
-//     final double z = r * 0.0193 + g * 0.1192 + b * 0.9505;
-
-//     return CIEXYZ(x, y, z);
-//   }
-
-//   /// Converts [Color] to [CIEXYZ] color.
-//   static CIEXYZ fromColor(Color color) {
-//     return CIEXYZ.fromRGB(RGB(color.red, color.green, color.blue));
-//   }
-
-//   @override
-//   List<Object> get props => [x, y, z];
-// }

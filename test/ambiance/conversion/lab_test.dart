@@ -4,30 +4,34 @@ import 'package:flume/flume.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('CIELAB.fromRGB() returns correct values', () {
+  test('CIELAB.fromColor() returns correct values', () {
     const color = Color(0xff00ff00);
-    var result = CIELAB.fromRGB(RGB(color.red, color.green, color.blue));
+    var result = CIELAB.fromColor(
+      RGB(color.red, color.green, color.blue).toColor(),
+    );
 
     expect(
       result,
       equals(const CIELAB(
-        87.73472235279792,
-        -86.1827164205346,
-        83.17932050269782,
+        87.73703347354422,
+        -86.18463649762525,
+        83.18116474777854,
       )),
     );
   });
 
-  test('CIEXYZ.fromRGB() returns correct values', () {
+  test('CIEXYZ.fromColor() returns correct values', () {
     const color = Color(0xff00ff00);
-    var result = CIEXYZ.fromRGB(RGB(color.red, color.green, color.blue));
+    var result = CIEXYZ.fromColor(
+      RGB(color.red, color.green, color.blue).toColor(),
+    );
 
     expect(
       result,
       equals(const CIEXYZ(
-        0.7218994150278784,
-        0.8942648478689476,
-        0.47836824535545847,
+        0.3576,
+        0.7152,
+        0.1192,
       )),
     );
   });
