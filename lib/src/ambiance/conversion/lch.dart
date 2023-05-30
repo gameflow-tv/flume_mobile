@@ -1,8 +1,7 @@
-import 'dart:math';
-import 'dart:ui';
+import 'dart:math' as math;
 
 import 'package:equatable/equatable.dart';
-import 'package:flume/flume.dart';
+import 'package:flume/src/ambiance/conversion/lab.dart';
 
 /// {@category Ambiance}
 /// Class representing the LCH colorspace.
@@ -18,59 +17,21 @@ class LCH extends Equatable {
 
   const LCH(this.l, this.c, this.h);
 
-  factory LCH.fromCIELAB(CIELAB lab) {
-    final double l = lab.l;
-    final double a = lab.a;
-    final double b = lab.b;
-
-    final double c = sqrt(a * a + b * b);
-    final double h = (atan2(b, a) * 180 / pi + 360) % 360;
-
-    return LCH(l, c, h);
+  // Conversion from CIELAB to LCH.
+  static LCH fromCIELAB(CIELAB cielab) {
+    double c = math.sqrt(cielab.a * cielab.a + cielab.b * cielab.b);
+    double h = (180 / math.pi) * math.atan2(cielab.b, cielab.a);
+    if (h < 0) h = h + 360;
+    return LCH(cielab.l, c, h);
   }
 
-  /// Converts [RGB] color to [LCH] color.
-  factory LCH.fromRGB(RGB color) {
-    return LCH.fromCIELAB(CIELAB.fromRGB(color));
-  }
-
-  /// Converts [Color] to [LCH] color.
-  factory LCH.fromColor(Color color) {
-    return LCH.fromRGB(RGB(color.red, color.green, color.blue));
-  }
-
-  /// Converts [LCH] color to [CIELAB] color.
+  // Conversion from LCH to CIELAB.
   CIELAB toCIELAB() {
-    final double a = c * cos(h * pi / 180);
-    final double b = c * sin(h * pi / 180);
-
+    double a = c * math.cos(h * math.pi / 180);
+    double b = c * math.sin(h * math.pi / 180);
     return CIELAB(l, a, b);
   }
 
-  /// Converts [LCH] color to [RGB] color.
-  RGB toRGB() {
-    return toColor().toRGB();
-  }
-
-  /// Converts [LCH] color to [Color].
-  Color toColor() {
-    return toCIELAB().toColor();
-  }
-
   @override
-  List<Object> get props => [l, c, h];
-}
-
-/// {@category Ambiance}
-/// Extension that adds [LCH] conversion methods to [Color].
-extension LCHExtension on Color {
-  /// Converts [Color] to [LCH] color.
-  LCH toLCH() {
-    return LCH.fromColor(this);
-  }
-
-  /// Converts [LCH] color to [Color].
-  static Color fromLCH(LCH color) {
-    return color.toColor();
-  }
+  List<Object?> get props => [l, c, h];
 }

@@ -54,21 +54,22 @@ class RGB extends Equatable {
       return p;
     }
 
-    final r = (hueToRgb(h + 1 / 3) * 255).toInt();
-    final g = (hueToRgb(h) * 255).toInt();
-    final b = (hueToRgb(h - 1 / 3) * 255).toInt();
+    final r = (hueToRgb(h + 1 / 3) * 255).round();
+    final g = (hueToRgb(h) * 255).round();
+    final b = (hueToRgb(h - 1 / 3) * 255).round();
 
     return RGB(r, g, b);
   }
 
   /// Converts [LCH] color to [RGB] color.
   factory RGB.fromLCH(LCH color) {
-    return color.toRGB();
+    return color.toCIELAB().toColor().toRGB();
   }
 
   /// Converts [CIELAB] color to [RGB] color.
   factory RGB.fromCIELAB(CIELAB color) {
-    return color.toRGB();
+    final rgb = color.toColor();
+    return RGB(rgb.red, rgb.green, rgb.blue, rgb.alpha);
   }
 
   /// Converts color to hex string.
@@ -82,7 +83,7 @@ class RGB extends Equatable {
   }
 
   /// Converts [RGB] to [CIEXYZ] coordinates.
-  CIEXYZ toCIEXYZ() {
+  CIEXYZ toXYZ() {
     double singleCoordToLAB(double t) {
       if (t > t3) {
         return pow(t, 1 / 3).toDouble();
