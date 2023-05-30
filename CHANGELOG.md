@@ -1,3 +1,7 @@
+## 0.3.2
+
+* Fixed `AmbiancePalette.light` algorithm that sometimes computed very off colors
+
 ## 0.3.1
 
 * Added extra step to `tool/icons.dart` for stripping <defs>/<g> nodes from SVGs
