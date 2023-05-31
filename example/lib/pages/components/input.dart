@@ -254,6 +254,14 @@ class _DatePickerSheetState extends State<DatePickerSheet> {
                 ),
                 child: DatePicker(
                   date: _date,
+                  range: (
+                    DateTime.now().subtract(
+                      const Duration(days: 31),
+                    ),
+                    DateTime.now().add(
+                      const Duration(days: 31),
+                    ),
+                  ),
                   onDateSelected: (value) {
                     setState(() {
                       _date = value;

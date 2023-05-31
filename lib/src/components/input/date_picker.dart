@@ -18,6 +18,7 @@ class DatePicker extends StatefulWidget {
     this.onDateSelected,
     this.datesOfInterest,
     this.firstDayOfWeek,
+    this.range,
   });
 
   /// The dates that should show indicators.
@@ -32,6 +33,8 @@ class DatePicker extends StatefulWidget {
   /// The first day of the week. Defaults to the first day of the week for the
   /// locale provided by [MaterialLocalizations].
   final int? firstDayOfWeek;
+
+  final (DateTime, DateTime)? range;
 
   @override
   State<DatePicker> createState() => _DatePickerState();
@@ -149,6 +152,17 @@ class _DatePickerState extends State<DatePicker> {
                                     d.day == day)
                                 .isNotEmpty;
 
+                        final dayDate = DateTime(
+                          currentMonth.year,
+                          currentMonth.month,
+                          day,
+                        );
+
+                        final isInRange = widget.range == null
+                            ? true
+                            : dayDate.isAfter(widget.range!.$1) &&
+                                dayDate.isBefore(widget.range!.$2);
+
                         return AnimationConfiguration.staggeredGrid(
                           position: i,
                           duration: context.theme.motion.short,
@@ -157,10 +171,12 @@ class _DatePickerState extends State<DatePicker> {
                             child: FadeInAnimation(
                               child: GestureDetector(
                                 onTap: () {
-                                  widget.onDateSelected?.call(
-                                    DateTime(currentMonth.year,
-                                        currentMonth.month, day),
-                                  );
+                                  if (isInRange) {
+                                    widget.onDateSelected?.call(
+                                      DateTime(currentMonth.year,
+                                          currentMonth.month, day),
+                                    );
+                                  }
                                 },
                                 child: Stack(
                                   alignment: Alignment.topRight,
@@ -181,7 +197,10 @@ class _DatePickerState extends State<DatePicker> {
                                             .copyWith(
                                           color: selected
                                               ? context.ambiance.palette.dark
-                                              : context.ambiance.palette.light,
+                                              : context.ambiance.palette.light
+                                                  .withOpacity(
+                                                  isInRange ? 1 : 0.25,
+                                                ),
                                         ),
                                         child: Center(
                                           child: Text(
