@@ -34,6 +34,8 @@ class DatePicker extends StatefulWidget {
   /// locale provided by [MaterialLocalizations].
   final int? firstDayOfWeek;
 
+  /// A range of dates that are selectable. If null, all dates are selectable.
+  /// If not null, only dates within the range are selectable.
   final (DateTime, DateTime)? range;
 
   @override

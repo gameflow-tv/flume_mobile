@@ -1,3 +1,8 @@
+## 0.4.0
+
+* **BREAKING:** Set lower SDK constraint to ">=3.0.0" to make use of new language features
+* Added `range` option to DatePicker
+
 ## 0.3.2
 
 * Fixed `AmbiancePalette.light` algorithm that sometimes computed very off colors
