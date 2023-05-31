@@ -206,12 +206,16 @@ class AmbianceBanner extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: AnimationConfiguration.toStaggeredList(
         duration: const Duration(milliseconds: 500),
-        childAnimationBuilder: (child) => SlideAnimation(
-          horizontalOffset: 50,
-          child: FadeInAnimation(
-            child: child,
-          ),
-        ),
+        childAnimationBuilder: (child) {
+          return Flexible(
+            child: SlideAnimation(
+              horizontalOffset: 50,
+              child: FadeInAnimation(
+                child: child,
+              ),
+            ),
+          );
+        },
         children: List.generate(5, (index) {
           final color = context.ambiance.palette.colors[index];
 

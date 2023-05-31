@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flume/licenses.dart';
@@ -43,13 +44,16 @@ class _FlumeExampleState extends State<FlumeExample> {
   @override
   void initState() {
     super.initState();
-    detector = ShakeDetector.autoStart(onPhoneShake: () {
-      setState(() {
-        // Generate random color
-        seed =
-            Color((Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0);
+
+    if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
+      detector = ShakeDetector.autoStart(onPhoneShake: () {
+        setState(() {
+          // Generate random color
+          seed = Color((Random().nextDouble() * 0xFFFFFF).toInt())
+              .withOpacity(1.0);
+        });
       });
-    });
+    }
   }
 
   @override

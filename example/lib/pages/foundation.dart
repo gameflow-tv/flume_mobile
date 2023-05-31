@@ -483,10 +483,12 @@ class FoundationBanner extends StatelessWidget {
         children: AnimationConfiguration.toStaggeredList(
           duration: const Duration(milliseconds: 500),
           childAnimationBuilder: (widget) {
-            return SlideAnimation(
-              horizontalOffset: 48,
-              child: FadeInAnimation(
-                child: widget,
+            return Flexible(
+              child: SlideAnimation(
+                horizontalOffset: 48,
+                child: FadeInAnimation(
+                  child: widget,
+                ),
               ),
             );
           },
@@ -542,22 +544,31 @@ class FoundationBanner extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Aa',
-                        style: context.theme.typography.header1.copyWith(
-                          fontSize: 20,
+                      Flexible(
+                        child: Text(
+                          'Aa',
+                          style: context.theme.typography.header1.copyWith(
+                            fontSize: 20,
+                          ),
+                          overflow: TextOverflow.fade,
                         ),
                       ),
-                      Text(
-                        'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-                        style: context.theme.typography.header5.copyWith(
-                          fontSize: 8,
+                      Flexible(
+                        child: Text(
+                          'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                          style: context.theme.typography.header5.copyWith(
+                            fontSize: 8,
+                          ),
+                          overflow: TextOverflow.fade,
                         ),
                       ),
-                      Text(
-                        'abcdefghijklmnopqrstuvwxyz',
-                        style: context.theme.typography.header5.copyWith(
-                          fontSize: 8,
+                      Flexible(
+                        child: Text(
+                          'abcdefghijklmnopqrstuvwxyz',
+                          style: context.theme.typography.header5.copyWith(
+                            fontSize: 8,
+                          ),
+                          overflow: TextOverflow.fade,
                         ),
                       ),
                     ],
@@ -568,22 +579,31 @@ class FoundationBanner extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Aa',
-                        style: context.theme.typography.body1.copyWith(
-                          fontSize: 20,
+                      Flexible(
+                        child: Text(
+                          'Aa',
+                          style: context.theme.typography.body1.copyWith(
+                            fontSize: 20,
+                          ),
+                          overflow: TextOverflow.fade,
                         ),
                       ),
-                      Text(
-                        'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-                        style: context.theme.typography.body1.copyWith(
-                          fontSize: 8,
+                      Flexible(
+                        child: Text(
+                          'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                          style: context.theme.typography.body1.copyWith(
+                            fontSize: 8,
+                          ),
+                          overflow: TextOverflow.fade,
                         ),
                       ),
-                      Text(
-                        'abcdefghijklmnopqrstuvwxyz',
-                        style: context.theme.typography.body1.copyWith(
-                          fontSize: 8,
+                      Flexible(
+                        child: Text(
+                          'abcdefghijklmnopqrstuvwxyz',
+                          style: context.theme.typography.body1.copyWith(
+                            fontSize: 8,
+                          ),
+                          overflow: TextOverflow.fade,
                         ),
                       ),
                     ],
@@ -594,58 +614,64 @@ class FoundationBanner extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Expanded(
+                const Flexible(
                   flex: 4,
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
                       'Weights',
+                      overflow: TextOverflow.fade,
                     ),
                   ),
                 ),
-                Expanded(
+                Flexible(
                   flex: 2,
                   child: Text(
                     'Title',
                     style: context.theme.typography.header1.copyWith(
                       fontSize: 12,
                     ),
+                    overflow: TextOverflow.fade,
                   ),
                 ),
-                Expanded(
+                Flexible(
                   flex: 2,
                   child: Text(
                     'Lead',
                     style: context.theme.typography.header2.copyWith(
                       fontSize: 10,
                     ),
+                    overflow: TextOverflow.fade,
                   ),
                 ),
-                Expanded(
+                Flexible(
                   flex: 2,
                   child: Text(
                     'Paragraph',
                     style: context.theme.typography.body1.copyWith(
                       fontSize: 8,
                     ),
+                    overflow: TextOverflow.fade,
                   ),
                 ),
-                Expanded(
+                Flexible(
                   flex: 2,
                   child: Text(
                     'Button',
                     style: context.theme.typography.button.copyWith(
                       fontSize: 8,
                     ),
+                    overflow: TextOverflow.fade,
                   ),
                 ),
-                Expanded(
+                Flexible(
                   child: Text(
                     'Link',
                     style: context.theme.typography.link.copyWith(
                       fontSize: 6,
                       color: context.ambiance.palette.light,
                     ),
+                    overflow: TextOverflow.fade,
                   ),
                 ),
               ].spaced(context.theme.spacing.xs),
