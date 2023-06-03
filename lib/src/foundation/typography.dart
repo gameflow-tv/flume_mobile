@@ -9,6 +9,7 @@ class FlumeTypographyData {
     required this.fontWeight,
     required this.lineHeight,
     required this.fontFamily,
+    this.package,
   });
 
   /// {@category Foundation}
@@ -33,13 +34,18 @@ class FlumeTypographyData {
 
   /// {@category Foundation}
   /// {@subCategory Typography}
+  /// The package from which the font family is loaded.
+  final String? package;
+
+  /// {@category Foundation}
+  /// {@subCategory Typography}
   /// Returns a [TextStyle] instance created from the current [FlumeTypographyData].
   TextStyle toTextStyle() => TextStyle(
         fontSize: fontSize,
         fontWeight: fontWeight,
         fontFamily: fontFamily,
         height: lineHeight,
-        package: 'flume',
+        package: package,
         overflow: TextOverflow.ellipsis,
       );
 }
@@ -195,78 +201,91 @@ class FlumeTypography {
           fontWeight: FontWeight.w600,
           lineHeight: 1.2,
           fontFamily: 'Montserrat',
+          package: 'flume',
         ),
         header2: FlumeTypographyData(
           fontSize: 18,
           fontWeight: FontWeight.w600,
           lineHeight: 1.2,
           fontFamily: 'Montserrat',
+          package: 'flume',
         ),
         header3: FlumeTypographyData(
           fontSize: 16,
           fontWeight: FontWeight.w600,
           lineHeight: 1.2,
           fontFamily: 'Montserrat',
+          package: 'flume',
         ),
         header4: FlumeTypographyData(
           fontSize: 14,
           fontWeight: FontWeight.w600,
           lineHeight: 1.2,
           fontFamily: 'Montserrat',
+          package: 'flume',
         ),
         header5: FlumeTypographyData(
           fontSize: 14,
           fontWeight: FontWeight.w600,
           lineHeight: 1.2,
           fontFamily: 'Montserrat',
+          package: 'flume',
         ),
         body1: FlumeTypographyData(
           fontSize: 14,
           fontWeight: FontWeight.w500,
           lineHeight: 1.3,
           fontFamily: 'Mulish',
+          package: 'flume',
         ),
         body2: FlumeTypographyData(
           fontSize: 12,
           fontWeight: FontWeight.w500,
           lineHeight: 1.3,
           fontFamily: 'Mulish',
+          package: 'flume',
         ),
         body3: FlumeTypographyData(
           fontSize: 10,
           fontWeight: FontWeight.w500,
           lineHeight: 1.3,
           fontFamily: 'Mulish',
+          package: 'flume',
         ),
         button: FlumeTypographyData(
           fontSize: 14,
           fontWeight: FontWeight.w700,
           lineHeight: 1.142,
           fontFamily: 'Montserrat',
+          package: 'flume',
         ),
         link: FlumeTypographyData(
           fontSize: 14,
           fontWeight: FontWeight.w600,
           lineHeight: 1.2,
           fontFamily: 'Montserrat',
+          package: 'flume',
         ),
         label1: FlumeTypographyData(
           fontSize: 12,
           fontWeight: FontWeight.w600,
           lineHeight: 1.1,
           fontFamily: 'Montserrat',
+          package: 'flume',
         ),
         label2: FlumeTypographyData(
           fontSize: 11,
           fontWeight: FontWeight.w600,
           lineHeight: 1.1,
           fontFamily: 'Montserrat',
+          package: 'flume',
         ),
         label3: FlumeTypographyData(
           fontSize: 10,
           fontWeight: FontWeight.w600,
           lineHeight: 1.1,
           fontFamily: 'Montserrat',
+          package: 'flume',
         ),
       );
 

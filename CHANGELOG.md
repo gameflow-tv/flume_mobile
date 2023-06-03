@@ -1,3 +1,7 @@
+## 0.4.1
+
+* Add `package` parameter to `FlumeTypographyData`
+
 ## 0.4.0
 
 * **BREAKING:** Set lower SDK constraint to ">=3.0.0" to make use of new language features
