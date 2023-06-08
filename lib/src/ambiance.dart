@@ -5,6 +5,7 @@ export 'ambiance/algorithm/luminance.dart';
 export 'ambiance/algorithm/palette.dart';
 export 'ambiance/algorithm/brighten.dart';
 export 'ambiance/algorithm/saturate.dart';
+export 'ambiance/algorithm/extract.dart';
 
 // Conversion
 export 'ambiance/conversion/rgb.dart';

@@ -15,6 +15,7 @@ dependencies:
   shimmer: ^3.0.0
   intl: ^0.18.1
   flutter_staggered_animations: ^1.1.1
+  flutter_cache_manager: ^3.3.0
 
   flutter:
     sdk: flutter
@@ -33,6 +34,7 @@ dev_dependencies:
 
 dependency_overrides:
   collection: ^1.17.2
+  http: ^1.0.0
 
 flutter:
   assets:
