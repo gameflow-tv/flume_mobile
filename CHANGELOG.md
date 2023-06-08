@@ -1,3 +1,7 @@
+## 0.4.2
+
+* Added average color extraction functions; `mean` and `modal`
+
 ## 0.4.1
 
 * Add `package` parameter to `FlumeTypographyData`
