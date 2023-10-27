@@ -1,3 +1,7 @@
+## 0.5.0
+
+* **BREAKING:** Swap out `Montserrat` font with `Sora` font
+
 ## 0.4.2
 
 * Added average color extraction functions; `mean` and `modal`
