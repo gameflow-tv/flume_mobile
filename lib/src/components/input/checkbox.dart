@@ -28,11 +28,11 @@ enum CheckboxState {
 /// A checkbox that can be checked or unchecked.
 class Checkbox extends StatefulWidget {
   const Checkbox({
-    Key? key,
+    super.key,
     required this.value,
     required this.onChanged,
     this.state,
-  }) : super(key: key);
+  });
 
   /// Checked state of the checkbox.
   final bool value;

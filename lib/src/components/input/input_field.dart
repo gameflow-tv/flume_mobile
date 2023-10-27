@@ -148,7 +148,7 @@ class InputField extends StatefulWidget {
   final int? minLines;
 
   const InputField({
-    Key? key,
+    super.key,
     this.controller,
     this.maxLines,
     this.maxLength,
@@ -187,7 +187,7 @@ class InputField extends StatefulWidget {
     this.enabled = true,
     this.onTapOutside,
     this.minLines,
-  }) : super(key: key);
+  });
 
   @override
   State<InputField> createState() => _InputFieldState();

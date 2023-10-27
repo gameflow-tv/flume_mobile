@@ -19,9 +19,9 @@ class AmbianceProvider extends InheritedWidget {
 
   const AmbianceProvider({
     super.key,
-    required Widget child,
+    required super.child,
     required this.state,
-  }) : super(child: child);
+  });
 
   static AmbianceProvider? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<AmbianceProvider>();

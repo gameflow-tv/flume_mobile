@@ -112,8 +112,8 @@ class FlumeThemeProvider extends InheritedWidget {
   const FlumeThemeProvider({
     super.key,
     required this.data,
-    required Widget child,
-  }) : super(child: child);
+    required super.child,
+  });
 
   @override
   bool updateShouldNotify(FlumeThemeProvider oldWidget) {

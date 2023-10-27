@@ -138,6 +138,7 @@ class TopBar<T> extends StatelessWidget implements PreferredSizeWidget {
   /// See also:
   ///
   ///  * [PreferredSize], which can be used to give an arbitrary widget a preferred size.
+  /// {@endtemplate}
   final PreferredSizeWidget? bottom;
 
   /// The value to pass through the navigator when the page containing this

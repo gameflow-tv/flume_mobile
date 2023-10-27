@@ -11,10 +11,9 @@ class Gap extends StatelessWidget {
 
   const Gap(
     this.space, {
-    Key? key,
+    super.key,
   })  : vertical = null,
-        horizontal = null,
-        super(key: key);
+        horizontal = null;
 
   @override
   Widget build(BuildContext context) {

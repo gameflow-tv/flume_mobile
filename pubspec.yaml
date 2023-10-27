@@ -15,7 +15,7 @@ dependencies:
   shimmer: ^3.0.0
   intl: ^0.18.1
   flutter_staggered_animations: ^1.1.1
-  flutter_cache_manager: ^3.3.0
+  flutter_cache_manager: ^3.3.1
 
   flutter:
     sdk: flutter
@@ -24,13 +24,13 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.1
-  figma: ^6.0.0
+  flutter_lints: ^3.0.0
+  figma: ^7.0.0
   progress_bar: ^1.0.0
-  http: ^1.0.0
-  test:
-  args: ^2.4.1
-  xml: ^6.3.0
+  http: ^1.1.0
+  test: ^1.24.9
+  args: ^2.4.2
+  xml: ^6.4.2
 
 dependency_overrides:
   collection: ^1.17.2
@@ -44,18 +44,6 @@ flutter:
     - family: FlumeIcons
       fonts:
         - asset: lib/fonts/FlumeIcons.ttf
-
-    - family: Montserrat
-      fonts:
-        - asset: lib/fonts/MontserratMedium.ttf
-          weight: 500
-        - asset: lib/fonts/MontserratSemiBold.ttf
-          weight: 600
-
-    - family: Mulish
-      fonts:
-        - asset: lib/fonts/MulishMedium.ttf
-          weight: 500
 
 screenshots:
   - description: "Illustration of the Flume design system."

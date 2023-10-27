@@ -30,14 +30,10 @@ class NoSplashFactory extends InteractiveInkFeatureFactory {
 /// A splash effect that disables all ripple effects
 class NoSplash extends InteractiveInkFeature {
   NoSplash({
-    required MaterialInkController controller,
-    required RenderBox referenceBox,
-    required Color color,
-  }) : super(
-          controller: controller,
-          referenceBox: referenceBox,
-          color: color,
-        );
+    required super.controller,
+    required super.referenceBox,
+    required super.color,
+  });
 
   @override
   void paintFeature(Canvas canvas, Matrix4 transform) {}
