@@ -14,12 +14,9 @@ flutter:
       fonts:
         - asset: packages/flume/fonts/FlumeIcons.ttf
 
-    - family: Montserrat
+    - family: Sora
       fonts:
-        - asset: packages/flume/fonts/MontserratMedium.ttf
-          weight: 500
-        - asset: packages/flume/fonts/MontserratSemiBold.ttf
-          weight: 600
+        - asset: packages/flume/fonts/Sora.ttf
 
     - family: Mulish
       fonts:
@@ -28,5 +25,5 @@ flutter:
 ```
 
 :::tip
-Alternatively, use the [google_fonts](https://pub.dev/packages/google_fonts) package to avoid manually importing the Montserrat and Mulish fonts.
+Alternatively, use the [google_fonts](https://pub.dev/packages/google_fonts) package to avoid manually importing the Sora and Mulish fonts.
 :::

@@ -1,8 +1,8 @@
-Copyright 2011 The Montserrat Project Authors (https://github.com/JulietaUla/Montserrat)
+Copyright 2019 The Sora Project Authors (https://github.com/sora-xor/sora-font)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
-This license is copied below, and is also available with a FAQ at:
-http://scripts.sil.org/OFL
+
+This license is copied below, and is also available with a FAQ at: https://scripts.sil.org/OFL
 
 
 -----------------------------------------------------------
@@ -71,7 +71,7 @@ Modified Version, except to acknowledge the contribution(s) of the
 Copyright Holder(s) and the Author(s) or with their explicit written
 permission.
 
-5) The Font Software, modified or unmodified, in part '../fonts/licenses'or in whole,
+5) The Font Software, modified or unmodified, in part or in whole,
 must be distributed entirely under this license, and must not be
 distributed under any other license. The requirement for fonts to
 remain under this license does not apply to any document created
