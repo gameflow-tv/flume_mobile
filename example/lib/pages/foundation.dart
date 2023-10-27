@@ -507,7 +507,7 @@ class FoundationBanner extends StatelessWidget {
                   ),
                 ),
                 const Expanded(
-                  child: Text('Montserrat'),
+                  child: Text('Sora'),
                 ),
                 const Expanded(
                   child: Text('Mulish'),

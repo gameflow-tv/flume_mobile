@@ -31,12 +31,9 @@ flutter:
       fonts:
         - asset: packages/flume/fonts/FlumeIcons.ttf
 
-    - family: Montserrat
+    - family: Sora
       fonts:
-        - asset: packages/flume/fonts/MontserratMedium.ttf
-          weight: 500
-        - asset: packages/flume/fonts/MontserratSemiBold.ttf
-          weight: 600
+        - asset: packages/flume/fonts/Sora.ttf # variable font
 
     - family: Mulish
       fonts:
